@@ -1,0 +1,473 @@
+\section Zemné spojenia
+
+V~sieťach prevádzkovaných s~izolovaným uzlom, prípadne v~sieťach,
+ktorých uzol je pripojený na zem cez zhášaciu tlmivku, nazývame vodivé
+spojenie jednej fázy so zemou zemné spojenie. Zásadný rozdiel medzi
+jednofázovým skratom a zemným spojením je v~tom, že skratový prúd je
+väčšinou niekoľkonásobne väčší než prúd prevádzkový a má indukčný
+charakter, zato v~mieste zemného spojenia prechádza iba malý prúd
+kapacitného charakteru. Ďalšou zvláštnosťou tohto prúdu je, že nezávisí
+na vzdialenosti od zdroja (je približne rovnaký vo všetkých miestach
+siete).
+
+\beginfigure
+	\filename={img/zs-3f-izol-u.png}
+	\label={zs-3f-izol-u}
+	\caption={Trojfázová sústava s~izolovaným uzlom}
+\endfigure
+
+Pre napätia a prúdy podľa obrázku \citefigure[zs-3f-izol-u] platia vzťahy
+$$
+\displaylines{
+\faz U_{{\rm f}k} + \faz U_0 - \faz U_{k} = 0\cr
+\faz I_k = \j \omega k_{k0} \faz U_k
+}
+$$
+pre $k \in {a, b, c}$.
+
+Pretože sieť má izolovaný uzol, musí pre prúdy platiť
+$$
+\faz I_a + \faz I_b + \faz I_c = 0 = \sum \faz I_k.
+$$
+
+Vzhľadom na to, že napätia sú rovnaké a iba fázovo posunuté, teda platí
+$$
+\faz U_{{\rm f}b} = \faz a^2 \faz U_{{\rm f}a} \qquad
+\faz U_{{\rm f}c} = \faz a \faz U_{{\rm f}a},
+$$
+môžme vzťah pre $\faz U_0$, zostavený na základe predošlých rovníc,
+napísať ako
+$$
+\faz U_0 = - 
+{k_{a0} + \faz a^2 k_{b0} + \faz a k_{c0} \over
+k_{a0} + k_{b0} + k_{c0}}
+\faz U_{{\rm f}a}.
+$$
+
+Je vidieť, že v~prípade kapacitne symetrickej siete, kde platí 
+$$
+k_{a0} = k_{b0} = k_{c0} = k_0,
+$$
+bude napätie izolovaného uzla voči zemi pri bezporuchovom stave nulové,
+$$
+\faz U_0 = 0.
+$$
+
+\beginfigure
+	\filename={img/zs.png}
+	\label={zs}
+	\caption={Približné vyjadrenie veľkostí prúdov vo fázach a v zemi v
+	závislosti na polohe zemného spojenia}
+\endfigure
+
+\subsection Dokonalé trvalé zemné spojenie
+
+Pri dokonalom (kovovom) trvalom zemnom spojení bude schéma symetrickej
+siete podľa \citefigure[zs-trvale].
+
+\beginfigure
+	\filename={img/zs-trvale.png}
+	\label={zs-trvale}
+	\caption={Trvalé zemné spojenie}
+\endfigure
+
+Poruchový prúd $\faz I_p$ je zložený z~dvoch prúdov, ktoré tečú cez
+kapacity nepostihnutých fáz. Kapacita postihnutej fázy je preklenutá
+poruchou a preto sa neuplatní.
+
+Z~\citefigure[zs-trvale] plynú nasledovné vzťahy:
+$$
+\displaylines{
+\faz I_p = \faz I_a = \faz I_b + \faz I_c, \cr
+\faz U_a = 0, \cr
+\faz I_b = \j \omega k_0 \faz U_b \qquad
+\faz I_c = \j \omega k_0 \faz U_c, \cr
+\faz U_{{\rm f}k} + \faz U_0 - \faz U_k = 0 \quad \forall k \in \{a,b,c\}.\cr
+}
+$$
+
+Pretože $\faz U_a = 0$, platí pre napätia
+$$
+\displaylines{
+\faz U_0 = - \faz U_{{\rm f}a}\cr
+\faz U_b = \faz U_0 + \faz U_{{\rm f}b} = (-1 + \faz a^2) \faz U_{{\rm
+f}a} = - \sqrt3 {\rm e}^{\j 30\degree} \faz U_{{\rm f}a}\cr
+\faz U_c = \faz U_0 + \faz U_{{\rm f}c} = (-1 + \faz a) \faz U_{{\rm f}a}
+= -\sqrt3 {\rm e}^{-\j 30\degree} \faz U_{{\rm f}a}\cr
+}
+$$
+
+Pri dokonalom zemnom spojení sa zväčšia napätia nepostihnutých fáz
+oproti zemi na združenú hodnotu.
+
+
+Pre poruchový prúd platí vzťah
+$$
+\faz I_p = \faz I_b + \faz I_c = \j \omega k_0 (\faz U_b + \faz U_c)
+$$
+kam dosadíme za $\faz U_b$ a $\faz I_c$ a dostávame
+$$
+\eqalign{
+\faz I_p &=
+\j \omega k_0 (-\faz U_{{\rm f}a} + \faz a^2 \faz U_{{\rm f}a} - \faz
+U_{{\rm f}a} + \faz a \faz U_{{\rm f}a}) = \cr
+&= \j \omega k_0 \faz U_{{\rm f}a} [-1 + \faz a^2 - 1 +\faz a] =\cr
+&= \j \omega k_0 \faz U_{{\rm f}a} [-1 + (\faz a^2 + \faz a + 1) -1 -1] = \cr
+&= \j \omega k_0 \faz U_{{\rm f}a} [-1 + 0 - 1 -1] = \cr
+&= -3 \j \omega k_0 \faz U_{{\rm f}a} = 3\j \omega k_0 \faz U_0.\cr
+}
+$$
+
+Pre veľkosť poruchového prúdu platí
+$$
+I_p = 3 \omega k_0 U_0 \quad ({\rm A; s^{-1}, F, V}).
+$$
+
+Je vidieť, že poruchový prúd prebieha o~${\rm\pi/2}$ napätie v~uzle
+sústavy a je súčtom kapacitných prúdov z~ostatných, nepostihnutých,
+fáz. Závisí na celkovej rozlohe siete pripojenej k~transformátoru. Jeho
+veľkosť v~danej sieti prakticky nezáleží na vzdialenosti miesta poruchy
+od transformátoru.
+
+Napäťové a prúdové pomery sú znázornené vo fázorovom diagrame
+v~\citefigure[zs-trvale-fazd].
+
+\beginfigure
+	\filename={img/zs-trvale-fazd.png}
+	\label={zs-trvale-fazd}
+	\caption={Fázorový diagram trvalého zemného spojenia}
+\endfigure
+
+\subsection Odporové zemné spojenie
+
+V~prípade odporového zemného spojenia je poruchový prúd obmedzený
+prechodovým odporom, ktorého hodnota je niekoľko stoviek ohmov.
+
+Základná schéma je zobrazená na \citefigure[zs-odporove-schema].
+
+\beginfigure
+	\filename={img/zs-odporove-schema.png}
+	\label={zs-odporove-schema}
+	\caption={Odporové zemné spojenie}
+\endfigure
+
+V~tomto prípade platia rovnice
+$$
+\displaylines{
+\faz U_{{\rm f}k} + \faz U_0 - \faz U_k = 0 \cr
+\faz I_k = \j\omega k_{k0} \faz U_k \cr
+\faz I_p = - R_p^{-1} \faz U_a \cr
+%
+\faz U_0 =
+- {\j\omega(k_{a0} + \faz a^2 k_{b0} + \faz a k_{c0}) + R_p^{-1} \over
+\j\omega(k_{a0} + k_{b0} + k_{c0}) + R_p^{-1}} \faz U_{{\rm f}a}. \cr
+}
+$$
+Symbolicky zapísané,
+$$
+\faz U_0 = - {\faz A + G_p \over \faz B + G_p} \faz U_{{\rm f}a} \qquad
+\faz U_0 = f(G_p).
+$$
+
+Rozlišujeme dva krajné prípady vzhľadom na $G_p$:
+\beginitemize
+	\item $G_p = 0$
+	$$
+		[\faz U_0]_{G_p = 0} = 0,
+	$$
+	\item $G_p \to \infty$
+	$$
+		[\faz U_0]_{G_p \to \infty} = - \faz U_{{\rm f}a}.
+	$$
+\enditemize
+
+Napäťové a pomery sú znázornené vo fázorovom diagrame
+v~\citefigure[zs-odporove-fazd].
+
+\beginfigure
+	\filename={img/zs-odporove-fazd.png}
+	\label={zs-odporove-fazd}
+	\caption={Fázorový diagram odporového zemného spojenia}
+\endfigure
+
+\subsection Zhášacia tlmivka
+
+Zhášacia tlmivka predstavuje najpoužívanejší spôsob kompenzácie zemných
+prúdov. Zapája s~medzi uzol transformátoru a zem. Jej indukčnosť
+nastavujeme tak, aby indukčný prúd tečúci od nej k~miestu zemného
+spojenia kompenzoval kapacitné prúdy zdravých fáz a aby došlo k~uhaseniu
+oblúka.
+
+\beginfigure
+	\filename={img/zs-tlmivka.png}
+	\label={zs-tlmivka}
+	\caption={Zemné spojenie so zhášacou  tlmivkou}
+\endfigure
+
+Pre poruchový prúd v~takomto usporiadaní platí vzťah
+$$
+\faz I_p = \faz I_L + \faz I_b + \faz I_c.
+$$
+
+Je vidieť, že ak sa nám podarí dosiahnuť vhodnú veľkosť prúdu tlmivkou,
+poruchový prúd môžme vykompenzovať.
+
+Prúd tečúci ideálnou zhášacou tlmivkou bude oneskorený o~$\rm\pi/2$ za
+napätím $\faz U_0$ a bude preň platiť vzťah
+$$
+\faz I_L = -\j {1 \over \omega L} \faz U_0.
+$$
+
+
+S~uvážením vzťahov
+$$
+\displaylines{
+\faz I_p = \faz I_b + \faz I_c = 3 \j \omega k_0 \faz U_0,\cr
+\faz I_p \pust 0\cr
+}
+$$
+dostávame pre poruchový prúd a následne pre indukčnost vzťahy
+$$
+\faz I_p = \j \faz U_0 \left(3\omega k_0 - {1 \over \omega L} \right)
+$$
+\zvyrazni
+$$
+L={1\over 3\omega^2 k_0}
+$$
+
+Zdanlivý výkon zhášacej tlmivky určíme ako
+$$
+\faz S = \faz U_0 \faz I_L^* = \j {U_0^2\over \omega L} = \faz j {k_0
+U_0^2 3\omega^2 \over \omega} = \j \omega k_0 U^2
+$$
+
+Pri ideálnej kompenzácii netečie miestom poruchy žiaden prúd a teda
+oblúk sa neudrží. V~skutočnosti však zostáva v~mieste poruchy zbytkový
+prúd -- kompenzácia nie je nikdy ideálna, napríklad vplyvom nepresného
+nastavenia indukčnosti, nevykompenzovateľnou zložkou spôsobenou zvodmi
+vedení a činným odporom zhášacej tlmivky alebo prúdmi vyšších
+harmonických. Avšak ak je zbytkový prúd malý, aj tak môže dôjsť
+k~uhaseniu oblúka. 
+
+Napäťové a prúdové pomery sú znázornené vo fázorovom diagrame
+v~\citefigure[zs-tlmivka-fazd].
+
+\beginfigure
+	\filename={img/zs-tlmivka-fazd.png}
+	\label={zs-tlmivka-fazd}
+	\caption={Fázorový diagram zemného spojenia so zhášacou tlmivkou}
+\endfigure
+
+\subsection * Ladenie zhášacej tlmivky
+
+Vhodná veľkosť indukčnosti zhášacej tlmivky sa stanovuje pri návrhu a
+voľbe tlmivky výpočtom. Správne nastavenie sa potom vykonáva
+v~bezporuchovom stave danej siete. Pri odpojení alebo pripojení niektorého
+vedenia do rozvodne je potrebné tlmivku preladiť. Preladenie je možné
+odbočkami, alebo jednoducho a plynulo, na diaľku, ručne alebo samočinne,
+zmenou magnetického obvodu pomocou motoru.
+
+\beginfigure
+	\filename={img/zs-tlmivka-ladenie.png}
+	\label={zs-tlmivka-ladenie}
+	\caption={Ladenie zhášacej tlmivky pripojenej do uzla trojfázovej
+	siete}
+\endfigure
+
+Pre zapojenie na \citefigure[zs-tlmivka-ladenie] platia rovnice
+$$
+\displaylines{
+\faz U_{0}^+ = \j \omega L \faz I_L\cr
+\faz U_k = \faz U_{{\rm f}k} + \faz U_0^+ \cr
+}
+$$
+pre $k \in {a, b, c}$. Pre prúdy platia rovnice
+$$
+\displaylines{
+- \faz I_L =
+\faz I_a + \faz I_b + \faz I_c =
+\j\omega (k_{a0} \faz U_a + k_{b0} \faz U_b + k_{c0} \faz U_c)
+}
+$$
+kam po dosadení za napätia a za prúd $\faz I_L$ dostávame vzťah
+$$
+\faz U_0^+ =
+{-\omega^2 L \left(k_{a0} + \faz a^2 k_{b0} + \faz a k_{c0}\right) \over
+\omega^2 L \left(k_{a0} + k_{b0} + k_{c0}\right) -1} \faz U_{{\rm f}a}.
+$$
+
+Graf funkcie
+$$
+\left|{U_0^+ \over U_{{\rm f}a}}\right| = f(L)
+$$
+znázornený na \citefigure[zs-rezon-kr] je rezonančnou krivkou obvodu na
+\citefigure[zs-tlmivka-ladenie].
+
+\beginfigure
+	\filename={img/zs-rezon-kr.png}
+	\label={zs-rezon-kr}
+	\caption={Rezonančné krivky}
+\endfigure
+
+Priamka prechádzajúca vrcholom určuje indukčnosť $L_{\rm rez}$ pri
+ktorej dochádza v~prípade zemného spojenia k~úplnej kompenzácii zemného
+prúdu.
+
+V~prípade káblového vedenia je krivka plochá, pretože je zaručená dobrá
+symetria. V~prípade nesymetrických vedení by pri naladení do rezonancie
+bol uzol transformátoru namáhaný veľkým napätím. Preto je zhášacia
+tlmivka zámerne rozladená o~hodnotu $\Delta L$. Tým poklesne aj napätie.
+Hlavné je, aby aj pri tomto rozladení dokázala tlmivka vykompenzovať
+poruchový prúd aspoň na takú hodnotu, aby zhasol oblúk.
+
+
+\subsection Trvalé zemné spojenie metódou súmerných zložiek
+
+V~prípade poruchy na fáze $a$ a jej spojením so zemou môžme napísať
+charakteristické rovnice
+$$
+\faz U_a = 0 \quad \faz I_b = 0 \quad \faz I_c = 0.
+$$
+
+\beginfigure
+	\filename={img/tzs.png}
+	\label={tzs}
+	\caption={Trvalé zemné spojenie}
+\endfigure
+
+
+Na \citefigure[tzs] je $\faz Z_{\rm s}$ impedancia sústavy, 
+$\faz Z_{\rm t}$ impedancia transformátora, $\faz Z_{\rm v}$
+impedancia vedenia a $\faz Y_c$ je kapacitná admitancia vedenia. Pre ich
+veľkosti platí
+$$
+\displaylines{
+\faz Y_c^{-1} = \faz Z_c = - \j X_c \cr
+\faz Z_c \gg \faz Z_{\rm v}, \faz Z_{\rm t}, \faz Z_{\rm s} \cr
+}
+$$
+
+Prechodom k~zložkovým veličínám získame pre zložkové prúdy rovnice
+$$
+\faz I_F = \faz F^{-1} \faz I = {1 \over 3} \hmatrix{
+1 & \faz a & \faz a^2 \cr
+1 & \faz a^2 & \faz a \cr
+1 & 1 & 1 \cr
+}
+\hmatrix{\faz I_a \cr 0 \cr 0 \cr} =
+{1 \over 3} \hmatrix{\faz I_a \cr \faz I_a \cr \faz I_a \cr}
+$$
+Pre prúdy v~zložkových sústavách platia vzťahy
+$$
+\faz I_1 = \faz I_2 = \faz I_0 = {1 \over 3} \faz I_a
+$$
+a podľa nich môžme vzájomne prepojiť náhradné schémy zložkových sústav.
+Ak však zohľadníme veľkosti jednotlivých impedancií, môžme zapojenie
+zjednodušiť tak, ako je na \citefigure[tzs-zlozky].
+
+\beginfigure
+	\filename={img/tzs-zlozky.png}
+	\label={tzs-zlozky}
+	\caption={Prepojenie náhradných schém zložkových sústav pri zanedbaní
+	indukčných reaktancií článkov ES}
+\endfigure
+
+Na základe \citefigure[tzs-zlozky] môžme napísať rovnice pre zložkové
+prúdy
+$$
+\faz I_1 = {\faz E \over -\j X_{c0}} \quad \faz I_2 = \faz I_1 \quad
+\faz I_0 = \faz I_1.
+$$
+
+Zložkové napätia v~mieste poruchy sú
+$$
+\faz U_1 = \faz E \quad \faz U_2 = 0 \quad \faz U_0 = - \faz E.
+$$
+
+Fázové prúdy sú rovné
+$$
+\faz I_a = 3 \faz I_1 \quad \faz I_b = 0 \quad \faz I_c = 0
+$$
+a poruchový prúd je rovný
+$$
+\faz I_p = -\faz I_a = -3 \j {\faz E \over X_{c0}} = -3 \j \omega k_0
+\faz E.
+$$
+
+Fázové napätia stanovíme ako
+$$
+\eqalign{
+\faz U_a &= 0, \cr
+\faz U_b &= \faz U_{b1} + \faz U_{b2} + \faz U_{b0} = \faz a^2\faz U_1 +
+\faz a \faz U_2 + \faz U_0 = \faz a^2 \faz E - \faz E = (\faz a^2 - 1)\faz E, \cr
+\faz U_c &= \faz a \faz U_1 + \faz a^2 \faz U_2 + \faz U_0 = \faz a \faz
+E - \faz E = (\faz a - 1) \faz E.\cr
+}
+$$
+
+Fázor napätia uzla stanovíme ako
+$$
+\displaylines{
+\faz U_N = {1 \over 3} (\faz U_a + \faz U_b + \faz U_c) =
+{1 \over 3} (\faz a^2 -1 + \faz a - 1) \faz E,\cr
+\faz U_N = - \faz E.\cr
+}
+$$
+
+
+\beginfigure
+	\filename={img/zs-nap.png}
+	\label={zs-nap}
+	\caption={Fázorový diagram napätí pri trvalom zemnom spojení}
+\endfigure
+
+\beginfigure
+	\filename={img/zs-pru.png}
+	\label={zs-pru}
+	\caption={Fázorový diagram prúdov pri trvalom zemnom spojení}
+\endfigure
+
+\subsection * S~uzlom transformátoru uzemneným cez zhášaciu tlmivku
+
+Náhradná zložková schéma sa bude líšiť od predchádzajúceho prípadu tým,
+že v~obvode transformátoru bude v~schéme nulovej zložky zapojená
+trojnásobná reaktancia $X_L$. Dostávame tak náhradnú zložkovú schému,
+ktorá je znázornená na \citefigure[zs-zlozk-ind-ns].
+
+\beginfigure
+	\filename={img/zs-zlozk-ind-ns.png}
+	\label={zs-zlozk-ind-ns}
+	\caption={Náhradná schéma zložkových sústav pri zemnom spojení a pri
+	uzemnení uzla transformátora cez zhášaciu tlmivku}
+\endfigure
+
+Aj v~tomto prípade zanedbáme rezistancie a indukčné reaktancie ostatných
+článkov oproti kapacitným reaktanciám. Pre celkové impedancie zložkových
+schém potom platí
+$$
+\faz Z_{c1} = 0 \quad \faz Z_{c2} = 0 \quad
+\faz Z_{c0} = {\j 3 X_L (- \j X_c) \over \j 3X_L - \j X_c} =
+\j {3X_L X_c \over X_c - 3 X_L}.
+$$
+
+Pre súsledný prúd platí vzťah
+$$
+\faz I_1 = {\faz E \over \faz Z_{c1} + \faz Z_{c2} + \faz Z_{c0}}=
+{\faz E \over \j {3X_L X_{c0} \over X_{c0} - 3X_L}} =
+-\j {X_{c0} - 3X_L \over 3X_L X_{c0}} \faz E
+$$
+a pre poruchový zemný prúd platí vzťah
+$$
+\faz I_p = -\faz I_a = -3 \faz I_1 =
+\j {X_c - 3 X_L \over X_L X_c} \faz E.
+$$
+
+Z~podmienky aby bol poruchový prúd nulový, $\faz I_p \pust 0$, plynie
+vzťah
+$$
+\displaylines{
+X_{c0} - 3 X_L = 0 \cr
+X_L = {1 \over 3} X_{c0} = {1 \over 3\omega k_0}
+}
+$$
+

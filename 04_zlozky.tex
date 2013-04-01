@@ -1,0 +1,465 @@
+\section Transformácia do zložkových sústav
+
+Ide v~podstate o~náhradu fázorov fyzikálnych veličín zložkami. Často sa
+používa názov \uv{rozklad do zložiek}. Motiváciou je zjednodušenie
+výpočtu v~nesúmerných sústavách.
+
+\subsection Prechod do zložkových sústav
+
+V~prípade súmerných trojfázových sústav je dostačujúce uvažovať iba
+jednu fázu, druhé dve sú iba časovo posunuté. V~prípade nesymetrických
+sústav však je situácia komplikovanejšia (indukčné a kapacitné väzby
+medzi fázami neumožňujú obecne nezávislé a izolované uvažovanie
+jednotlivých fáz) a preto si pomáhame transformáciami, pomocou ktorých
+nahrádzame veličiny pôvodnej sústavy veličinami zložkovej sústavy.
+Pritom platí, že fyzikálne zákony platia aj v~sústave pôvodnej, aj
+v~sústave zložkovej.
+
+V~pôvodnej trojfázovej sústave platí
+$$
+[\faz U_{\rm a}, \faz U_{\rm b}, \faz U_{\rm c}]^T = [\faz U_{\rm abc}] \qquad
+[\faz I_{\rm a}, \faz I_{\rm b}, \faz I_{\rm c}]^T = [\faz I_{\rm abc}]
+$$
+a v~transformovanej sústave platí
+$$
+[\faz U_{\rm o}, \faz U_{\rm m}, \faz U_{\rm n}]^T = [\faz U_{\rm omn}] \qquad
+[\faz I_{\rm o}, \faz I_{\rm m}, \faz I_{\rm n}]^T = [\faz I_{\rm omn}].
+$$
+
+
+Transformáciu zabezpečujú štvorcové regulárne prevodné matice $[T_u]$ a
+$[T_i]$, pre ktoré z~definície platí
+$$
+\eqalign{
+[\faz U_{\rm abc}] = [T_u] [\faz U_{\rm omn}] &\quad
+[\faz U_{\rm omn}] = [T_u]^{-1} [\faz U_{\rm abc}],\cr
+[\faz I_{\rm abc}] = [T_i] [\faz I_{\rm omn}] &\quad
+[\faz I_{\rm omn}] = [T_i]^{-1} [\faz I_{\rm abc}]\cr
+}
+$$
+
+Transformačná matica je obvykle rovnaká pre napätie aj pre prúd, teda
+$$
+[T_u] = [T_i] = [T].
+$$
+
+Vzťah medzi napätím a prúdom v~trojfázovej sústave popíšeme rovnicou
+$$
+\hmatrix{
+\faz U_{\rm a} \cr \faz U_{\rm b} \cr \faz U_{\rm c} \cr}
+=
+\hmatrix{
+\faz Z_{11} & \faz Z_{12} & \faz Z_{13} \cr 
+\faz Z_{21} & \faz Z_{22} & \faz Z_{23} \cr 
+\faz Z_{31} & \faz Z_{32} & \faz Z_{33} \cr 
+}
+\hmatrix{
+\faz I_{\rm a} \cr
+\faz I_{\rm b} \cr
+\faz I_{\rm c} \cr
+}
+$$
+a vzťah medzi napätím a prúdom v~zložkovej sústave rovnicou
+$$
+\hmatrix{
+\faz U_{\rm o} \cr \faz U_{\rm m} \cr \faz U_{\rm n} \cr}
+ =
+\hmatrix{
+\faz Z_{\rm oo} & \faz Z_{\rm om} & \faz Z_{\rm on} \cr 
+\faz Z_{\rm mo} & \faz Z_{\rm mm} & \faz Z_{\rm mn} \cr 
+\faz Z_{\rm no} & \faz Z_{\rm nm} & \faz Z_{\rm nn} \cr 
+}
+\hmatrix{
+\faz I_{\rm o} \cr
+\faz I_{\rm m} \cr
+\faz I_{\rm n} \cr
+}.
+$$
+
+Medzi maticami impedancií pôvodnej sústavy a zložkovej sústavy platí
+vzťah, ktorý postupne dostaneme ako
+$$
+\displaylines{
+[\faz U_{\rm abc}] = [\faz Z_{\rm abc}][\faz I_{\rm abc}]\cr
+[T_u][\faz U_{\rm omn}] = [\faz Z_{\rm abc}][T_i][\faz I_{\rm omn}]\cr
+[\faz U_{\rm omn}] = [T_u]^{-1}[\faz Z_{\rm abc}][T_i][\faz I_{\rm omn}]\cr
+[\faz Z_{\rm omn}] = [T_u]^{-1} [\faz Z_{\rm abc}] [T_i]\cr
+}
+$$
+a analogicky platí vzťah pre admitanciu, ktorý postupne dostaneme ako
+$$
+\displaylines{
+[\faz I_{\rm abc}] = [\faz Y_{\rm abc}] [\faz U_{\rm abc}]\cr
+[T_i] [\faz I_{\rm omn}] = [\faz Y_{\rm abc}] [T_u] [\faz U_{\rm omn}]\cr
+[\faz I_{\rm omn}] = [T_i]^{-1} [\faz Y_{\rm abc}] [T_u][\faz U_{\rm omn}]\cr
+[\faz Y_{\rm omn}] = [T_i]^{-1} [\faz Y_{\rm abc}] [T_u].\cr
+}
+$$
+
+Obecne použitie zložiek neprináša žiadne výhody, ani zjednodušenie
+výpočtov. Prínos transformácie do zložiek je iba vtedy, ak sa stanú
+matice $[\faz Z_{\rm omn}]$ respektíve $[\faz Y_{\rm omn}]$
+diagonálnymi. Diagonalizáciu je možné dosiahnuť pre matice cyklicky
+súmerné $[\faz Z_{\rm cs}]$ a matice fázovo súmerné $[\faz Z_{\rm fs}]$,
+ktoré majú tvar
+$$
+[\faz Z_{\rm cs}] =
+\matrix{
+\faz Z & \faz Z' & \faz Z'' \cr
+\faz Z'' & \faz Z & \faz Z' \cr
+\faz Z' & \faz Z'' & \faz Z \cr
+}\qquad
+[\faz Z_{\rm fs}] =
+\matrix{
+\faz Z & \faz Z' & \faz Z' \cr
+\faz Z' & \faz Z & \faz Z' \cr
+\faz Z' & \faz Z' & \faz Z \cr
+}
+$$
+
+Matica $[\faz Z_{\rm fs}]$ predstavuje symetrickú sústavu, kde sú prvky
+v~hlavnej diagonále rovnaké pre všetky fázy (vlastné impedancie) a mimo
+nej rôzne (vzájomné impedancie).
+
+Podmienky pre prvky transformačnej matice za účelom diagonalizácie matíc
+stanovíme pomocou charakteristických čísel $\lambda$ a
+charakteristických vektorov príslušných matici $[T]$. Charakteristické
+vektory sú nenulové riešenia maticovej rovnice
+$$
+\left([\faz Z_{\rm abc}] - \lambda[E]\right)[t] = [0]
+\equation[charvekt]
+$$
+kde $[E]$ je jednotková matica a $[0]$ nulový vektor. Nenulové riešenia
+tejto rovnice existujú iba vtedy ak
+$$
+\det\left([\faz Z_{\rm abc}] - \lambda[E]\right) = 0.
+$$
+Riešením tejto rovnice sú charakteristické čísla
+$$
+\lambda_1 = \faz Z + 2\faz Z' \quad
+\lambda_2 = \lambda_3 = \faz Z - \faz Z'.
+$$
+
+Ak ich vložíme do rovnice \citeequation[charvekt] dostaneme podmienky
+pre určenie charakteristických vektorov
+$$
+\hmatrix{
+-2 \faz Z' & \faz Z' & \faz Z' \cr 
+\faz Z' & -2 \faz Z' & \faz Z' \cr 
+\faz Z' & \faz Z' & -2 \faz Z' \cr 
+}
+\hmatrix{
+t_{11} \cr t_{21} \cr t_{31} \cr
+}
+=
+\hmatrix{
+0 \cr 0 \cr 0 \cr
+}
+$$
+z~čoho plynie
+$$
+t_{11} = t_{21} = t_{31} \qquad
+t_{12} + t_{22} + t_{32} = 0 \qquad
+t_{13} + t_{23} + t_{33} = 0.
+$$
+
+\subsection Súmerné zložky v~trojfázovej sústave
+
+Pôvodná sústava fázorov sa rozkladá do troch zložkových sústav:
+netočivej (index~0), súslednej (index~1), spätnej (index~2).
+
+Na transformáciu trojfázovej sústavy pre základnú harmonickú potrebujeme
+doplniť ešte ďalšie podmienky. Pre fázory napätí platí
+\zvyrazni
+$$
+\faz U_{\rm a} = U_{\rm a} \quad
+\faz U_{\rm b} = \faz a^2 U_a \quad
+\faz U_{\rm c} = \faz a U_a
+$$
+kde 
+\zvyrazni
+$$
+\faz a = \exp\left(\j {2 \over 3}{\rm\pi}\right) \quad
+\faz a^2 = \exp\left(\j {4 \over 3}{\rm\pi}\right) \quad
+1 + \faz a + \faz a^2 = 0.
+$$
+
+Ak uvažujeme súmernú zložkovú sústavu,
+$$
+[\faz U_{\rm o}, \faz U_{\rm m}, \faz U_{\rm n}]^T =
+[\faz U_0, \faz U_1, \faz U_2]^T,
+$$
+potom platí pre súslednú zložku (súmernej sústave po prevode prislúcha
+nenulová hodnota iba súslednej zložky)
+$$
+\hmatrix{
+U_a \cr \faz a^2 U_a \cr \faz a U_a \cr
+} =
+\hmatrix{
+t_{11} & t_{12} & t_{13} \cr
+t_{21} & t_{22} & t_{23} \cr
+t_{31} & t_{32} & t_{33} \cr
+}
+\hmatrix{
+0 \cr U_a \cr 0 \cr
+}
+$$
+z~čoho ihneď plynie
+$$
+t_{12} = 1 \qquad t_{22} = \faz a^2 \qquad t_{32} = \faz a.
+$$
+
+Pre spätnú zložku platí
+$$
+\hmatrix{
+U_a \cr \faz a U_a \cr \faz a U_a^2 \cr
+} =
+\hmatrix{
+t_{11} & t_{12} & t_{13} \cr
+t_{21} & t_{22} & t_{23} \cr
+t_{31} & t_{32} & t_{33} \cr
+}
+\hmatrix{
+0 \cr 0 \cr U_a \cr
+}
+$$
+z~čoho ihneď plynie
+$$
+t_{13} = 1 \qquad t_{23} = \faz a \qquad t_{33} = \faz a^2.
+$$
+
+Pre netočivú zložku platí
+$$
+\hmatrix{
+U_a \cr U_a \cr U_a \cr
+} =
+\hmatrix{
+t_{11} & t_{12} & t_{13} \cr
+t_{21} & t_{22} & t_{23} \cr
+t_{31} & t_{32} & t_{33} \cr
+}
+\hmatrix{
+U_a \cr 0 \cr 0 \cr
+}
+$$
+z~čoho ihneď plynie
+$$
+t_{11} = 1 \qquad t_{21} = 1 \qquad t_{31} = 1.
+$$
+
+Prevodnú maticu a maticu k~nej inverznú potom môžme zapísať ako
+$$
+[T] = 
+\hmatrix{
+1 & 1 & 1 \cr
+1 & \faz a^2 & \faz a \cr
+1 & \faz a & \faz a^2 \cr
+}\qquad
+[T]^{-1} = 
+{1 \over 3}
+\hmatrix{
+1 & 1 & 1 \cr
+1 & \faz a & \faz a^2 \cr
+1 & \faz a^2 & \faz a \cr
+}
+$$
+a prevod medzi sústavami realizujeme ako
+\zvyrazni
+$$
+\hmatrix{
+\faz U_a \cr \faz U_b \cr \faz U_c \cr
+} = 
+\hmatrix{
+1 & 1 & 1 \cr
+1 & \faz a^2 & \faz a \cr
+1 & \faz a & \faz a^2 \cr
+}
+\hmatrix{
+\faz U_0 \cr \faz U_1 \cr \faz U_2 \cr
+}\qquad
+%
+\hmatrix{
+\faz U_0 \cr \faz U_1 \cr \faz U_2 \cr
+} =
+{1 \over 3}
+\hmatrix{
+1 & 1 & 1 \cr
+1 & \faz a & \faz a^2 \cr
+1 & \faz a^2 & \faz a \cr
+}
+\hmatrix{
+\faz U_a \cr \faz U_b \cr \faz U_c \cr
+}.
+$$
+
+\subsection Diagonálne zložkové sústavy
+
+Pre diagonálne zložkové sústavy platí
+$$
+[\faz U_{\rm o}, \faz U_{\rm m}, \faz U_{\rm n}] =
+[\faz U_0, \faz U_{\alpha}, \faz U_{\beta}].
+$$
+Tieto sústavy nemajú jednoznačný fyzikálny význam, ale sú vhodné na
+riešenie dvojfázových porúch.
+
+Prevodnú maticu a maticu k~nej inverznú zapisujeme ako
+$$
+[D] = \hmatrix{
+1 & 1 & 0 \cr
+1 & -{1 \over 2} & {\sqrt{3} \over 2} \cr
+1 & -{1 \over 2} & -{\sqrt{3} \over 2} \cr
+}
+\qquad
+[D]^{-1} = {1 \over 3} \hmatrix{
+1 & 1 & 1 \cr
+2 & -1 & -1 \cr
+0 & \sqrt{3} & -\sqrt{3} \cr
+}
+$$
+a prevod medzi sústavami realizujeme ako
+$$
+\hmatrix{
+\faz U_{\rm a} \cr \faz U_{\rm b} \cr \faz U_{\rm c} \cr
+}
+=
+\hmatrix{
+1 & 1 & 0 \cr
+1 & -{1 \over 2} & {\sqrt{3} \over 2} \cr
+1 & -{1 \over 2} & -{\sqrt{3} \over 2} \cr
+}
+\hmatrix{
+\faz U_0 \cr \faz U_{\alpha} \cr \faz U_{\beta} \cr
+}
+\qquad
+\hmatrix{
+\faz U_0 \cr \faz U_{\alpha} \cr \faz U_{\beta} \cr
+}
+={1 \over 3}
+\hmatrix{
+1 & 1 & 1 \cr
+2 & -1 & -1 \cr
+0 & \sqrt{3} & -\sqrt{3} \cr
+}
+\hmatrix{
+\faz U_{\rm a} \cr \faz U_{\rm b} \cr \faz U_{\rm c} \cr
+}
+$$
+
+Aby platila invariantnosť výkonov v~zložkových sústavách, zavádzajú
+s~normované zložky
+$$
+\displaylines{
+[T_{\rm n}] = {1 \over \sqrt3} 
+\left[\matrix{
+1 & 1 & 1 \cr
+1 & \faz a^2 & \faz a \cr
+1 & \faz a & \faz a^2 \cr
+}\right]\qquad
+[T_{\rm n}]^{-1} = 
+{1 \over \sqrt3}
+\left[\matrix{
+1 & 1 & 1 \cr
+1 & \faz a & \faz a^2 \cr
+1 & \faz a^2 & \faz a \cr
+}\right]\cr
+[D_{\rm n}] = {1 \over \sqrt3}
+\left[\matrix{
+1 & 1 & 0 \cr
+1 & -{1 \over 2} & {\sqrt{3} \over 2} \cr
+1 & -{1 \over 2} & -{\sqrt{3} \over 2} \cr
+}\right]
+\qquad
+[D_{\rm n}]^{-1} = {1 \over 3} \left[\matrix{
+1 & 1 & 1 \cr
+2 & -1 & -1 \cr
+0 & \sqrt{3} & -\sqrt{3} \cr
+}\right]
+}
+$$
+
+\subsection Súmerné zložky vyšších harmonických
+
+Kmitočet $k$-tej harmonickej je $k$-krát väčší než základný. Ak je fázor
+harmonickej veličiny $\faz N$ pre \hbox{$k$-tú} harmonickú vo fázi \uv{a} rovný
+$N_{\rm aks}$, bude matica fázorov príslušná $k$-tej harmonickej
+v~symetrickej sústave pre $k$-tu harmonickú v~pôvodnej sústave
+
+$$
+\hmatrix{
+\faz N_{{\rm a}k{\rm s}} \cr
+\faz N_{{\rm b}k{\rm s}} \cr
+\faz N_{{\rm c}k{\rm s}} \cr
+} = 
+\hmatrix{
+1 & 0 & 0 \cr
+0 & \faz a^2 & 0 \cr
+0 & 0 & \faz a \cr
+}^k
+\hmatrix{
+\faz N_{{\rm a}k{\rm s}} \cr
+\faz N_{{\rm a}k{\rm s}} \cr
+\faz N_{{\rm a}k{\rm s}} \cr
+} =
+\hmatrix{
+\faz N_{{\rm a}k{\rm s}} \cr
+\faz a^{2k} \faz N_{{\rm a}k{\rm s}} \cr
+\faz a^k \faz N_{{\rm a}k{\rm s}} \cr
+}
+$$
+
+Hlavnú zložkovú sústavu pre harmonickú typu $k \in \rm N$ tvorí pri
+
+{\advance\leftskip by 2cm
+\item{$3k$} netočivá zložková sústava,
+\item{$3k + 1$} súsledná zložková sústava,
+\item{$3k + 2$} spätná zložková sústava.
+\par
+}
+
+Pri nesymetriách platí pre diagonálnu maticu
+$$
+[\faz B] = 
+\hmatrix{
+1 & 0 & 0 \cr
+0 & \faz b & 0 \cr
+0 & 0 & \faz c \cr
+}
+$$
+kde
+$$
+\faz b = {\faz N_{{\rm b}k} \over \faz N_{{\rm b}k{\rm s}}} \qquad
+\faz c = {\faz N_{{\rm c}k} \over \faz N_{{\rm c}k{\rm s}}}.
+$$
+
+Transformáciu súmernej zložky $\faz N_{0k}$, $\faz N_{1k}$, $\faz
+N_{2k}$ príslušnej harmonickej realizujeme ako
+$$
+\hmatrix{
+\faz N_{0k} \cr
+\faz N_{1k} \cr
+\faz N_{2k} \cr
+} = 
+{1 \over 3}
+\hmatrix{
+1 & 1 & 1 \cr
+1 & \faz a & \faz a^2 \cr
+1 & \faz a^2 & \faz a \cr
+}
+\hmatrix{
+1 & 0 & 0 \cr
+0 & \faz b & 0 \cr
+0 & 0 & \faz c \cr
+}
+\hmatrix{
+1 & 0 & 0 \cr
+0 & \faz a^{2k} & 0 \cr
+0 & 0 & \faz a^k \cr
+}
+\hmatrix{
+\faz N_{{\rm a}k{\rm s}} \cr
+\faz N_{{\rm a}k{\rm s}} \cr
+\faz N_{{\rm a}k{\rm s}} \cr
+}
+$$
+
+

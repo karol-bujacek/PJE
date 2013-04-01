@@ -1,0 +1,524 @@
+\section Vedenia s~rovnomerne rozdelenými parametrami
+
+\subsection Náhradná schéma a vstupná impedancia dvojvodičového vedenia
+nekonečne dlhého
+
+Vedenie, tvorené dvoma paralelnými priamkovými vodičmi dĺžky $\l \to
+\infty$ vo vzdialenosti $d \ll l$, nahradíme úsekmi rovnakej dĺžky
+$\Delta x$ s~pozdĺžnou impedanciou $\faz Z_{\rm le}$ a priečnou
+admitanciou $\faz Y_{\rm qe}$:
+$$
+\displaylines{
+\faz Z_{\rm le} = (R_1 + \j \omega L_1)\Delta x = \faz Z_{\rm l1}\Delta x,\cr
+\faz Y_{\rm qe} = (G_1 + \j \omega C_1)\Delta x = \faz Y_{\rm q1}\Delta x.\cr
+}
+$$
+
+\beginfigure
+	\filename={img/vedenia-nahrada.png}
+	\label={vedenia-nahrada}
+	\caption={Náhradná schéma vedenia s~rozloženými parametrami}
+\endfigure
+
+Pretože ide o~vedenie neobmedzenej dĺžky, môžme náhradnú schému zobraziť
+tak ako je uvedené na \citefigure[vedenia-nahradna-zjednodusenie].
+
+\beginfigure
+	\filename={img/vedenia-nahradna-zjednodusenie.png}
+	\label={vedenia-nahradna-zjednodusenie}
+	\caption={Zjednodušenie náhradnej schémy pre vedenie neobmedzenej
+	dĺžky}
+\endfigure
+
+
+Pre vstupnú impedanciu dostávame vzťah
+$$
+\faz Z_{\rm v} =
+\faz Z_{\rm le} +
+{\faz Z_{\rm v} \faz Y_{\rm qe}^{-1} \over
+\faz Z_{\rm v} + \faz Y_{\rm qe}^{-1}}
+$$
+a po formálnych úpravách ho môžme písať ako
+$$
+\faz Z_{\rm v}^2 - \faz Z_{\rm le} \faz Z_{\rm v} - \faz Z_{\rm le} \faz
+Y_{\rm qe}^{-1} = 0.
+$$
+
+Spojitému rozdeleniu parametrov sa priblížime pre $\Delta x \to 0$. Ak
+dosadíme za $\faz Z_{\rm le}$ a $\faz Y_{\rm qe}$, dostaneme
+$$
+\faz Z_{\rm v} =
+\lim_{\Delta x \to 0} \left[
+	{\faz Z_{\rm l1} \over 2} \Delta x \pm
+	\sqrt{
+		\left[{\faz Z_{\rm l1} \over 2}\Delta x\right]^2
+		+ {\faz Z_{\rm l1} \over \faz Y_{\rm q1}}
+	}
+\right]
+%
+\longrightarrow
+\faz Z_{\rm v} =
+\sqrt{\faz Z_{\rm l1} \over \faz Y_{\rm q1}} =
+\faz Y_{\rm v}^{-1}.
+$$
+
+Vstupná impedancia nekonečne dlhého vedenia sa nazýva vlnová impedancia
+$\faz Z_{\rm v}$ (${\rm \Omega}$). Jej reciprokou hodnotou $\faz Z_{\rm
+v}^{-1} = \faz Y_{\rm v}$ je vlnová admitancia.
+
+\subsection Základné rovnice pre priestorové rozloženie napätia a prúdu
+
+\beginfigure
+	\filename={img/vedenie-rozlozene.png}
+	\label={vedenie-rozlozene}
+	\caption={Prvok vedenia s~rozloženými parametrami}
+\endfigure
+
+Prvok vedenia s~rovnomerne rozloženými parametrami dĺžky $\d x$ možno
+popísať dvojbranom podľa \citefigure[vedenie-rozlozene]. Pre
+prvok vo vzdialenosti $x$ od počiatku možno napísať podľa Kirchhoffových
+zákonov vzťahy
+$$
+\displaylines{
+- \faz U(x) + \faz Z_{\rm l1} \faz I(x) \d x +
+\left[\faz U(x) + {\d \faz U(x) \over \d x} \d x\right] = 0,\cr
+\faz I(x) - {\d \faz I(x) \over \d x}\d x = \faz I(x) + \faz U(x)\faz
+Y_{\rm q1} \d x\cr
+}
+$$
+z~čoho po úpravách dostávame
+$$
+\displaylines{
+-{\d \faz U(x) \over \d x} = \faz Z_{\rm l1} \faz I(x),\cr
+-{\d \faz I(x) \over \d x} = \faz Y_{\rm q1} \faz U(x).\cr
+}
+$$
+
+Ak jednu z~rovníc derivujeme a dosadíme do druhej, dostaneme telegrafné
+rovnice pre ustálený chod (uvažujeme sínusový priebeh)
+$$
+{\d^2 \faz U(x) \over \d x^2} = \faz \gamma^2 \faz U(x)\qquad
+{\d^2 \faz I(x) \over \d x^2} = \faz \gamma^2 \faz I(x)
+$$
+kde konštanta prenosu je rovná
+$$
+\faz \gamma = \sqrt{\faz Z_{l1} \faz Y_{q1}}.
+$$
+
+Riešením telegrafných rovníc získame rovnice pre napätie a prúd
+$$
+\eqalign{
+\faz U(x)&=\faz K_1 \exp(-\faz\gamma x) + \faz K_2 \exp(\faz\gamma x),\cr
+\faz I(x)&=\faz K_1 \faz Y_{\rm v} \exp(-\faz\gamma x) - \faz K_2 \faz
+Y_{\rm v} \exp(\faz\gamma x).\cr
+}
+$$
+Komplexné konštanty $\faz K_1$ a $\faz K_2$ určíme z~okrajových
+podmienok. Pre vedenie konečnej dĺžky $l$, teda $x \in \langle0,
+l\rangle$, sú spravidla zadané veličiny napätí a prúd buď na začiatku
+(pre $x = 0$, platí index 1) alebo na konci (pre $x = l$, platí index
+2). Pomocou nich vyjadríme konštanty $\faz K_1$ a $\faz K_2$.
+
+Pre známe pomery na začiatku vedenia, $\faz U(0) = \faz U_1$, $\faz I(0)
+= \faz I_1$, dostávame
+$$
+\eqalign{
+\faz U_1 = \faz K_1 + \faz K_2 &\quad
+\faz I_1 = \faz K_1 \faz Y_{\rm v} - \faz K_2 \faz Y_{\rm v} \cr
+\faz K_1 = {1 \over 2} (\faz U_1 + \faz Z_{\rm v}\faz I_1) &\quad
+\faz K_2 = {1 \over 2} (\faz U_1 - \faz Z_{\rm v}\faz I_1)\cr
+}
+$$
+
+
+Ak uvážime vzťahy
+$$
+{1 \over 2} \big(\exp(-\faz\gamma x) + \exp(\faz\gamma x)\big) =
+\cosh(\faz\gamma x) \quad
+{1 \over 2} \big(\exp(\faz\gamma x) - \exp(-\faz\gamma x)\big) =
+\sinh(\faz\gamma x)
+$$
+a upravíme predošlé rovnice, získame vzťahy pre napätie a prúd
+v~ľubovoľnom mieste vedenia $x$:
+$$
+\eqalign{
+\faz U(x) &= \faz U_1 \cosh(\faz\gamma x) - \faz I_1\faz Z_{\rm v}
+\sinh(\faz\gamma x)\cr 
+\faz I(x) &= - \faz U_1 \faz Y_{\rm v} \sinh(\faz\gamma x) + \faz I_1
+\cosh(\faz\gamma x)\cr
+\faz U(x) &= \faz D(x) \faz U_1 - \faz B(x) \faz I_1\cr
+\faz I(x) &= - \faz C(x) \faz U_1 + \faz A(x) \faz I_1\cr
+}
+$$
+
+Hodnoty $\faz A(x)$, $\faz B(x)$, $\faz C(x)$ a $\faz D(x)$ nazývame
+Blondelove konštanty a platí pre ne rovnosť
+$$
+\faz A(x) \faz D(x) - \faz B(x) \faz C(x) = 1.
+$$
+
+Pre známe pomery na konci vedenia, $\faz U(l) = \faz U_2$, $\faz I(l) =
+\faz I_2$, hľadáme
+$$
+\faz U(x) = f_3(\faz U_2, \faz I_2) \quad
+\faz I(x) = f_4(\faz U_2, \faz I_2).
+$$
+Pre $x = l$ dostávame vzťahy
+$$
+\faz U_2 =
+\faz K_1 \exp(-\faz\gamma l) +
+\faz K_2 \exp(\faz\gamma l)
+\quad
+\faz I_2 =
+\faz Y_{\rm v} \faz K_1 \exp(-\gamma l) -
+\faz Y_{\rm v} \faz K_2 \exp(\faz\gamma l)
+$$
+a odtiaľ určíme $\faz K_1$ a $\faz K_2$ ako
+$$
+\eqalign{
+\faz K_1 &= {1 \over 2} \exp(\faz\gamma l) (\faz U_2 + \faz Z_{\rm v} \faz I_2)\cr
+\faz K_2 &= {1 \over 2} \exp(-\faz\gamma l) (\faz U_2 - \faz Z_{\rm v} \faz I_2)\cr
+}
+$$
+
+Rovnice pre napätie a prúd v~ľubovoľnom mieste $x$ vyjadríme ako
+$$
+\eqalign{
+\faz U(x) &= \faz U_2 \cosh(\faz \gamma(l-x))v + \faz I_2 \faz Z_{\rm v}
+\sinh(\gamma(l-x))\cr
+\faz I(x) &= \faz U_2 \faz Y_{\rm v} \sinh(\gamma(l-x)) + \faz I_2
+\cosh(\gamma(l-x))\cr
+\faz U(x) &= \faz A(l-x) \faz U_2 - \faz B(l-x) \faz I_2\cr
+\faz I(x) &= \faz C(l-x) \faz U_2 + \faz D(l-x) \faz I_2\cr
+}
+$$
+
+\subsection Ideálne bezstratové vedenie
+
+Pre dlhé vedenia vvn a zvn platí obvykle $R_1 \ll \omega L_1$ a $G_1 \ll
+\omega C_1$, čo umožňuje pre niektoré úvahy zanedbať $R_1$ a $G_1$.
+Vytvárame tak pomyselné vedenie, ktoré sa používa ako približná náhrada
+za skutočné vedenie, pretože vzťahy sú jednoduchšie a je možné
+jednoduchšie formulovať približne platné závery. Definičné rovnice
+ideálneho vedenia sú
+$$
+R_1 = 0, G_1 = 0 \longrightarrow \faz Z_{\rm l1i} = \j X_{\rm l1}, \faz
+Y_{\rm q1i} = \j B_{\rm q1}.
+$$
+
+Pre konštantu prenosu potom platí vzťah
+$$
+\faz \gamma_{\rm i} = \j \omega \sqrt{L_1 C_1}
+$$
+a pre vlnovú impedanciu vzťah
+$$
+\faz Z_{\rm vi} = \sqrt{{L_1 \over C_1}}.
+$$
+
+Rovnice pre napätie a prúd v~mieste $x$ pre známe hodnoty na začiatku,
+respektíve na konci, vedenia zapíšeme v~maticovom tvare ako
+$$
+\eqalign{
+\left[\matrix{
+\faz U_{\rm f}(x) \cr
+\faz I(x) \cr
+}\right]
+&=
+\left[\matrix{
+\cos(\beta_i x) & - \j Z_{\rm vi} \sin(\beta_i x) \cr
+-\j Y_{\rm vi} \sin(\beta_i x) & \cos(\beta_i x)\cr
+}\right]
+\left[\matrix{
+\faz U_{\rm f1} \cr
+\faz I_1 \cr
+}\right]\cr
+\left[\matrix{
+\faz U_{\rm f}(x) \cr
+\faz I(x) \cr
+}\right]
+&=
+\left[\matrix{
+\cos(\beta_i (l-x)) & \j Z_{\rm vi} \sin(\beta_i (l-x)) \cr
+\j Y_{\rm vi} \sin(\beta_i (l-x)) & \cos(\beta_i (l-x)) \cr
+}\right]
+\left[\matrix{
+\faz U_{\rm f1} \cr
+\faz I_1 \cr
+}\right]\cr
+}
+$$
+
+\section Náhradné dvojbrany prvkov rozvodnej sústavy
+
+Ak nie je potrebné vyšetrovať podrobnejšie pomery vo vnútri prvku
+sústavy, postačí zistiť pre výpočet ustáleného chodu vzájomné vzťahy
+medzi veličinami na vstupe a na výstupe, ktoré možno zapísať v~maticovom
+tvare.
+
+\beginfigure
+	\filename={img/dvojbran.png}
+	\label={dvojbran}
+	\caption={Lineárny neautonómny dvojbran}
+\endfigure
+
+Pre zadané veličiny na konci vedenia platí 
+\zvyrazni
+$$
+\left[\matrix{
+\faz U_{\rm f1} \cr
+\faz I_1\cr
+}\right]
+= \left[\matrix{
+\faz A & \faz B \cr
+\faz C & \faz D \cr
+}\right]
+\left[\matrix{
+\faz U_{\rm f2} \cr
+\faz I_2 \cr
+}\right]
+$$
+a pre zadané veličiny na začiatku vedenia
+\zvyrazni
+$$\left[\matrix{
+\faz U_{\rm f2} \cr
+\faz I_2\cr
+}\right]
+= \left[\matrix{
+\faz D & - \faz B \cr
+- \faz C & \faz A \cr
+}\right]
+\left[\matrix{
+\faz U_{\rm f1} \cr
+\faz I_1 \cr
+}\right].
+$$
+Pre konštanty platí v~prípade pasívneho dvojbranu vzťah
+\zvyrazni
+$$
+\faz A \faz D - \faz B \faz C = 1
+$$
+a v~prípade symetrického dvojbranu vzťah
+\zvyrazni
+$$
+\faz A = \faz D.
+$$
+
+\subsection Dvojbran v~tvare ${\bf\pi}$ článku
+
+Patrí k~najpoužívanejším v~elektroenergetike. V~pozdĺžnej vetvi má
+impedanciu $\faz Z_{\rm l}$, v~priečnych vetvách admitancie $\faz
+Y_{{\rm q}a}$ a
+$\faz Y_{{\rm q}b}$. V~prípade symetrického článku platí
+$$
+\faz Y_{{\rm q}a} = \faz Y_{{\rm q}b} = 0{,}5 \faz Y_{\rm q}.
+$$
+Používa sa najmä ako náhradná schéma vonkajších vedení do dĺžky asi
+250\,km a káblových vedení do asi 100\,km.
+
+\beginfigure
+	\filename={img/pi-clanok.png}
+	\label={pi-clanok}
+	\caption={Náhradný ${\rm\pi}$ článok}
+\endfigure
+
+Základné rovnice sú podľa Kirchhoffovych zákonov
+$$
+\displaylines{
+-\faz U_{\rm f1} + \faz Z_{\rm l} (\faz I_2 + \faz Y_{{\rm q}b} \faz U_{\rm f2}) +
+\faz U_{\rm f2} = 0
+\longrightarrow \faz U_{\rm f1} = (1 + \faz Z_{\rm l} \faz Y_{{\rm q}b}) \faz U_{\rm
+f2} + \faz Z_{\rm l} \faz I_2,\cr
+\faz I_1 = \faz Y_{{\rm q}a} \faz U_{\rm f1} + \faz Y_{{\rm q}b} \faz U_{\rm f2} +
+\faz I_2,\cr
+\faz I_1 = (\faz Y_{{\rm q}a} + \faz Y_{{\rm q}b} + \faz Y_{{\rm
+q}a}\faz Y_{{\rm q}b}\faz
+Z_l)\faz U_{\rm f2} + (1+\faz Z_{\rm l} \faz Y_{{\rm q}a})\faz I_2.\cr
+}
+$$
+
+Pre obecný, nesymetrický, ${\rm\pi}$ článok sú Blondelove konštanty rovné
+$$
+\displaylines{
+\faz A_{\rm\pi n} = 1 + \faz Z_{\rm l} \faz Y_{{\rm q}b}, \cr
+\faz B_{\rm\pi n} = \faz Z_{\rm l}, \cr
+\faz C_{\rm\pi n} = \faz Y_{{\rm q}a} + \faz Y_{{\rm q}b} + \faz Y_{{\rm
+q}a} \faz Y_{{\rm q}b}
+\faz Z_l, \cr
+\faz D_{\rm\pi n} = 1 + \faz Z_{\rm l} \faz Y_{{\rm q}a} \cr
+}
+$$
+a pre symetrický bude platiť
+$$
+\displaylines{
+\faz A_{\rm\pi s} = \faz D_{\rm\pi s} = 1 + 0{,}5 \faz Z_{\rm l} \faz
+Y_{\rm q}, \cr
+\faz B_{\rm\pi s} = \faz Z_{\rm l}, \cr
+\faz C_{\rm\pi s} = \faz Y_{\rm q} + 0{,}25 \faz Z_{\rm l} \faz Y_{\rm
+q}^2.\cr
+}
+$$
+
+\subsection * Grafické riešenie ${\bf\pi}$ článku
+
+\beginfigure
+	\filename={img/pi-clanok-graficky.png}
+	\label={pi-clanok-graficky}
+	\caption={Schéma pre grafické riešenie ${\rm\pi}$ článku}
+\endfigure
+
+Dvojbran na \citefigure[pi-clanok-graficky], zadaný svojimi prvkami, je
+na výstupe zaťažený záťažou kapacitného charakteru. Grafický výpočet
+potom vykonáme tak, ako je naznačené na obrázku
+\citefigure[pi-clanok-fazdiag].
+
+\beginfigure
+	\filename={img/pi-clanok-fazdiag.png}
+	\label={pi-clanok-fazdiag}
+	\caption={Fázorový diagram ${\rm\pi}$ článku}
+\endfigure
+
+
+\subsection Dvojbran v~tvare T článku
+
+T článok je menej používaný než $\rm\pi$ článok. Zavádza do riešenia
+ďalší uzol a to je často nevhodné. Je možné ho použiť ako náhradnú
+schému pre vonkajšie vedenia do dĺžky 200\,km a káblové do 80\,km. Časté
+je použitie pre trojfázové transformátory s~dvoma vinutiami.
+
+Ak nahrádza vedenie, tak platí, že
+$$
+\faz Z_{{\rm l}a} =
+\faz Z_{{\rm l}b} =
+0{,}5 \faz Z_{{\rm l}1} l \quad
+\faz Y_{\rm q} = \faz Y_{{\rm q}1} l.
+$$
+
+\beginfigure
+	\filename={img/t-clanok.png}
+	\label={t-clanok}
+	\caption={Náhradný T článok}
+\endfigure
+
+Pre tento článok platia základné rovnice pre prúdy z~Kirchhoffovych zákonov
+$$
+\eqalign{
+\faz I_1 - \faz Y_{\rm q} (\faz U_{\rm f2} + \faz Z_{{\rm l}b} \faz I_2) - \faz I_2 = 0
+\longrightarrow
+&\faz I_1 = \faz Y_{\rm q} \faz U_{\rm f2} + (\faz Z_{{\rm l}b} \faz
+Y_{\rm q} + 1)\faz I_2\cr
+&\faz I_1 = \faz C \faz U_{\rm f2} + \faz D \faz I_2 \cr
+}
+$$
+a pre napätie dostávame rovnicu
+$$
+-\faz U_{\rm f1} + \faz Z_{{\rm l}a} \faz I_1 + \faz Z_{{\rm l}b} \faz I_2 + \faz
+U_{\rm f2} = 0
+$$
+do ktorej môžme dosadiť za $\faz I_1$ a dostaneme rovnicu
+$$
+\eqalign{
+\faz U_{\rm f1} &= (1 + \faz Z_{{\rm l}a} \faz Y_{\rm q} ) \faz U_{\rm f2} + (\faz
+Z_{{\rm l}a} + \faz Z_{{\rm l}b} +\faz Z_{la} \faz Z_{lb} \faz Y_q) \faz I_2\cr
+\faz U_{\rm f1} &= \faz A \faz U_{\rm f2} + \faz B \faz I_2 \cr
+}
+$$
+
+Pre obecný, nesymetrický, T článok sú Blondelove konštanty rovné
+$$
+\displaylines{
+\faz A_{\rm Tn} = 1 + \faz Z_{la} \faz Y_q, \cr
+\faz B_{\rm Tn} = \faz Z_{la} + \faz Z_{lb} + \faz Z_{la} \faz Z_{lb} \faz Y_q, \cr
+\faz C_{\rm Tn} = \faz Y_q, \cr
+\faz D_{\rm Tn} = 1 + \faz Z_{lb} \faz Y_q \cr
+}
+$$
+a pre symetrický bude platiť
+$$
+\displaylines{
+\faz A_{\rm Ts} = \faz D_{\rm Ts} = 1 + 0{,}5 \faz Z_l \faz Y_q, \cr
+\faz B_{\rm Ts} = \faz Z_l + 0{,}25 \faz Z_l^2 \faz Y_q, \cr
+\faz C_{\rm Ts} = \faz Y_q. \cr
+}
+$$
+
+\subsection * Grafické riešenie T článku
+
+\beginfigure
+	\filename={img/t-clanok-graficky.png}
+	\label={t-clanok-graficky}
+	\caption={Schéma pre grafické riešenie T článku}
+\endfigure
+
+Dvojbran na \citefigure[t-clanok-graficky], zadaný svojimi prvkami, je
+na výstupe zaťažený 
+záťažou indukčného charakteru. Grafický výpočet potom vykonáme tak, ako
+je naznačené na \citefigure[t-clanok-fazdiag].
+
+\beginfigure
+	\filename={img/t-clanok-fazdiag.png}
+	\label={t-clanok-fazdiag}
+	\caption={Fázorový diagram T článku}
+\endfigure
+
+\subsection Článok $\bf \Gamma$ priečnym prvkom na vstupe a na výstupe
+
+Použitie týchto článkov je pomerne malé. Možno ich využiť ako náhradnú
+schému kratších vedení (vonkajšie asi do 80\,km a káblové asi do 25\,km)
+a transformátorov, kde sa im dáva prednosť pretože nezavádzajú ďalší
+uzol.
+
+\beginfigure
+	\filename={img/gama-clanok-vstup.png}
+	\label={gama-clanok-vstup}
+	\caption={Náhradný ${\rm\Gamma}$ článok s~priečnym prvkom na vstupe}
+\endfigure
+
+Pri zapojení s~priečnym prvkom na vstupe, podľa
+\citefigure[gama-clanok-vstup] dostaneme rovnice
+$$
+\eqalign{
+\faz U_{\rm f1} = \faz U_{\rm f2} + \faz Z_{\rm l} \faz I_2 \qquad &\sim \qquad \faz U_{\rm
+f1} = \faz A \faz U_{\rm f2} + \faz B \faz I_2 \cr
+\faz I_1 = \faz Y_{\rm q} \faz U_{\rm f2} + (1 + \faz Z_{\rm l} \faz Y_{\rm q}) \faz I_2
+\qquad &\sim \qquad \faz I_1 = \faz C \faz U_{\rm f2} + \faz D \faz I_2 \cr
+}
+$$
+a pre Blondelove konštanty platí
+$$
+\displaylines{
+\faz A_{\rm\Gamma} = 1 \cr
+\faz B_{\rm\Gamma} = \faz Z_{\rm l} \cr
+\faz C_{\rm\Gamma} = \faz Y_{\rm q} \cr
+\faz D_{\rm\Gamma} = 1 + \faz Z_{\rm l} \faz Y_{\rm q} \cr
+}
+$$
+
+\beginfigure
+	\filename={img/gama-clanok-vystup.png}
+	\label={gama-clanok-vystup}
+	\caption={Náhradný ${\rm\Gamma}$ článok s~priečnym prvkom na výstupe}
+\endfigure
+
+Pri zapojení s~priečnym prvkom na výstupe, podľa
+\citefigure[gama-clanok-vystup] dostaneme rovnice
+$$
+\eqalign{
+0 = -\faz U_{\rm f1} + \faz Z_{\rm l} (\faz Y_{\rm q} \faz U_{\rm f2} + \faz I_2) + \faz
+U_{\rm f2} \quad &\cr
+\faz U_{\rm f1} = (1 + \faz Z_{\rm l} \faz Y_{\rm q})
+\faz U_{\rm f2} + \faz Z_{\rm l} \faz I_2 \quad &\sim \quad
+\faz U_{\rm f1} = (1 + \faz Z_{\rm l} \faz Y_{\rm q}) \faz U_{\rm f2} + \faz Z_{\rm l}
+\faz I_2 \cr
+\faz I_1 = \faz Y_{\rm q} \faz U_{\rm f2} + \faz I_2 \quad &\sim \quad
+\faz I_1 = \faz C \faz U_{\rm f2} + \faz I_2 \cr
+}
+$$
+a pre Blondelove konštanty platí
+$$
+\displaylines{
+\faz A_{\rm\Gamma} = 1 + \faz Z_{\rm l} \faz Y_{\rm q} \cr
+\faz B_{\rm\Gamma} = \faz Z_{\rm l} \cr
+\faz C_{\rm\Gamma} = \faz Y_{\rm q} \cr
+\faz D_{\rm\Gamma} = 1 \cr
+}
+$$

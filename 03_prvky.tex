@@ -1,0 +1,499 @@
+\section Tlmivky, kondenzátory a transformátory v~trojfázovej sústave
+
+\subsection Tlmivky
+
+Sú to prístroje s~jediným vinutím v~každej fázi. Spotrebovávajú prevažne
+jalový indukčný výkon. Ich spotreba činného výkonu (straty) má byť čo
+najmenšia.
+
+\subsection Tlmivky pozdĺžne (sériové) -- reaktory
+
+Používame ich na obmedzenie prúdov pri skratoch za miestom ich
+zabudovania na prijateľné hodnoty. Aplikujú sa v~sieťach do 35\,kV, ale
+iba tam, kde nie je možné dosiahnuť obmedzenie skratových prúdov inými
+prostriedkami. Pretože reaktancie sú relatívne malé, zhotovujú sa
+jednotlivé cievky tvoriace tlmivky ako vzduchové. Musia vydržať tepelné a
+mechanické namáhanie skratovými prúdmi. Pre $I_{\rm n} \le 200\,\rm A$
+sa vyrábajú ako trojfázové, pre väčšie nominálne prúdy ako jednofázové,
+obvykle s~betónovými výstužami.
+
+\beginfigure
+	\filename={img/tlmivka-seriova.png}
+	\label={tlmivka-seriova}
+	\caption={Náhradná schéma sériovej tlmivky}
+\endfigure
+
+Vždy platí, že $R_{\rm tl} \ll X_{\rm tl}$, takže ak nejde o~výpočet
+strát výkonu, rezistanciu tlmivky môžme zanedbať.
+
+Pre výrobu pozdĺžnych tlmiviek sa zadáva percentná reaktancia $X_{\rm
+tl\%}$ vztiahnutá na prechádzajúci výkon $S_{\rm tl} = \sqrt{3} U_{\rm
+n} I_{\rm n}$, menovité napätie sústavy $U_{\rm n}$ a menovitý prúd
+tlmivky $I_{\rm n}$. Reaktanciu určíme podľa vzťahu
+\zvyrazni
+$$
+X_{\rm tl} = {X_{\rm tl\%} U_{\rm n} \over 100 \sqrt{3} I_{\rm n}} =
+{X_{\rm tl\%} U_{\rm n}^2 \over 100 S_{\rm tl}}
+$$
+a úbytok napätia v~bezporuchovom stave určíme podľa vzťahu
+$$
+\Delta \faz U_{\rm f} = \faz U_{\rm f1} - \faz U_{\rm f2} = (R_{\rm tl}
++ X_{\rm tl}) \faz I = \faz Z_{\rm tl} \faz I.
+$$
+
+Pre trojfázovú tlmivku môžeme zapísať rovnice v~maticovom tvare ako
+$$
+[\faz Z_{\rm tl\,abc}] = [\faz Z_{\rm tl\,012}] = \faz Z_{\rm tl} [E].
+$$
+
+Pretože tlmivka zväčšuje úbytok napätia, môže byť v~bezporuchovom stave
+premostená, napríklad poistkou. V~prípade poruchy sa poistka preruší a
+tlmivka sa uvedie do činnosti.
+
+\subsection Tlmivky priečne (paralelné)
+
+Najznámejšie je použitie v~sústavách s~menovitým napätím $U_{\rm n} \ge
+220\,\rm kV$ na kompenzáciu kapacitných (nabíjacích) prúdov vedenia pri
+chode naprázdno alebo pri malých zaťaženiach. Pre výrobu je treba zadať
+trojfázový menovitý (jalový) výkon $Q_{\rm tl\,n}$ a menovité napätie
+$U_{\rm tl\, n}$. Tlmivka má jadro zložené zo železných plechov a
+pracuje v~nenasýtenej oblasti magnetizačnej charakteristiky.
+
+Pri zanedbaní rezistancie, čo si môžme dovoliť pretože $R_{\rm tl} \ll
+X_{\rm tl}$, platí
+\zvyrazni
+$$
+X_{\rm tl} = {U_{\rm tl\,n} \over \sqrt{3} I_{\rm tl\,n}} =
+{U_{\rm tl\,n}^2 \over Q_{\rm tl\,n}}.
+$$
+
+\subsection * Tlmivka galvanicky spojená s~vedením
+
+Takto zapojená tlmivka kompenzuje nabíjací výkon vedenia, ku ktorému je
+pripojená. Nominálne napätie tlmivky je rovnaké ako nominálne napätie
+siete. Uzol vinutia do hviezdy sa spája so zemou iba v~dobe cyklu
+opätovného zapínania špeciálnym vypínačom~V. Uzol je chránený proti
+prepätiu bleskoistkou~B.
+
+\beginfigure
+	\filename={img/tlmivka-paralelna.png}
+	\label={tlmivka-paralelna}
+	\caption={Základná schéma paralelnej tlmivky galvanicky spojenej
+s~vedením}
+\endfigure
+
+\subsection * Tlmivka pripojená do terciárneho vinutia transformátoru
+
+Takto zapojená tlmivka môže mať menšie nominálne napätie, ktoré je dané
+nominálnym napätím terciárneho vinutia transformátoru, ktoré je od
+10\,kV do 35\,kV. Vznikajú však problémy pri vypínaní, pretože vypínač
+má vypnúť prakticky čisto induktívnu záťaž.
+
+Vzhľadom na zapojenie do hviezdy s~izolovaným uzlom nemôže tlmivkou
+prechádzať prúd netočivej zložkovej sústavy:
+$$
+\faz Z_{\rm tl1} = \faz Z_{\rm tl2} = \faz Z_{\rm tl} \qquad
+\faz Z_{\rm tl0} \to \infty.
+$$
+
+\beginfigure
+	\filename={img/tlmivka-tercial.png}
+	\label={tlmivka-tercial}
+	\caption={Základná schéma paralelnej tlmivky zapojenej do terciárneho
+	vinutia transformátoru}
+\endfigure
+
+\subsection Tlmivky uzlové
+
+V~trojfázových sústavách, ktoré nemajú uzol spojený so zemou priamo, je
+možné medzi uzol a zem vložiť impedanciu na kompenzáciu prúdov pri
+zemných spojeniach, teda pri poruche izolácie fázy voči zemi. Ak je uzol
+spojený so zemou priamo alebo cez rezistanciu, predstavujú poruchy
+izolácie voči zemi skraty.
+
+V~prípade zemného spojenia ide o~takmer čisto kapacitný prúd. Ak vložíme
+medzi uzol vinutia transformátoru a zem tlmivku, pre ktorú platí $R_{\rm
+tl} \ll X_{\rm tl}$, privedieme do miesta poruchy od tlmivky takmer
+indukčný prúd.
+
+Ak nastavíme reaktanciu tlmivky tak, aby veľkosť jej indukčného prúdu
+bola veľmi podobná kapacitnému prúdu, prúd prechádzajúci miestom poruchy
+sa zmenší a spôsobí zhasnutie prípadne existujúceho elektrického oblúku.
+Pretože veľkosť kapacitného prúdu záleží na rozsahu siete a teda aj na
+zapínaní a vypínaní určitých častí, musíme dokázať meniť reaktanciu
+tlmivky. To dosahujeme zmenou vzduchovej medzery jej magnetického obvodu.
+Tlmivku nazývame kompenzačná, prípadne zhášacia. 
+
+\beginfigure
+	\filename={img/tlmivka-uzlova.png}
+	\label={tlmivka-uzlova}
+	\caption={Základná schéma uzlovej tlmivky}
+\endfigure
+
+Touto tlmivkou pri zložkovom pojatí môže prechádzať iba prúd netočivej
+zložkovej sústavy, v~ktorej schémach sa rešpektuje hodnotou $3 X_{\rm
+tl} = X_0$, pretože tlmivkou prechádza trojnásobne väčší prúd netočivej
+zložky, než v~jednotlivých fázach.
+
+\subsection Kondenzátory
+
+Spravidla nejde o~kondenzátory, ale o~kondenzátorové batérie, ktoré
+vzniknú sériovo-paralelným radením kondenzátorov. Straty činného výkonu
+nedosahujú ani 0,5\,\% ich menovitého výkonu.
+
+\subsection * Kondenzátory sériové
+
+Používajú sa v~sieťach vn na zlepšenie napäťových pomerov a v~prípade
+dlhých vedení vvn na úpravu parametrov. Pre napätie na kondenzátore a
+výkon platí
+\zvyrazni
+$$
+\displaylines{
+\faz U_{c} = -\j X_c \faz I = -\j {1 \over \omega C} \faz I,\cr
+\faz S_{c} = 3 \faz U_c^* \faz I = \j 3 X_c I^2
+}
+$$
+a je vidieť, že napätie a výkon sa mení so zaťažením.
+
+\beginfigure
+	\filename={img/kondenzator-seriovy.png}
+	\label={kondenzator-seriovy}
+	\caption={Základné zapojenie sériového kondenzátoru}
+\endfigure
+
+Nevýhodou je, že v~prípade nadprúdov a skratov na nich vzniká prepätie.
+Proti ich účinkom chránime sériový kondenzátor špeciálnymi prepäťovými
+ochranami s~veľmi rýchlym pôsobením.
+
+Sériový kondenzátor musíme izolovať voči zemi, napríklad umiestnením na
+izolačné podpery, alebo ich inštalujeme na plošinách, ktoré sú nesené
+závesnými izolátormi.
+
+Nevýhodou sériových kondenzátorov je, že umožňujú prestup prúdov vyšších
+harmonických zložiek, čo sa môže prejaviť pri spínaní. 
+
+Taktiež je nimi možné dosiahnuť rozdelenie prúdov na paralelné prenosové
+cesty. Zmenou rozdelenia prúdov dosahujeme to, že napríklad nedôjde
+k~preťaženiu jednej z~prenosových ciest pri nevyužitej druhej, alebo sa
+uskutoční prenos s~najmenšími stratami činného výkonu.
+
+\beginfigure
+	\filename={img/seriovy-kondenzator-rozdelenie.png}
+	\label={seriovy-kondenzator-rozdelenie}
+	\caption={Rozdelenie prúdov na paralelné prenosové cesty pomocou
+	sériového kondenzátoru}
+\endfigure
+
+\subsection * Kondenzátory paralelné
+
+\beginfigure
+	\filename={img/kondenzator-paralelny.png}
+	\label={kondenzator-paralelny}
+	\caption={Základné zapojenie paralelného kondenzátoru}
+\endfigure
+
+Paralelné kondenzátory sa používajú predovšetkým v~priemyslových sieťach
+do 1\,kV. Môžu byť zapojené do hviezdy alebo do trojuholníka (v~sieťach
+nn). Pri zanedbaní strát činného výkonu a uvážení súmernosti platí pre
+jalový výkon odoberaný jednou fázou a trojfázový výkon
+\zvyrazni
+$$
+Q_{\rm f} = U I_c = U^2 \omega C_{\rm\Delta} \quad
+Q = 3 U^2 \omega C_{\rm\Delta}
+$$
+v~prípade zapojenia do trojuholníka a 
+\zvyrazni
+$$
+Q_{\rm f} = U_{\rm f} I_c = U_{\rm f}^2 \omega C_{\rm Y} \quad
+Q = 3 U_{\rm f}^2 \omega C_{\rm Y} = U^2 \omega C_{\rm Y}
+$$
+v~prípade zapojenia do hviezdy. Pri rovnakom jalovom výkone dostávame
+vzťah
+$$
+3 U^2 \omega C_{\rm\Delta} = U^2 \omega C_{\rm Y} \longrightarrow
+C_{\rm Y} = 3 C_{\rm\Delta}.
+$$
+
+Pri zaraďovaní do hviezdy je potrebná kapacita kondenzátoru trojnásobná,
+preto v~prípade sietí do 1\,kV používame zapojenie do trojuholníka všade
+tam, kde je to možné.
+
+Pri zanedbaní činného výkonu kondenzátoru odoberá zo siete iba kapacitný
+jalový výkon a dodáva do siete indukčný jalový výkon. Túto vlastnosť
+používame na kompenzáciu jalového výkonu. Spotrebič odoberá zo siete
+výkon $P - \j Q$. Podľa hodnoty $Q_c$ rozlišujeme tri základné prípady:
+\beginitemize
+	\item $Q_c < Q$ --- podkompenzované, kondenzátor nedodáva celý jalový
+	výkon požadovaný spotrebičom,
+	\item $Q_c = Q$ --- presná kompenzácia, sieť dodáva iba činný výkon,
+	\item $Q_c > Q$ --- prekompenzované, kondenzátor dodá celý jalový
+	výkon pre spotrebič, ale aj do siete. 
+\enditemize
+
+Kompenzácia je možná individuálna pre každý spotrebič, alebo skupinová
+pre niekoľko spotrebičov respektíve pre celý závod. Pri individuálnej
+kompenzácii sa kompenzuje najmenší jalový výkon, ktorý spotrebič
+požaduje pri svojej prevádzke. Pri skupinovej kompenzácii sú
+kondenzátory rozdelené na stupne, ktoré sú podľa potreby pripájané a
+odpájané pri zmenách zaťaženia.
+
+\subsection Parametre transformátorov s~dvoma vinutiami
+
+Pri zanedbaní nesúmerností v~priestorovom usporiadaní môžme uvažovať
+každú fázu zvlášť. Náhradná schéma sa obvykle realizuje pomocou T
+článku.
+
+\beginfigure
+	\filename={img/transformator-dvojvinutovy.png}
+	\label={transformator-dvojvinutovy}
+	\caption={Náhradná schéma transformátoru pomocou T článku}
+\endfigure
+
+Pre rozptylové reaktancie platia vzťahy
+$$
+\faz Z_{\rm \sigma p} = R_{\rm p} + \j X_{\rm \sigma p} \qquad
+\faz Z_{\rm \sigma s} = R_{\rm s} + \j X_{\rm \sigma s}
+$$
+a pre priečnu admitanciu vzťah
+$$
+\faz Y_{\rm q} = G_{\rm q} - \j B_{\rm q}.
+$$
+Znamienko mínus vyjadruje, že v priečnej vetve je zapojená indukčnosť,
+netreba sa nechať pomýliť podobnosťou s náhradným T článkom, kde priečna
+vetva predstavuje kapacitu.
+
+Hodnoty jednotlivých veličín sa zistia výpočtom a overia meraniami
+naprázdno a nakrátko na hotovom výrobku. Skúšky poskytnú straty činného
+výkonu naprázdno $\Delta P_0$~(W), pomerný prúd naprázdno $i_0$~(\%),
+straty činného výkonu nakrátko $\Delta P_{\rm k}$ a  pomerné napätie
+nakrátko rovné pomernej impedancii nakrátko $u_{\rm k} = z_{\rm k}$~(\%).
+
+Pre priečnu vetvu platia vzťahy vztiahnuté na menovitý zdanlivý výkon
+$S_{\rm n}$ a menovité napätie $U_{\rm n}$
+$$
+\displaylines{
+g_{\rm q} = {\Delta P_0 \over S_{\rm n}} \qquad
+y_{\rm q} = {i_{0\%} \over 100} \qquad
+b_{\rm q} = \sqrt{y_{\rm q}^2 - g_{\rm q}^2}\cr
+\faz y_{\rm q} = g_{\rm q} - \j b_{\rm q} =
+{\Delta P_0 \over S_{\rm n}} - \j \sqrt{\left(i_{0\%} \over 100\right)^2 -
+\left({\Delta P_0 \over S_{\rm n}}\right)^2}\cr
+}
+$$
+prípadne prevodný vzťah
+$$
+\faz Y_{\rm q} =
+G_{\rm q} - \j B_{\rm q} =
+\faz y_q {S_{\rm n} \over U_{\rm n}^2} =
+{S_{\rm n} \over U_{\rm n}^2}
+\left[
+{\Delta P_0 \over S_{\rm n}} - \j \sqrt{\left(i_{0\%} \over 100\right)^2 -
+\left({\Delta P_0 \over S_{\rm n}}\right)^2}
+\right].
+$$
+
+Pre pozdĺžnu vetvu platia vzťahy v~pomerných jednotkách
+$$
+\displaylines{
+r_{\rm k} = {\Delta P_{\rm k} \over S_{\rm n}} \quad
+z_{\rm k} = {u_{\rm k\%} \over 100} \quad
+x_{\rm k} = \sqrt{z_{\rm k}^2 - r_{\rm k}^2} \cr
+\faz z_{\rm k} =
+r_{\rm k} + \j z_{\rm k} = 
+{\Delta P_{\rm k} \over S_{\rm n}}
++ \j
+\sqrt{
+\left({u_{\rm k\%} \over 100}\right)^2  +
+\left({\Delta P_{\rm k} \over S_{\rm n}}\right)^2
+}}
+$$
+prípadne prevodný vzťah
+$$
+\faz Z_{\rm k} = R_{\rm k} + \j X_{\rm k} =
+\faz z_{\rm k} {U_{\rm n}^2 \over S_n} =
+{U_{\rm n}^2 \over S_{\rm n}}
+\left[
+{\Delta P_{\rm k} \over S_{\rm n}}
++ \j
+\sqrt{
+\left({u_{\rm k\%} \over 100}\right)^2  +
+\left({\Delta P_{\rm k} \over S_{\rm n}}\right)^2}
+\right].
+$$
+
+Impedanciu $\faz Z_{\rm \sigma ps} = \faz Z_{\rm k} = (R_{\rm p} +
+R_{\rm s}) + \j (X_{\rm\sigma p} + X_{\rm\sigma s})$ rozkladáme na dve
+časti tak, že kladieme
+$$
+\faz Z_{\rm\sigma p} =  0{,}5 \faz Z_{\rm\sigma ps} = \faz Z_{\rm\sigma s}.
+$$
+
+Fyzikálne toto rozdelenie nie je bez vady -- rozptylové toky a
+rezistancie nie sú rovnaké. Pre niektoré úlohy, napríklad pri výpočte
+uzlových sietí, nie je vhodné použitie T článku -- vadí nám, že zavádza
+ďalší uzol. Preto niekedy používame $\rm\pi$ článok alebo $\rm\Gamma$
+článok podľa \citefigure[trafo-pi-gama]. 
+
+\beginfigure
+	\filename={img/trafo-pi-gama.png}
+	\label={trafo-pi-gama}
+	\caption={Príklad náhradnej schémy transformátoru pomocou ${\rm\pi}$ a
+	${\rm\Gamma}$ článku}
+\endfigure
+
+\subsection Parametre transformátorov s~troma vinutiami
+
+Ide o~transformátory s~troma vinutiami na fázu. Obvykle majú veľký
+výkon a môžu byť konštrukčne riešené ako tri jednofázové jednotky. Pre
+označenie jednotlivých vinutí -- primárneho, sekundárneho a terciárneho
+-- používame indexy p, s, t. Môžu slúžiť na napájanie sústavy z~dvoch
+alternátorov, prípadne pre pružné napájanie dvoch sietí s~rôznymi
+menovitými napätiami z~jedného alternátoru.
+
+\beginfigure
+	\filename={img/transformator-trojvinutovy.png}
+	\label={transformator-trojvinutovy}
+	\caption={Základná schéma zapojenia s~troma vinutiami na fázu}
+\endfigure
+
+\beginfigure
+	\filename={img/transformator-trojvinutovy-nahrsch.png}
+	\label={transformator-trojvinutovy-nahrsch}
+	\caption={Náhradná schéma transformátoru s~troma vinutiami na fázu}
+\endfigure
+
+Parametre pre náhradnú schému, ktorá je znázornená na
+\citefigure[transformator-trojvinutovy-nahrsch]  určíme výpočtom pri
+návrhu a overíme skúškami na hotovom výrobku.
+
+Pri skúške naprázdno určíme straty činného výkonu naprázdno $\Delta P_0$
+a prúd naprázdno $i_0$. Určíme priečnu admitanciu vztiahnutú na menovitý
+výkon a menovité napätie primárneho vinutia
+$$
+\faz y_q = g_q - \j b_q = {\Delta P_0 \over S_{\rm p\,n}} -
+\j \sqrt{
+	\left({i_{0\%} \over 100}\right)^2 -
+	\left({\Delta P_0 \over S_{\rm p\,n}}\right)^2
+}
+$$
+prípadne ako
+$$
+\faz Y_q =
+\faz q_z {S_{\rm p\,n} \over U_{\rm p\,n}^2} =
+G_q - \j B_q =
+{S_{\rm p\,n} \over U_{\rm p\,n}^2}
+\left[{\Delta P_0 \over S_{\rm p\,n}} -
+\j \sqrt{
+	\left({i_{0\%} \over 100}\right)^2 -
+	\left({\Delta P_0 \over S_{\rm p\,n}}\right)^2
+}
+\right]
+$$
+
+Pri skúške nakrátko, ktoré sú tri, jedno vinutie napájame, druhé
+je skratované a tretie je naprázdno. Pretože menovité výkony
+jednotlivých vinutí obecne môžu byť rôzne (napríklad pre napájanie
+jednej sústavy z~dvoch alternátorov môže platiť $S_{\rm s\,n} = S_{\rm
+t\,n} = 0{,}5 S_{\rm p\,n}$), uskutočňujú sa merania nakrátko pri prúde,
+ktorý zodpovedá vinutiu s~menším výkonom a potom sa prepočítavajú na
+výkon vyšší.
+
+\tablelabel[label=trafo3-nakratko][caption=Meranie nakrátko pri
+predpoklade $S_{\rm p\,n} \ne S_{\rm s\,n} \ne S_{\rm t\,n}$]
+\centertable{
+\begintable
+\begintableformat
+\center " \center " \center " \center
+\endtableformat
+\-
+\br{\:|} merané medzi | p--s | p--t | s--t \er{|}
+\-
+\br{\:|} straty nakrátko (W) | $\Delta P_{\rm k\,ps}$ |  $\Delta P_{\rm k\,pt}$ | $\Delta P_{\rm k\,st}$ \er{|}
+\br{\:|} napätie nakrátko (\%) | $u_{\rm k\,ps}$ | $u_{\rm k\,pt}$ | $u_{\rm k\,st}$ \er{|}
+\br{\:|} straty nakrátko (W) | $S_{\rm s\,n}$ |  $S_{\rm t\,n}$ | $S_{\rm t\,n}$ \er{|}
+\-
+\endtable
+}
+
+Nasledovný rozbor platí pre skúšku s--t. Má sa zistiť impedancia
+nakrátko
+$$
+\faz Z_{\rm st} = \faz Z_{\rm\sigma s} + \faz Z_{\rm\sigma t}
+\hbox{ pričom }
+\faz Z_{\rm\sigma s} = R_{\rm s} + \j X_{\rm\sigma s}.
+$$
+
+Straty nakrátko zistíme pri menovitom prúde $I_{\rm t\,n}$ ako
+$$
+\Delta P_{\rm k\,st} = 3R_{\rm st}^+  I_{\rm t\,n}^2
+$$
+kde $R_{\rm st}^+$ je rezistancia sekundárneho a terciárneho vinutia
+vztiahnutá na $U_{\rm n\,t}$. Po dosadení za prúd $I_{\rm t\,n}$
+dostaneme
+$$
+\Delta P_{\rm k\,st} =
+3R_{\rm st}^+  
+\left({S_{\rm t\,n} \over \sqrt{3} U_{\rm t\,n}}\right)^2
+\longrightarrow
+R_{\rm st}^+ = {\Delta P_{\rm k\,st} \over S_{\rm t\,n}^2} U_{\rm
+t\,n}^2.
+$$
+Pri prevedení v~pomere kvadrátov napätí z~terciárneho na primárne
+vinutie dostávame
+$$
+R_{\rm st} = R_{\rm st}^+ {U_{\rm p\,n}^2 \over U_{\rm t\,n}^2}
+\longrightarrow
+R_{\rm st} = R_{\rm s} + R_{\rm t} =
+{\Delta P_{\rm k\,st} \over S_{\rm t\,n}^2} U_{\rm p\,n}^2
+$$
+kde $R_{\rm s}$ respektíve $R_{\rm t}$ je rezistancia sekundárneho
+respektíve terciárneho vinutia prepočítaná na primárne vinutie.
+
+Impedancia nakrátko v~percentách zodpovedá napätiu nakrátko $u_{\rm
+k\,st}$ v~percentách. Pomerné impedanciu nakrátko sekundárneho a
+terciárneho vinutia, vztiahnutú na $S_{\rm p\,n}$ a $U_{\rm p\,n}$ a
+k~nej zodpovedajúcu impedanciu nakrátko prevedená na menovité napätie
+primárneho vinutia vyjadríme ako
+$$
+z_{\rm st} = {u_{\rm k\,st\%} \over 100}{S_{\rm p\,n} \over S_{\rm t\,n}}
+\qquad
+Z_{\rm st} = z_{\rm st} {U_{\rm p\,n}^2 \over S_{\rm p\,n}} =
+{u_{\rm k\,st\%} \over 100}{U_{\rm p\,n}^2 \over S_{\rm t\,n}}
+$$
+a platí
+$$
+\displaylines{
+\faz z_{\rm st} = r_{\rm st} + \j x_{\rm st} \quad
+x_{\rm st} = \sqrt{z_{\rm st}^2 - r_{\rm st}^2} \quad
+x_{\rm st} = x_{\rm\sigma s} + x_{\rm\sigma t},\cr
+\faz Z_{\rm st} = R_{\rm st} + \j X_{\rm st} \quad
+X_{\rm st} = \sqrt{Z_{\rm st}^2 - R_{\rm st}^2} \quad
+X_{\rm st} = X_{\rm\sigma s} + X_{\rm\sigma t}.\cr
+}
+$$
+
+Po dosadení môžme pre všetky tri merania nakrátko písať vzťahy typu
+$$
+\faz z_{\rm st} = r_{\rm st} + \j x_{\rm st},
+$$
+kam postupne dosádzame indexy ps, pt, st.
+
+Znalosť impedancie nakrátko umožňuje stanoviť rezistancie a rozptylové
+reaktancie jednotlivých vinutí, ktoré sú tvorené zložkami rozptýlenej
+reaktancie, ako
+$$
+\displaylines{
+\faz Z_{\rm\sigma p} = R_{\rm p} + \j X_{\rm\sigma p} =
+0{,}5 (\faz Z_{\rm ps} + \faz Z_{\rm pt} + \faz Z_{\rm st})\cr
+\faz Z_{\rm\sigma s} = R_{\rm s} + \j X_{\rm\sigma s} =
+0{,}5 (\faz Z_{\rm ps} + \faz Z_{\rm st} + \faz Z_{\rm pt})\cr
+\faz Z_{\rm\sigma t} = R_{\rm t} + \j X_{\rm\sigma t} =
+0{,}5 (\faz Z_{\rm pt} + \faz Z_{\rm st} + \faz Z_{\rm ps})\cr
+}
+$$
+
+Znalosť pozdĺžnych impedancií a priečnych admitancií umožňuje sledovať
+napäťové a výkonové pomery trojvinuťových transformátorov.
+
+
+

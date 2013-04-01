@@ -1,0 +1,1391 @@
+\section Elektrické parametre vonkajších vedení
+
+Chovanie a vlastnosti vonkajších vedení pri prenose elektrickej energie je možné
+popísať pomocou štyroch základných -- primárnych -- parametrov:
+\beginitemize
+	\item rezistancie $R_1$ ($\rm \Omega$/km),
+	\item indukčnosti $L_1$ (H/km),
+	\item konduktancie $G_1$ (S/km),
+	\item kapacity $C_1$ (F/km).
+\enditemize
+Po zohľadnení frekvencie a zavedení uhlovej frekvencie $\omega$
+respektíve frekvencie $f$ používame aj ďalšie parametre -- sekundárne:
+\beginitemize
+	\item indukčná reaktancia $X_1 = \omega L_1 = 2{\rm\pi} f L_1$,
+	\item kapacitná susceptancia $B_1 = \omega C_1 = 2{\rm\pi} f C_1$,
+	\item pozdĺžna impedancia $Z_{\rm l1} = R_1 + \j X_1$,
+	\item priečna admitancia $Y_{\rm q1} = G_1 + \j B_1$,
+	\item vlnová impedancia $Z_{\rm V1} = \sqrt{Z_{\rm l1}/Y_{\rm q1}}$
+	($\rm \Omega$)
+	\item konštanta prenosu $\gamma = \sqrt{\vphantom{/}Z_{\rm l1} \cdot Y_{\rm q1}}$
+	(1/km)
+\enditemize
+
+Ako vodiče používame najčastejšie drôty, pásy a laná. Základným
+materiálom je meď, hliník a v~prípade lán sa často používa kombinácia
+hliníku s~oceľou (AlFe laná).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection Rezistancia -- činný odpor
+
+V~prípade jednosmerného prenosu uvádzame hodnotu
+$$
+R_{\rm S01} = {\rho_0 \over S} \quad (\rm \Omega/m; \Omega
+\cdot m, m^2)
+$$
+kde $\rho_0$ je merná rezistivita materiálu vodiča a $S$ je jeho
+prierez.
+
+Vplyv materiálu na rezistanciu je vyjadrený hodnotou mernej rezistivity
+uvedenej v~\citetable[rho]. V~prípade dobrých vodičov narastá nelineárne
+so zväčšovaním obsahu nečistôt a v~prípade feromagnetických materiálov
+je určovaná experimentálne.
+\tablelabel[label=rho][caption=Hodnoty $\rho_0$ pre základné materiály] 
+\centertable{
+\begintable
+\begintableformat
+\center " \center " \center " \center
+\endtableformat
+\-
+\br{\:|} materiál | Cu | Al | Fe (oceľ) \er{|}
+\-
+\br{\:|} $\rho_0$ ($\rm \Omega\cdot m$) |$1{,}78 \times 10^{-8}$ |  $2{,}87 \times
+10^{-8}$ | $20 \times 10^{-8}$ \er{|}
+\-
+\endtable
+}
+
+Vplyv teploty, prípadne oteplenia, rešpektujeme zavedením teplotného
+koeficientu odporu
+$$
+k_T = 1 + \alpha(T-T_0) \quad (\rm\hbox{--}; 1/K, K)
+$$
+a koeficientu $\alpha$, ktorý vyjadruje tepelné vlastnosti materiálu.
+\tablelabel[label=alfa][caption=Hodnoty $\alpha$ pre základné materiály] 
+\centertable{
+\begintable
+\begintableformat
+\center " \center " \center " \center
+\endtableformat
+\-
+\br{\:|} materiál | Cu | Al | Fe (oceľ) \er{|}
+\-
+\br{\:|} $\alpha$ ($\rm K^{-1}$) | $3{,}93 \times 10^{-3}$ |  $4{,}03 \times
+10^{-3}$ | $4{,}5 \times 10^{-3}$ \er{|}
+\-
+\endtable
+}
+
+V~prípade, že vedením prechádza striedavý prúd, uplatní sa povrchový
+efekt a je zmenšovaný efektívny prierez vodiča. Rozloženie hustoty
+striedavého prúdu po priereze nie je rovnomerné. Pre prípad AlFe lana
+s~väčším počtom vrstiev je možné použiť vzťah pre duté laná, pretože
+oceľovým vnútorným lanom preteká len 2\az3\,\% ceľkového prúdu. Nárast
+odporu potom vyjadruje koeficient
+$$
+k_{\rm s} = 1 + 0{,}0375 \times 10^{-12} \cdot \left[{(r_2 - r_1) f
+\over r_2 \cdot R_{\rm S01}}\right]^2 \quad (\rm\hbox{--}; m, m, Hz, m,
+\Omega/m)
+$$
+v~ktorom $r_2$ a $r_1$ je vonkajší a vnútorný polomer Al vrstvy.
+
+Ďalej má na hodnotu odporu vplyv krútenia lán po skrutkovici -- plný
+vodič rovnakej osovej dĺžky by mal menšiu skutočnú dĺžku. Pri tomto
+zohráva úlohu aj to, že na jednotlivých vodičoch v~zväzku sa často
+vytvára tenká oxidová vrstva a prúd tečie vo všetkých vodičoch
+paralelne, sledujúc dráhu skrutkovice. Tento koeficient, označený
+$k_{l}$, býva zahrnutý v~katalógu.
+
+Pri zavesení vodiča na stožiar dochádza k~jeho priehybu podľa reťazovky.
+Jeho skutočná dĺžka je teda väčšia podľa vzťahu
+$$
+l_{\rm h} = 2c \sinh{d \over 2c} \quad ({\rm m; m, m})
+$$
+v~ktorom $c$ je parameter reťazovky a $d$ je vzdialenosť medzi stožiarmi
+meraná po úsečke. Činiteľ zväčšenia odporu je daný vzťahom
+$$
+k_{\rm p} = {l_{\rm h} \over d} \quad ({\rm m; m, m})
+$$
+ktorý v~praxi býva menší než 1,03.
+
+Ako ďalší parameter zväčšujúci odpor môžme uvažovať odchýlku skutočného prierezu od menovitého.
+
+Celkový odpor teda môžme vyjadriť pomocou vzťahu
+\zvyrazni
+$$
+R_1 = R_{\rm S01} \cdot k_T \cdot k_{\rm s} \cdot k_l \cdot
+k_{\rm p} \quad (\rm \Omega m^{-1}; \Omega m^{-1}, \hbox{--}).
+$$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection Konduktancia -- zvod
+
+Konduktancia predstavuje priečne straty činného výkonu. Na zaťažení
+závisí málo, viac na ňu vplýva napätie a poveternostné vplyvy okolia.
+Je spôsobovaná stratami cez izolátory a najmä korónou. Straty korónou
+rešpektujeme až od napätí 100\,kV.
+
+Ak uvážime, že cez konduktanciu $G_1$ prechádza prúd $I_{\rm s}$ a sieť
+má fázové napätie $U_{\rm f}$, respektíve združené napätie $U$, budú straty
+výkonu zvodom pre tri fázy a 1\,km dĺžky
+\zvyrazni
+$$
+P_{\rm z} = 3 U_{\rm f} I_{\rm s} = 3 U_{\rm f} G_1 U_{\rm f} = 3 G_1
+U_{\rm f}^2 =  G_1 U^2 \quad (\rm W\cdot km^{-1}).
+$$
+
+\tablelabel[label=zvod][caption=Približné hodnoty konduktancie pre základné
+napäťové hladiny] 
+\centertable{
+\begintable
+\begintableformat
+\center " \center " \center " \center " \center " \center
+\endtableformat
+\-
+\br{\:|} menovité napätie $U_{\rm n}$ (kV) | 110 | 220 | 380 | 500 \er{|}
+\-
+\br{\:|} konduktancia $G_1$ (S/km) | $(3{,}6 \div 5) \times 10^{-8}$ | $(2{,}5 \div
+3{,}6) \times 10^{-8}$ | $(1{,}4 \div 2) \times 10^{-8}$ | $2{,}5 \times 10^{-8}$ \er{|}
+\-
+\endtable
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection Indukčnosť a pozdĺžna impedancia
+
+Cieľom je vytvorenie matematického modelu, ktorým sa sústava vodičov
+rovnobežných so zemou a navzájom nahradí rovnocennou sústavou dvojíc
+vodičov (skutočného a jemu zodpovedajúceho fiktívneho) navzájom
+rovnobežných. Model zjednoduší výpočty.
+
+\subsection * Indkučnosť a impedancia v~slučke
+
+Uvažujme slučku tvorenú dvoma rovnakými, priamymi a rovnobežnými
+vodičmi kruhového prierezu s~polomerom $r$, s~rovnakým konštrukčným
+vyhotovením.
+
+\beginfigure
+	\filename={img/indukcnost-slucka.png}
+	\label={indukcnost-slucka}
+	\caption={Slučka, k~odvodeniu indukčnosti}
+\endfigure
+
+Predpokladajme, že platí $r \ll d \ll l$ a $d_{\rm kk'} = d$, kde $d$ je
+kolmá vzdialenosť ich osí a $l$ ich dĺžka. Pre fázory prúdu platí
+$\faz I_{k} = - \faz I_{k'}$. Uvažujme pomery na jednotku dĺžky vnútri
+slučky v~značnej vzdialenosti od koncov oboch vodičov, tak, aby sa vplyv
+deformácie magnetického poľa vplyvom koncov vodičov neuplatnil.
+
+Vnútorná indukčnosť, rešpektujúca magnetický tok na jednotku dĺžky
+vnútri vodiča, je
+$$
+L_{{\rm i}k} = {\mu_0 \mu_{\rm rv} \over 8 {\rm \pi}} \alpha
+$$
+kde $\mu_{\rm rv}$ je relatívna permeabilita materiálu vodiča a $\alpha$
+rešpektuje nerovnomerné rozdelenie prúdu po priereze.
+
+Vonkajšia indukčnosť na jednotku dĺžky je
+$$
+L_{{\rm e}k} = {\mu_0 \mu_{\rm r} \over 2 {\rm \pi}} \ln{R \over r}
+$$
+a rešpektuje magnetický tok mimo vodiča. Polomer $R \gg d$ má zatiaľ
+neurčenú, ale konečnú hodnotu.
+
+Časti magnetického toku druhého vodiča $k'$, ktorá je v~zábere
+s~uvažovaným vodičom $k$, zodpovedá indukčnosť
+$$
+L_{kk'} = {\mu_0 \mu_{\rm r} \over 2{\rm\pi}} \ln{R \over d}.
+$$
+
+Pre celkové napätie $\faz U_{{\rm i}k}$, indukované v~uvažovanom vodiči
+na jednotku dĺžky, platí
+$$
+-\faz U_{{\rm i}k} = \j \omega \left[ ( L_{{\rm i}k} + L_{{\rm e}k}) \faz
+I_k + L_{kk'} \faz I_{k'} \right] = \j \omega (L_{{\rm i}k} + L_{{\rm
+e}k} - L_{kk'}) \faz I_k = \j \omega L_{k{\rm v}} \faz I_k
+$$
+kde $L_{k\rm v}$ je vlastná indukčnosť jedného vodiča slučky na jednotku
+dĺžky. Po dosadení z~predchádzajúcich rovníc pre ňu dostávame vzťah
+$$
+L_{k{\rm v}} = {\mu_0 \mu_{\rm rv} \over 8{\rm \pi}} \alpha + {\mu_0
+\mu_{\rm r} \over 2{\rm\pi}} \ln{R \over r} - {\mu_0 \mu_{\rm r} \over
+2{\rm\pi}}\ln{R \over d}
+$$
+a po úpravách dostaneme vzťah
+$$
+L_{k{\rm v}} = 0{,}05 \mu_{\rm rv} \alpha + 0{,}46 \log{d \over r}.
+$$
+
+Po zavedení činiteľa $\xi$ sa vzťah zjednoduší. Hodnoty $\xi$ sú pritom
+pre rôzne typy vodičov uvedené v~\citetable[hodnotyxi].
+$$
+\eqalign{
+\xi &= 10^{-(0{,}05 \mu_{\rm rv} \alpha) / 0{,}46}\cr
+L_{k\rm v} &= 0{,}46 \log {d \over \xi r}\cr
+}
+$$
+
+\tablelabel[label=hodnotyxi][caption=Hodnoty činiteľa $\xi$ pre rôzne
+typy vodičov]
+\centertable{
+\begintable
+\begintableformat
+\left " \left
+\endtableformat
+\-
+\br{\:|} \hfil Typ vodiča | \hfil $\xi$ \er{|}
+\-
+\br{\:|} masívny vodič kruhového prierezu | 0,779 \er{|}
+\noalign{
+	\global\tmpa={jednomateriálové lano\quad}
+	\global\tmpb={čiastkových vodičov}
+}
+\br{\:|} \the\tmpa ~~7 \the\tmpb | 0{,}726 \er{|}
+\br{\:|} \phantom{\the\tmpa}~19 \phantom{\the\tmpb} | 0,758 \er{|}
+\br{\:|} \phantom{\the\tmpa}~37 \phantom{\the\tmpb} | 0,768 \er{|}
+\br{\:|} \phantom{\the\tmpa}~61 \phantom{\the\tmpb} | 0,772 \er{|}
+\br{\:|} \phantom{\the\tmpa}~91 \phantom{\the\tmpb} | 0,774 \er{|}
+\br{\:|} \phantom{\the\tmpa}127 \phantom{\the\tmpb} | 0,776 \er{|}
+\noalign{
+	\global\tmpa={laná AlFe\quad}
+	\global\tmpb={čiastkových vodičov v\ }
+	\global\tmpc={vrstvách}
+}
+\br{\:|} \the\tmpa 26 \the\tmpb 2 \the\tmpc | 0,809 \er{|}
+\br{\:|} \phantom{\the\tmpa}30 \phantom{\the\tmpb}2 \phantom{\the\tmpc}
+| 0,826 \er{|}
+\br{\:|} \phantom{\the\tmpa}54 \phantom{\the\tmpb}3 \phantom{\the\tmpc}
+| 0,810 \er{|}
+\br{\:|} \phantom{\the\tmpa} s~jednou vrstvou Al vodičov | 0,55 až 0,7 \er{|}
+\br{\:|} vodič obdĺžnikového profilu so stranami $a$, $b$ | $0{,}2235 (a
++ b)$ \er{|}
+\-
+\endtable
+}
+
+Impedancia jedného vodiča v~slučke dvoch rovnobežných vodičov na
+jednotku dĺžky bude
+$$
+\faz Z_{k\rm v} = R_k + \j\omega L_{{k\rm v}} = R_k + \j\omega 0{,}46
+\times 10^{-6} \log{d \over \xi r} \quad ({\rm \Omega \cdot m^{-1}})
+$$
+kde $R_k$ je rezistancia vodiča na jednotku dĺžky.
+
+\subsection * Zem ako vodič stacionárneho striedavého prúdu, Rüdenbergova
+koncepcia
+
+V~priestore pozdĺž vedenia, v~dostatočnej vzdialenosti od elektród
+(30\,m a viac), prechádza ustálený jednosmerný prúd tak širokým priečnym
+prierezom, že výsledný odpor cesty zemou v~tejto časti je nepatrný a
+technicky zanedbateľný. V~prípade striedavého prúdu sa v~tej istej
+oblasti uplatní vplyv magnetického poľa. V~dôsledku javu analogického
+s~povrchovým javom je hustota striedavého prúdu v~zemi nerovnomerná.
+Striedavý prúd v~zemi sleduje presne trasu vodičov nad zemou, jeho
+najväčšia hustota je priamo pod vedením a rýchlo klesá ako do strán, tak
+do hĺbky.
+
+Rüdenbergova koncepcia vychádza z~nasledovných predpokladov: Rezistivita
+zeme je koštantná a má konečnú veľkosť, skutočné usporiadanie zeme a
+vodiča vo výške $h$ nad zemou sa nahrádza v~častiach, kde sa neuplatní
+vplyv elektród, modelom na \citefigure[vodic-zem]. Vodič sa pomyselne
+kladie na zem a zemina sa v~polvalci s~polomerom $h$ vypúšťa. Vodič je
+v~ose polvalca. Prúd vo vodiči je sínusový bez vyšších harmonických
+zložiek s~konštantnou amplitúdou a to isté platí aj pre intenzitu
+magnetického poľa a hustotu prúdu v~zemi.
+
+\beginfigure
+	\filename={img/indukcnost-vodic-v-zemi.png}
+	\label={vodic-zem}
+	\caption={Náhrada skutočného vedenia vodičom na povrchu zeme}
+\endfigure
+
+Podľa 1. Maxwellovej rovnice, použitej na kružnice s~polomermi $x$ a $x
++ \d x$ (ktoré sú približne siločiarami) platí
+$$
+\displaylines{
+2{\rm \pi} x \faz H =
+\faz I_{\rm v} - \int\limits_h^x \faz J {\rm \pi} x \,\d x,\cr
+2{\rm\pi} (x + \d x)(\faz H + \d \faz H) =
+\faz I_{\rm v} - \int\limits_h^{x + \d x} \faz J {\rm\pi} x \,\d x.
+}
+$$
+Po odčítaní rovníc, zanedbaní malých veličín druhého rádu a úprave
+dostaneme
+$$
+{\faz H \over x} + {\d \faz H \over \d x} = - {1 \over 2} \faz J.
+\equation[1mr-upr]
+$$
+
+Podľa Ohmovho zákona pre prúdové vlákno platí vzťah
+$$
+\faz E = \rho \faz J \longrightarrow {\d \faz E \over \d x} = \rho {\d \faz J \over
+\d x}.
+\equation[ohmz-pv]
+$$
+
+Podľa 2. Maxwellovej rovnice, použitej pre elementárny úsek dĺžky $z$ a
+šírky $\d x$, dostaneme vzťah
+$$
+\left(\faz E + {\d \faz E \over \d x} \d x \right) z - z \faz E = -\j
+\omega \mu \faz H_z \d x \longrightarrow {\d \faz E \over \d x} = -\j \omega \mu
+\faz H.
+\equation[2mr]
+$$
+
+Porovnaním rovníc \citeequation[ohmz-pv] a \citeequation[2mr] a 
+derivovaním dostávame vzťahy
+$$
+\displaylines{
+\faz H = \j {\rho \d\faz J \over \mu \omega \d x},\cr
+{\d \faz H \over \d x} = \j {\rho \d^2\/ \faz J \over \mu \omega \d
+x^2}.\cr
+}
+$$
+Ich dosadením do rovnice \citeequation[1mr-upr] dostávame vzťah
+$$
+{\d^2 \faz J \over \d x^2} + {1 \over x}{\d \faz J \over \d x} - \j {\mu
+\omega \over 2\rho}\faz J = 0.
+\equation[bes]
+$$
+Pre túto rovnicu platia okrajové podmienky, ktoré je možné formulovať
+ako:
+\beginitemize
+	\item prúd v~zemi je prúdom v~slučke vodič--zem,
+	\item hustota prúdu v~zemi pre $x \to \infty$ musí byť rovná nule.
+\enditemize
+To spĺňajú rovnice
+$$
+\displaylines{
+\int\limits_h^{\infty} \faz J(x) {\rm\pi} x \,\d x = \faz I_{\rm g} = -
+\faz I_{\rm v},\cr
+\lim_{x \to \infty} \faz J(x) = 0.\cr
+}
+$$
+
+Rovnica \citeequation[bes] pre prúdovú hustotu $\faz J(x)$ je Besselova
+rovnica 2. rádu. Pri jej riešení využijeme vlastnosti Besselovych
+funkcií 3. druhu definovaných pomocou rady. Členy s~vyššími mocninami
+premennej je možné zanedbať a tak výpočet zjednodušiť. Presnosť, ktorú
+dosiahneme, je v~technických úlohách dostatočná. Dostávame tak vzťah
+$$
+\faz J(x) = \left(
+	{{\rm\pi}^2 f \over \rho} +
+	\j {4{\rm\pi} f \over \rho}
+	\ln{{0{,}178 \sqrt{\rho \times 10^7} \over x \sqrt{f\vphantom{|}} }}\right)
+\times 10^{-7} \faz I_{\rm g}
+$$
+ktorý platí pre frekvencie $f \le 5\,\rm kHz$.
+
+\subsection * Vlastná impedancia slučky vodič--zem
+
+Celý magnetický tok vyvolaný prúdom v~zemi je spriahnutý tiež s~prúdom
+v~elementárnej vrstve na povrchu polvalca s~polomerom $h$, kde v~prúdovom
+vlákne vyvolá úbytok napätia na jednotku dĺžky. Súčasne platia vzťahy:
+$$
+\eqalignno{
+\Delta \faz U(h) &= \rho \faz J(h) =
+\left({\rm\pi}^2 f + \j 4{\rm\pi} f \ln{0{,}178 \sqrt{\rho \times 10^7}
+\over h\sqrt{\vphantom{|}f}}\right) \times 10^{-7} \faz I_{\rm g},\cr
+\Delta \faz U(h) &= (R_{1\rm g} + \j 2{\rm\pi} L_{1\rm g}) \faz I_{\rm
+g}.&\equation[deltau]\cr
+}
+$$
+Ich porovnaním dostaneme hodnotu rezistancie zeme na jednotku dĺžky
+vyjadrenú vzťahom
+$$
+R_{1\rm g} = {\rm\pi}^2 f \times 10^{-4} \quad (\rm \Omega/km; Hz)
+$$
+ktorá je pre štandardnú frekvenciu $f = 50\,\rm Hz$ rovná $R_{1\rm g} =
+0{,}0495\,\rm \Omega/km$.
+
+Pri výpočte indukčnosti slučky uvážime vplyv magnetických tokov
+spriahnutých so slučkou.
+
+Magnetický tok vnútri vodiča nad zemou rešpektuje {\it vnútorná
+indukčnosť}
+$$
+L_{{\rm i}k} = 0{,}46 \log{1 \over \xi},
+$$
+a magnetický tok vo vzduchu, kde $x \in \langle r,h\rangle$ rešpektuje
+{\it vonkajšia indukčnosť}
+$$
+L_{{\rm e}k} = 0{,}46 \log {h \over r}.
+$$
+Magnetický tok v~zemi rešpektuje indukčnosť, ktorú
+dostaneme porovnaním rovníc \citeequation[deltau] a po úpravách je rovná
+$$
+L_{1\rm g} = 0{,}46 \log {0{,}178 \sqrt{\rho \times 10^7} \over h
+\sqrt{\vphantom{|} f}} = 0{,}46 \log{D_{\rm g} \over h} \quad (\rm mH/km)
+$$
+kde hodnota
+\zvyrazni
+$$
+D_{\rm g} = {0{,}178 \sqrt{\rho \times 10^{7}} \over
+\sqrt{\vphantom{|}f}} \quad (\rm m; \Omega \cdot m, Hz)
+$$
+sa nazýva hĺbka fiktívneho \uv{vodiča}, ktorý by viedol prúd
+v~zemi a nahradzuje prúd v~zemi. Orientačné hodnoty $\rho$ rozdelené podľa
+typu pôdy sú uvedené v~\citetable[rho-poda].
+
+\tablelabel[label=rho-poda][caption=Orientačné hodnoty rezistivity pôdy] 
+\centertable{
+\begintable
+\begintableformat
+\left " \center
+\endtableformat
+\-
+\br{\:|} \hfil Typ zeminy | $\rho$ ($\rm \Omega \cdot m$) \er{|}
+\-
+\br{\:|} rašelina | 30 \er{|}
+\br{\:|} ornica a íľ | 100 \er{|}
+\br{\:|} vlhký piesok | 200 až 300 \er{|}
+\br{\:|} suchý štrk a piesok | 1000 až 3000 \er{|}
+\br{\:|} kamenitá pôda | 3000 až 10000 \er{|}
+\-
+\endtable
+}
+Celková indukčnosť v~slučke vodič--zem na
+jednotku dĺžky bude
+$$
+L_{kk} = L_{{\rm i}k} + L_{{\rm e}k} + L_{1{\rm g}} = 0{,}46 \log{D_{\rm
+g} \over \xi r} \quad (\rm \mu H/m; \mu H/m, m, m)
+$$
+a reaktancia $X_{kk}$ bude rovná
+$$
+X_{kk} = \omega L_{kk} = \omega 0{,}46\log{D_{\rm g} \over \xi r}.
+$$
+Vlastná impedancia slučky vodič--zem na jednotku dĺžky bude teda 
+$$
+\faz Z_{kk} = R_{1k} + R_{1\rm g} + \j X_{kk} = R_{1k} + {\rm\pi}^2 f
+\times 10^{-4} + \j \omega \times 10^{-3} \cdot 0{,}46 \log {D_{\rm g} \over \xi r} \quad
+(\rm \Omega/km).
+\equation[zkk]
+$$
+
+\subsection * Vzájomná impedancia dvoch slučiek vodič--zem
+
+Dvojvodičové jednofázové vedenie je možné s~ohľadom na magnetické pole
+ním vytvárané považovať za rovnocenné dvom vedeniam vodič--zem ako je
+znázornené na \citefigure[dvojv-zem], pretože spätné prúdy v~zemi sa
+navzájom kompenzujú a nedávajú výsledne žiaden účinok. To však platí len
+ak je vzdialenosť medzi skutočnými vodičmi $k$, $m$ menšia alebo rovná
+ich výške nad zemou:
+$$
+d_{km} \le h.
+$$
+
+\beginfigure
+	\filename={img/impedancia-dve-smycky-zem.png}
+	\label={dvojv-zem}
+	\caption={Náhrada pomocou dvoch vedení vodič--zem}
+\endfigure
+
+Pretože $D_{\rm g} \gg d_{km}$, je možno vzdialenosti každého
+z~fiktívnych vodičov od každého skutočného považovať za približne
+rovnaké, teda
+$$
+d_{km'} = d_{k'm} = d_{kk'} = d_{mm'}.
+$$
+Potom je však výsledné elektromagnetické pôsobenie spätných prúdov vo
+vodičoch $k'$, $m'$ na skutočné vodiče $k$, $m$ takmer nulové. Zámena
+dvojvodičového jednofázového vedenia dvoma slučkami vodič--zem umožňuje
+určiť výslednú impedanciu jedného vodiča $\faz Z_{k{\rm v}}$ ako
+$$
+\faz Z_{k{\rm v}} = \faz Z_{kk} - \faz Z_{km}.
+$$
+
+Po dosadení za $\faz Z_{k{\rm v}}$ a $\faz Z_{kk}$ dostaneme pre
+vzájomnú impedanciu na jednotku dĺžky po úprave
+$$
+\faz Z_{km} = R_{1\rm g} + \j \omega \times 10^{-3} \cdot 0{,}46\log{ D_{\rm g}
+\over d_{km}} \quad (\rm \Omega/km).
+\equation[zkm]
+$$
+
+\subsection * Sústava $\bi n$ vodičov
+
+Predchádzajúce úvahy rozšírime na sústavu $n$ skutočných vodičov a zem.
+Vodiče sú rovnobežné navzájom aj so zemou. Príslušným matematickým modelom je
+sústava $n$ dvojíc vodičov, z~ktorých je jeden skutočný a druhý fiktívny,
+rešpektujúci spätný prúd zemou.
+
+Pri bežnej frekvencii siete $f = 50\,\rm Hz$ dostávame z~rovníc
+\citeequation[zkk] a \citeequation[zkm] pre {\it vlastnú impedanciu} slučky
+($k$~--~$k'$) vzťah
+$$
+\faz Z_{kk} =
+R_{1k} + R_{1\rm g} + \j 0{,}1445 \log{D_{\rm g} \over \xi r_k}
+\quad({\rm \Omega/km})
+$$
+a pre {\it vzájomnú impedanciu} medzi slučkami ($k$~--~$k'$) a ($m$~--~$m'$)
+vzťah
+$$
+\faz Z_{km} =
+\faz Z_{mk} = R_{1\rm g} + \j 0{,}1445 \log{D_{\rm g} \over d_{km}}
+\quad({\rm \Omega/km}).
+$$
+
+Výsledné pôsobenie prúdov všetkých slučiek na uvažovaný vodič $k$
+poskytuje rovnica
+$$
+\Delta \faz U_k = \sum\limits_{m=1}^n \faz Z_{km} \faz I_m,
+$$
+prípadne v~maticovom zápise
+$$
+[\Delta \faz U] =[\faz Z] \cdot [\faz I]
+$$
+kde $[\Delta \faz U]$ je matica úbytkov napätí na vodičoch,
+$[\faz Z]$ je symetrická matica impedancií (na diagonále
+vlastné impedancie $\faz Z_{kk}$ a ostatné prvky vzájomné impedancie  $\faz
+Z_{km} = \faz Z_{mk}$) a $[\faz I]$ matica prúdov v~skutočných vodičoch.
+
+V~praxi sa definične zavádza {\it prevádzková impedancia} $\faz Z_k$, ktorá je
+určená impedanciou jednej slučky, ktorá by mala rovnaký účinok ako
+výsledne všetky slučky na uvažovaný vodič.
+\zvyrazni
+$$
+\Delta \faz U_k =
+\sum\limits_{m=1}^n \faz Z_{km} \faz I_m = \faz Z_k \faz I_k
+\longrightarrow
+\faz Z_k = {\sum\limits_{m=1}^n \faz Z_{km} \faz I_m \over \faz I_k}
+$$
+
+\subsection * Trojfázové vonkajšie vedenie bez uzemňovacích lán
+
+\beginfigure
+	\filename={img/trojfazove-bez-lan.png}
+	\label={trojfazove}
+	\caption={Trojfázové vedenie bez uzemňovacích lán}
+\endfigure
+
+Pre úbytky napätí vo fázach platí
+$$
+\hmatrix{\Delta \faz U_{\rm a} \cr
+\Delta \faz U_{\rm b}\cr
+\Delta \faz U_{\rm c}\cr} = 
+\hmatrix{
+\faz Z_{\rm aa} & \faz Z_{\rm ab} & \faz Z_{\rm ac} \cr
+\faz Z_{\rm ba} & \faz Z_{\rm bb} & \faz Z_{\rm bc} \cr
+\faz Z_{\rm ca} & \faz Z_{\rm cb} & \faz Z_{\rm cc} \cr
+}
+\hmatrix{
+\faz I_{\rm a} \cr \faz I_{\rm b} \cr \faz I_{\rm c}
+}.
+$$
+
+V~prípade symetrických prúdov a nesymetrického vedenia budú prevádzkové
+impedancie fáz rôzne a komplexné. To spôsobí nesymetriu napätí a
+predávanie činného výkonu medzi fázami elektromagnetickou väzbou bez
+ďalšieho zaťažovania zdrojov.
+
+Ak bude vedenie súmerne usporiadané, teda ak $d_{ab} = d_{ac} = d_{bc} =
+d$, dostávame vzťahy
+$$
+\displaylines{
+\faz Z_{\rm ab} =
+\faz Z_{\rm bc} =
+\faz Z_{\rm ac} =
+\faz Z' =
+R_{1\rm g} + \j 0{,}1445 \log {D_{\rm g} \over d}\cr
+\faz Z_{\rm aa} =
+\faz Z_{\rm bb} =
+\faz Z_{\rm cc} =
+\faz Z =
+R_1 + R_{1\rm g} + \j 0{,}1445 \log{D_{\rm g} \over \xi r}\cr
+}
+$$
+
+Pre prevádzkové impedancie dostávame rovnaký vzťah a
+\zvyrazni
+$$
+\faz Z_1 =
+R_1 + \j 0{,}1445 \log {d \over \xi r} = R_1 + \j X_1 = R_1 + \j \omega L_1
+\quad(\rm \Omega/km)
+$$
+je prevádzková impedancia úplne súmerného trojfázového vedenia. V~tejto
+rovnici sa nevyskytuje rezistancia zeme, pretože zemou výsledne
+neprechádza žiaden prúd.
+
+\subsection * Transpozícia trojfázových vedení
+
+Transpozícia, kríženie vodičov, je spôsob, ako môžme dosiahnuť symetriu
+vedenia. Po dĺžke úplného cyklu transpozície sa dostane každý vodič do
+svojej pôvodnej polohy. Transpozíciou strácajú jednotlivé fázy svoje
+výsadné postavenia.
+
+\beginfigure
+	\filename={img/transpozicia.png}
+	\label={transpozicia}
+	\caption={Transpozícia trojfázového vedenia}
+\endfigure
+
+Pre úbytky napätí vo fázach na 1\,km dĺžky platí
+$$
+\hmatrix{
+\Delta \faz U_{\rm a} \cr
+\Delta \faz U_{\rm b} \cr
+\Delta \faz U_{\rm c} \cr
+} = 
+{1\over 3}
+\left\{
+\hmatrix{
+\faz Z_{11} & \faz Z_{12} & \faz Z_{13} \cr
+\faz Z_{12} & \faz Z_{22} & \faz Z_{23} \cr
+\faz Z_{13} & \faz Z_{23} & \faz Z_{33} \cr
+} + 
+\hmatrix{
+\faz Z_{33} & \faz Z_{13} & \faz Z_{23} \cr
+\faz Z_{13} & \faz Z_{11} & \faz Z_{12} \cr
+\faz Z_{23} & \faz Z_{12} & \faz Z_{22} \cr
+}
++
+\hmatrix{
+\faz Z_{22} & \faz Z_{23} & \faz Z_{12} \cr
+\faz Z_{23} & \faz Z_{33} & \faz Z_{13} \cr
+\faz Z_{12} & \faz Z_{13} & \faz Z_{11} \cr
+}
+\right\}
+\hmatrix{
+\faz I_{\rm a} \cr
+\faz I_{\rm b} \cr
+\faz I_{\rm c} \cr
+}
+$$
+\zvyrazni
+$$
+\hmatrix{
+\Delta \faz U_{\rm a} \cr
+\Delta \faz U_{\rm b} \cr
+\Delta \faz U_{\rm c} \cr
+} = 
+\hmatrix{
+\faz Z\hfill & \faz Z' & \faz Z' \cr
+\faz Z' & \faz Z\hfill & \faz Z' \cr
+\faz Z' & \faz Z' & \faz Z\hfill \cr
+}
+\hmatrix{
+\faz I_{\rm a} \cr
+\faz I_{\rm b} \cr
+\faz I_{\rm c} \cr
+}
+$$
+kde pre impedancie $\faz Z$ a $\faz Z'$ platí
+\zvyrazni
+$$
+\eqalign{
+\faz Z &= {1\over 3} (\faz Z_{11} + \faz Z_{22} + \faz Z_{33}) =
+R_1 + R_{1\rm g} + \j 0{,}1445 \log{D_{\rm g} \over \xi r}\cr
+\faz Z' &= {1\over 3} (\faz Z_{12} + \faz Z_{13} + \faz Z_{23}) =
+R_{1\rm g} + \j 0{,}1445 \log {D_{\rm g} \over d}.\cr
+}
+$$
+Skutočné vzdialenosti medzi vodičmi nahrádzame vzťahom $d = \root 3 \of
+{d_{12} d_{13} d_{23}}$.
+
+Transpozícia sa robí iba na tých vedeniach, kde je to naozaj treba,
+pretože transpozičné stožiare sú nákladnejšie a poruchovejšie.
+
+\subsection * Dvojité vedenie s~dvoma uzemňovacími lanami
+
+Tvoria ich dva súbory trojfázových vedení na spoločných stožiaroch. Na
+\citefigure[trojfazove-s-lanami] je znázornené jedno z~možných
+priestorových usporiadaní vodičov.
+
+\beginfigure
+	\filename={img/trojfazove-s-lanami.png}
+	\label={trojfazove-s-lanami}
+	\caption={Dvojité vedenie s~uzemňovacími lanami}
+\endfigure
+
+Uzemňovacie laná, umiestnené vo vrcholoch stožiarov, majú niekoľko úloh:
+\beginitemize
+	\item Znižujú počet priamych atmosférických výbojov do fázových vodičov
+				vedenia.
+	\item Znižujú indukované elektrostatické prepätia.
+	\item Znižujú krokové a dotykové napätia pri nesymetrických zemných
+				skratoch.
+	\item Znižujú vplyv na vedenia a zariadenia v~súbehu, a to tým lepšie,
+				čím väčšia je vodivosť lana (obvykle sú z~Fe).
+\enditemize
+
+Dvojité vedenie môžme popísať rovnicami
+$$
+\displaylines{
+\hmatrix{
+\Delta \faz U_{\rm a} \cr
+\Delta \faz U_{\rm b} \cr
+\Delta \faz U_{\rm c} \cr
+\Delta \faz U_{\rm A} \cr
+\Delta \faz U_{\rm B} \cr
+\Delta \faz U_{\rm C} \cr
+\Delta \faz U_{\rm z_1} \cr
+\Delta \faz U_{\rm z_2} \cr
+} = 
+\hmatrix{
+\faz Z_{\rm aa} & \faz Z_{\rm ab} & \faz Z_{\rm ac} & \faz Z_{\rm aA} & \faz Z_{\rm aB} & \faz Z_{\rm aC} & \faz Z_{\rm az_1} & \faz Z_{\rm az_2} \cr 
+\faz Z_{\rm ba} & \faz Z_{\rm bb} & \faz Z_{\rm bc} & \faz Z_{\rm bA} & \faz Z_{\rm bB} & \faz Z_{\rm bC} & \faz Z_{\rm bz_1} & \faz Z_{\rm bz_2} \cr 
+\faz Z_{\rm ca} & \faz Z_{\rm cb} & \faz Z_{\rm cc} & \faz Z_{\rm cA} & \faz Z_{\rm cB} & \faz Z_{\rm cC} & \faz Z_{\rm cz_1} & \faz Z_{\rm cz_2} \cr 
+\faz Z_{\rm Aa} & \faz Z_{\rm Ab} & \faz Z_{\rm Ac} & \faz Z_{\rm AA} & \faz Z_{\rm AB} & \faz Z_{\rm AC} & \faz Z_{\rm Az_1} & \faz Z_{\rm Az_2} \cr 
+\faz Z_{\rm Ba} & \faz Z_{\rm Bb} & \faz Z_{\rm Bc} & \faz Z_{\rm BA} & \faz Z_{\rm BB} & \faz Z_{\rm BC} & \faz Z_{\rm Bz_1} & \faz Z_{\rm Bz_2} \cr 
+\faz Z_{\rm Ca} & \faz Z_{\rm Cb} & \faz Z_{\rm Cc} & \faz Z_{\rm CA} & \faz Z_{\rm CB} & \faz Z_{\rm CC} & \faz Z_{\rm Cz_1} & \faz Z_{\rm cz_2} \cr 
+\faz Z_{\rm z_1a} & \faz Z_{\rm z_1b} & \faz Z_{\rm z_1c} & \faz Z_{\rm z_1A} & \faz Z_{\rm z_1B} & \faz Z_{\rm z_1C} & \faz Z_{\rm z_1z_1} & \faz Z_{\rm z_1z_2} \cr 
+\faz Z_{\rm z_2a} & \faz Z_{\rm z_2b} & \faz Z_{\rm z_2c} & \faz Z_{\rm z_2A} & \faz Z_{\rm z_2B} & \faz Z_{\rm z_2C} & \faz Z_{\rm z_2z_1} & \faz Z_{\rm z_2z_2} \cr 
+}
+\hmatrix{
+\faz I_{\rm a} \cr
+\faz I_{\rm b} \cr
+\faz I_{\rm c} \cr
+\faz I_{\rm A} \cr
+\faz I_{\rm B} \cr
+\faz I_{\rm C} \cr
+\faz I_{\rm z_1} \cr
+\faz I_{\rm z_2} \cr
+}\cr
+\noalign{\smallskip}
+%
+\hmatrix{
+[\Delta \faz U_{\rm v}]\cr
+[\Delta \faz U_{\rm V}]\cr
+[\Delta \faz U_{\rm z}]\cr
+}
+=
+\hmatrix{
+[\faz Z_{\rm vv}] & [\faz Z_{\rm vV}] & [\faz Z_{\rm vz}] \cr
+[\faz Z_{\rm Vv}] & [\faz Z_{\rm VV}] & [\faz Z_{\rm Vz}] \cr
+[\faz Z_{\rm zv}] & [\faz Z_{\rm zV}] & [\faz Z_{\rm zz}] \cr
+}
+\hmatrix{
+[\faz I_{\rm v}] \cr
+[\faz I_{\rm V}] \cr
+[\faz I_{\rm z}] \cr
+}\cr
+}
+$$
+
+V~prípade uzemňovacích lán sa obvykle prijíma predpoklad, že sú
+uzemnené spojito, teda v~každom mieste pozdĺž vedenia, nie len na
+stožiaroch. Potom platí 
+$$
+\Delta \faz U_{\rm z_1} = 0 = \Delta \faz U_{\rm z_2} \longrightarrow
+[\Delta \faz U_{\rm z}] = [0]
+$$
+a môžme písať rovnice
+$$
+\eqalign{
+[\Delta \faz U_{\rm v}]       &= [\faz Z_{\rm vv}] [\faz I_{\rm v}] + [\faz Z_{\rm vV}] [\faz I_{\rm V}] + [\faz Z_{\rm vz}] [\faz I_{\rm z}]\cr
+[\Delta \faz U_{\rm V}]       &= [\faz Z_{\rm Vv}] [\faz I_{\rm v}] + [\faz Z_{\rm VV}] [\faz I_{\rm V}] + [\faz Z_{\rm Vz}] [\faz I_{\rm z}]\cr
+[0] = [\Delta \faz U_{\rm z}] &= [\faz Z_{\rm zv}] [\faz I_{\rm v}] + [\faz Z_{\rm zV}] [\faz I_{\rm V}] + [\faz Z_{\rm zz}] [\faz I_{\rm z}]\cr
+}
+$$
+pomocou ktorých môžme určiť prúdy v~uzemňovacích lanách ako
+$$
+[\faz I_{\rm z}] = -[\faz Z_{\rm zz}]^{-1} \cdot
+( [\faz Z_{\rm zv}] [\faz I_{\rm v}] + [\faz Z_{\rm zV}][\faz I_{\rm V}]). 
+$$
+
+Môžme vytvoriť modifikované vedenie -- pomyselné vedenie bez
+uzemňovacích lán, ktoré by sa chovalo rovnako ako skutočné vedenie
+s~uzemňovacími lanami. Tento krok je potrebný pri prevode impedancií do
+súmerných zložiek. Po dosadení za $[\faz I_{\rm z}]$ dostávame pre
+modifikované vedenie vzťahy
+$$
+\displaylines{
+[\Delta \faz U_{\rm v}] =
+\left([\faz Z_{\rm vv}] - [\faz Z_{\rm vz}] [\faz Z_{\rm zz}]^{-1} [\faz Z_{\rm zv}]\right) [\faz I_{\rm v}]
++ \left([\faz Z_{\rm vV}] - [\faz Z_{\rm vz}] [\faz Z_{\rm zz}]^{-1} [\faz Z_{\rm zV}]\right) [\faz I_{\rm V}]\cr
+[\Delta \faz U_{\rm V}] =
+\left([\faz Z_{\rm Vv}] - [\faz Z_{\rm Vz}] [\faz Z_{\rm zz}]^{-1} [\faz Z_{\rm zv}]\right) [\faz I_{\rm v}]
++ \left([\faz Z_{\rm VV}] - [\faz Z_{\rm Vz}] [\faz Z_{\rm zz}]^{-1} [\faz Z_{\rm zV}]\right) [\faz I_{\rm V}]\cr
+}
+$$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection Kapacity
+
+Pri výpočte kapacít vychádzame zo sústavy rovníc $[\faz U] = [\delta]
+[\faz Q]$ a $[\faz Q] = [k] [\faz U]$, kde $[\faz U]$ je matica
+potenciálov vodičov, $[\faz Q]$ je matica lineárnych hustôt nábojov,
+$[\delta]$ je matica potenciálových súčiniteľov a $[k]$ je matica
+kapacitných súčiniteľov. Vodič a zem, prípadne dva
+vodiče tvoria elektródy kondenzátorov. Dielektrikom je vzduch
+s~relatívnou permitivitou $\epsilon_{\rm r} = 1$.
+
+Obe sústavy dovoľujú vypočítať čiastkové {\it kapacity k~zemi} a čiastkové
+{\it kapacity vzájomné}.
+
+\subsection * Potenciál v~poli navzájom rovnobežných vodičov
+
+Dva priamkové, rovnobežné vodiče dĺžky $l$ vo vzájomnej vzdialenosti
+$d_{kk} \ll l$, s~lineárnou hustotou náboja $\faz Q_k$ a $\faz Q_{k'} =
+- \faz Q_k$ vyvolajú pri zanedbaní koncov vedenia v~ľubovoľnom bode $P$
+potenciál
+$$
+\faz U_P = \faz U_{Pk} + \faz U_{Pk'} = {\faz Q_k \over 2{\rm\pi}
+\epsilon} \ln{d_{Pk'} \over d_{Pk}}
+$$
+kde $\epsilon = \epsilon_0 \epsilon_r$ a $\epsilon_0 = 8{,}854\times
+10^{-12}\,\rm F\cdot m^{-1}$.
+
+\beginfigure
+	\filename={img/kapacita-bod-P.png}
+	\label={kapacita-bodP}
+	\caption={Pre určenie potenciálu v~bode $P$}
+\endfigure
+
+Výpočet rozšírime na $n$ dvojíc priamkových vodičov navzájom
+rovnobežných. Ku každému vodiču $k$ s~lineárnou hustotou $\faz Q_k$
+priradíme zodpovedajúci vodič s~lineárnou hustotou $\faz Q_{k'} = \faz
+Q_k$, kde $k, k' \in {\rm N}$. Podľa vety o~supoerpozícii bude pre
+potenciál v~bode $P$ platiť vzťah
+$$
+\faz U_P = \sum_{{k=1 \atop k'=1}}^n \left( \faz U_{Pk} + \faz
+U_{Pk'}\right) = \sum_{{k=1 \atop k'=1}}^n {\faz Q_k \over 2 {\rm\pi}
+\epsilon} \ln {d_{Pk'} \over d_{Pk}}
+$$
+pričom $d_{kP} = d_{Pk}$ a $d_{k'P} = d_{Pk'}$. Príspevky na potenciál
+v~bode $P$ od vodiča $k$ respektíve $k'$ sú $\faz U_{Pk}$ respektíve $\faz
+U_{Pk'}$.
+
+Skutočné vodiče nie sú priamkové zdroje s~nábojmi v~osách, ale majú
+určitý polomer $r_k$. Predpokladáme, že $r_k \ll d_{km}$.
+Ekvipotenciálne plochy sú valcové plochy. Povrch vodiča môžme považovať
+za jednu z~ekvipotenciálnych plôch a môžme mu prisúdiť rovnaký potenciál
+ako má osa vodiča. Vzdialenosť vodiča od seba samého položíme rovnú jeho
+polomeru, teda $d_{kk} = r_k$.
+
+Ak položíme bod $P$ na povrch $m$-tého vodiča, bude jeho potenciál rovný
+potenciálu $m$-tého vodiča
+$$
+\faz U_m = \sum_{{k=1\atop k'=1}}^n {\faz Q_k \over 2{\rm\pi} \epsilon}
+\ln {d_{mk'} \over d_{mk}}.
+\equation[Um]
+$$
+
+\subsection * Rovnice pre výpočet kapacít
+
+V~prípade vonkajších vedení musíme okrem vodičov fází a uzemňovacích lán
+rešpektovať aj zem. Zanedbáme nerovnosti povrchu zeme a budeme ju
+považovať za ekvipotenciálnu plochu. Taktiež zanedbáme priehyb vodiča a
+umiestnime ho do fiktívnej výšky zhodnej s~výškou ťažiska reťazovky.
+Ak $H$ je výška závesného bodu, $p$ priehyb, bude $h = H - 0{,}7p$.
+
+Použijeme metódu zrkadlenia a systém vodič--zem nahradíme skutočným
+vodičom $k$ a fiktívnym vodičom $k'$ uloženým zrkadlovo pod zemou a
+s~opačným nábojom. Ktorýkoľvek bod $Z$, ležiaci na povrchu zeme, bude
+mať od oboch vodičov rovnakú vzdialenosť, $d_{Zk} = d_{Zk'}$. Ak túto
+podmienku dosadíme do rovnice \citeequation[Um] vidíme, že povrch zeme sa
+stáva ekvipotenciálnou plochou s~nulovým potenciálom.
+
+Rovnicu \citeequation[Um] môžme písať v~tvare
+$$
+\faz U_m = \sum_{k=1}^n \delta_{km} \faz Q_k.
+\equation[Umdelty]
+$$
+
+Súčinitele $\delta_{mm}$ a $\delta_{mk}$ vyjadríme ako
+$$
+\eqalign{
+\delta_{mm} &= {1 \over 2{\rm\pi}\epsilon} \ln {2 h_m \over r_m}\cr
+\delta_{mk} &= {1 \over 2{\rm\pi}\epsilon} \ln {\sqrt{4 h_m h_k +
+d_{mk}^2} \over d_{mk}}\hbox{\quad pre } m \ne k.\cr
+}
+$$
+
+Z~geometrického usporiadania môžme vyjadriť vzťahy medzi potenciálom a
+potenciálovými súčiniteľmi. Ak uvažujeme, že $c_{m0}$ je čiastková
+kapacita $m$-tého vodiča k~zemi a $c_{km}$ je čiastková vzájomná
+kapacita medzi $m$-tým a $k$-tým vodičom, potom pre náboj $m$-tého
+vodiča v~systéme s~$n$ vodičmi môžme písať
+$$
+\faz Q_m =
+\faz Q_{m0} + \sum_{{k=1 \atop k\ne m}}^n \faz Q_{km} =
+c_{m0} \faz U_m + \sum_{{k=1 \atop k\ne m}}^n c_{km} \left(\faz U_m -
+\faz U_k\right)
+$$
+prípadne
+$$
+\faz Q_m =
+\left(c_{m0} + \sum_{{k=1 \atop k\ne m}}^n c_{km}\right) \faz U_m +
+\sum_{{k=1 \atop k\ne m}}^n \left(-c_{km}\right) \faz U_k.
+$$
+
+Aby sme tieto rovnice formálne zjednodušili, definujeme kapacitné
+súčinitele
+$$
+\eqalign{
+k_{mm} &= c_{m0} + \sum_{{k=1 \atop k \ne m}}^n  c_{km}\cr
+k_{mk} &= -c_{km} = k_{km}\cr
+}
+$$
+a môžme písať vzťah
+$$
+\faz Q_m = \sum_{k=1}^n k_{km} \faz U_k.
+\equation[Qm]
+$$
+
+Rovnice \citeequation[Umdelty] a \citeequation[Qm] môžme zapísať
+v~maticovom tvare ako
+\zvyrazni
+$$
+[\faz U] = [\delta] [\faz Q] \qquad [\faz Q] = [k] [\faz U]
+\equation[rovnice-kapacity-maticovo]
+$$
+kde $[\faz U]$ a $[\faz Q]$ sú stĺpcové matice a $[\delta]$ a $[k]$ sú
+štvorcové symetrické a regulárne matice. Z~nich je možné dosadením
+dostať rovnosť
+$$
+[k] = [\delta]^{-1}.
+$$
+
+Čiastkové kapacity určíme pri uvážení rovnosti $c_{km} = - k_{km}$ ako
+$$
+c_{m0} = k_{mm} + \sum_{{k=1 \atop k\ne m}}^n k_{km}.
+$$
+
+Pre praktické výpočty používame vzťahy pre potenciálové súčinitele
+upravené tak, že nahradíme prirodzený logaritmus za dekadický a jednotky
+súčiniteľov požadujeme v~jednotkách $(\rm km / \mu F)$:
+\zvyrazni
+$$
+\eqalign{
+\delta_{mm} &= {1 \over 0{,}0242} \log {2h_m \over r_m}\cr
+\delta_{km} &= {1 \over 0{,}0242} \log {\sqrt{4h_m h_k + d_{km}^2 }\over d_{km}}\cr
+}
+$$
+
+Definujeme prevádzkovú kapacitu jednej fázy $m$ ako
+$$
+\faz C_m =
+{c_{m0} \faz U_m + \sum_{m=1}^n c_{km} (\faz U_m - \faz U_k) \over \faz U_m}=
+{\faz Q_m \over \faz U_m}.
+$$
+Obecne je táto kapacita komplexným číslom. 
+
+\subsection Kapacity jednoduchého trojfázového vedenia
+
+Predpokladáme vedenie bez uzemňovacích lán podľa obrázku
+\citefigure[trojfazove] a s~použitím vzťahov $\delta_{km} = \delta_{mk}$
+a $k_{km} = k_{mk}$ môžme písať rovnice
+\citeequation[rovnice-kapacity-maticovo] v~tvare
+$$
+\displaylines{
+\hmatrix{
+	\faz U_a \cr
+	\faz U_b \cr
+	\faz U_c \cr
+}
+=
+\hmatrix{
+	\delta_{aa} & \delta_{ab} & \delta_{ac} \cr
+	\delta_{ab} & \delta_{bb} & \delta_{bc} \cr
+	\delta_{ac} & \delta_{bc} & \delta_{cc} \cr
+}
+\hmatrix{
+	\faz Q_a \cr
+	\faz Q_b \cr
+	\faz Q_c \cr
+},\cr
+%
+\hmatrix{
+	\faz Q_a \cr
+	\faz Q_b \cr
+	\faz Q_c \cr
+}
+=
+\hmatrix{
+	k_{aa} & k_{ab} & k_{ac} \cr
+	k_{ab} & k_{bb} & k_{bc} \cr
+	k_{ac} & k_{bc} & k_{cc} \cr
+}
+\hmatrix{
+	\faz U_a \cr
+	\faz U_b \cr
+	\faz U_c \cr
+}.
+}
+$$
+
+Inverziou matice potenciálových súčiniteľov určíme kapacitné súčinitele
+a následne tiež čiastkové kapacity:
+$$
+[\delta]^{-1} =
+\hmatrix{
+	k_{aa} & k_{ab} & k_{ac} \cr
+	k_{ab} & k_{bb} & k_{bc} \cr
+	k_{ac} & k_{bc} & k_{cc} \cr
+}.
+$$
+
+Ak vedenie napríklad transpozíciou {\it symetrizujeme}, vzťahy sa zjednodušia
+a platí
+$$
+\delta =
+{1 \over 3} \left\{
+\hmatrix{
+	\delta_{11} & \delta_{12} & \delta_{13} \cr
+	\delta_{12} & \delta_{22} & \delta_{23} \cr
+	\delta_{13} & \delta_{23} & \delta_{33} \cr
+} +
+\hmatrix{
+	\delta_{33} & \delta_{13} & \delta_{23} \cr
+	\delta_{13} & \delta_{11} & \delta_{12} \cr
+	\delta_{23} & \delta_{12} & \delta_{22} \cr
+} +
+\hmatrix{
+	\delta_{22} & \delta_{23} & \delta_{12} \cr
+	\delta_{23} & \delta_{33} & \delta_{13} \cr
+	\delta_{12} & \delta_{13} & \delta_{11} \cr
+} 
+\right\}
+=
+\hmatrix{
+\delta & \delta' & \delta' \cr
+\delta' & \delta & \delta' \cr
+\delta' & \delta' & \delta \cr
+}
+$$
+kde
+\zvyrazni
+$$
+\eqalign{
+\delta &= {1 \over 3} (\delta_{11} + \delta_{22} + \delta_{33}) =
+{1 \over 0{,}0242} \log {2h \over r}\cr
+\delta' &= {1 \over 3} (\delta_{12} + \delta_{13} + \delta_{23}) =
+{1 \over 0{,}0242} \log{\sqrt{4h^2 + d^2} \over d}\cr
+}
+$$
+kde $h = \root 3 \of {h_1 h_2 h_3}$ je stredná výška a $d = \root 3 \of
+{d_{12} d_{23} d_{13}}$ je stredná vzájomná vzdialenosť vodičov.
+
+Z~inverznej matice potenciálových súčiniteľov získame kapacitné
+súčinitele:
+$$
+\hmatrix{
+	\delta & \delta' & \delta' \cr
+	\delta' & \delta & \delta' \cr
+	\delta' & \delta' & \delta \cr
+}^{-1} =
+\matrix{
+	k & k' & k' \cr
+	k' & k & k' \cr
+	k' & k' & k \cr
+}
+$$
+kde pre $k$ a $k'$ platí
+$$
+\displaylines{
+k = {\delta + \delta' \over (\delta - \delta')(\delta + 2\delta')}\cr
+k' = {-\delta' \over (\delta - \delta')(\delta + 2\delta')}.\cr
+}
+$$
+
+Vzájomná kapacita je potom rovnaká medzi všetkými fázami a je daná
+výrazom
+\zvyrazni
+$$
+c' = -k' = {\delta' \over (\delta - \delta')(\delta + 2\delta')}.
+$$
+
+Kapacita k~zemi je tiež rovnaká pre všetky fázy a je daná výrazom
+\zvyrazni
+$$
+c_0 = k + 2k' = {1 \over \delta + 2\delta'}.
+$$
+
+Prevádzková kapacita $C$ jednej fázy transponovaného vedenia, ktoré má
+symetrické napätia fázovo posunuté o~$120\degree$, je určená vzťahom
+\zvyrazni
+$$
+C = c_0 + 3c' = {1 \over \delta - \delta'}.
+$$
+Ako dôsledok transpozície je prevádzková kapacita ktorejkoľvek fázy
+rovnaké reálne číslo. Po dosadení za potenciálové súčinitele $\delta$ a
+$\delta'$ dostaneme vzťah
+$$
+C = {0{,}0242 \over \log {2 h d \over r\sqrt{4h^2 + d^2}}} \quad ({\rm
+\mu F/km})
+$$
+a špeciálne pri splnení podmienky $4h^2 \gg d^2$, kedy platí $\sqrt{4h^2
++ d^2} \doteq 2h$, dostávame pre prevádzkovú kapacitu približný výraz
+\zvyrazni
+$$
+C \doteq {0{,}0242 \over \log{d\over r}} \quad ({\rm \mu F/km}).
+$$
+
+\subsection * Kapacity dvojitého trojfázového vedenia s~dvoma zemniacimi
+lanami
+
+Uvážme usporiadanie podľa \citefigure[trojfazove-s-lanami] a
+predpokladajme, že obe vedenia sú príslušné jednej elektrizačnej
+sústave. Rovnice \citeequation[rovnice-kapacity-maticovo] dostávajú
+potom tvar
+$$
+\displaylines{
+\hmatrix{
+\faz U_{\rm a} \cr
+\faz U_{\rm b} \cr
+\faz U_{\rm c} \cr
+\faz U_{\rm A} \cr
+\faz U_{\rm B} \cr
+\faz U_{\rm C} \cr
+\faz U_{\rm z_1} \cr
+\faz U_{\rm z_2} \cr
+} = 
+\hmatrix{
+\delta_{\rm aa} & \delta_{\rm ab} & \delta_{\rm ac} & \delta_{\rm aA} & \delta_{\rm aB} & \delta_{\rm aC} & \delta_{\rm az_1} & \delta_{\rm az_2} \cr 
+\delta_{\rm ab} & \delta_{\rm bb} & \delta_{\rm bc} & \delta_{\rm bA} & \delta_{\rm bB} & \delta_{\rm bC} & \delta_{\rm bz_1} & \delta_{\rm bz_2} \cr 
+\delta_{\rm ac} & \delta_{\rm bc} & \delta_{\rm cc} & \delta_{\rm cA} & \delta_{\rm cB} & \delta_{\rm cC} & \delta_{\rm cz_1} & \delta_{\rm cz_2} \cr 
+\delta_{\rm aA} & \delta_{\rm bA} & \delta_{\rm cA} & \delta_{\rm AA} & \delta_{\rm AB} & \delta_{\rm AC} & \delta_{\rm Az_1} & \delta_{\rm Az_2} \cr 
+\delta_{\rm aB} & \delta_{\rm bB} & \delta_{\rm cB} & \delta_{\rm AB} & \delta_{\rm BB} & \delta_{\rm BC} & \delta_{\rm Bz_1} & \delta_{\rm Bz_2} \cr 
+\delta_{\rm aC} & \delta_{\rm bC} & \delta_{\rm cC} & \delta_{\rm AC} & \delta_{\rm BC} & \delta_{\rm CC} & \delta_{\rm Cz_1} & \delta_{\rm cz_2} \cr 
+\delta_{\rm az_1} & \delta_{\rm bz_1} & \delta_{\rm cz_1} & \delta_{\rm Az_1} & \delta_{\rm Bz_1} & \delta_{\rm Cz_1} & \delta_{\rm z_1z_1} & \delta_{\rm z_1z_2} \cr 
+\delta_{\rm az_2} & \delta_{\rm bz_2} & \delta_{\rm cz_2} & \delta_{\rm Az_2} & \delta_{\rm Bz_2} & \delta_{\rm Cz_2} & \delta_{\rm z_1z_2} & \delta_{\rm z_2z_2} \cr 
+}
+\hmatrix{
+\faz Q_{\rm a} \cr
+\faz Q_{\rm b} \cr
+\faz Q_{\rm c} \cr
+\faz Q_{\rm A} \cr
+\faz Q_{\rm B} \cr
+\faz Q_{\rm C} \cr
+\faz Q_{\rm z_1} \cr
+\faz Q_{\rm z_2} \cr
+},\cr
+\noalign{\smallskip}
+\hmatrix{
+[\faz U_{\rm v}]\cr
+[\faz U_{\rm V}]\cr
+[\faz U_{\rm z}]\cr
+}
+=
+\hmatrix{
+	[\delta_{\rm vv}] & [\delta_{\rm vV}] & [\delta_{\rm vz}] \cr
+	[\delta_{\rm Vv}] & [\delta_{\rm VV}] & [\delta_{\rm Vz}] \cr
+	[\delta_{\rm zv}] & [\delta_{\rm zV}] & [\delta_{\rm zz}] \cr
+}
+\hmatrix{
+	[\faz Q_{\rm v}] \cr
+	[\faz Q_{\rm V}] \cr
+	[\faz Q_{\rm z}] \cr
+}.\cr
+}
+$$
+
+Ak predpokladáme, že zemniace laná sú dobre uzemnené a majú potenciál
+zeme, ktorý je nulový -- teda $[\faz U_z] = 0$, môžme určiť
+$$
+[\faz Q_z] = - [\delta_{zz}]^{-1} \left([\delta_{zv}] [\faz Q_v] +
+[\delta_{zV}] [\faz Q_V]\right).
+$$
+
+Po úprave dostaneme vzťahy pre fiktívne dvojité vedenie bez zemniacich
+lán
+$$
+\eqalign{
+[\faz U_v] &=
+\left([\delta_{vv}] -
+[\delta_{vz}][\delta_{zz}]^{-1}[\delta_{zv}]\right)[\faz Q_v] +
+\left([\delta_{vV}]-[\delta_{vz}][\delta_{zz}]^{-1}[\delta_{zV}]\right)[\faz Q_V],\cr
+[\faz U_V] &=
+\left([\delta_{Vv}] -
+[\delta_{Vz}][\delta_{zz}]^{-1}[\delta_{zv}]\right)[\faz Q_v] +
+\left([\delta_{VV}]-[\delta_{Vz}][\delta_{zz}]^{-1}[\delta_{zV}]\right)[\faz Q_V].\cr
+}
+$$
+Tieto sústavy rovníc umožňujú transformáciu do zložkových sústav.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section Elektrické parametre káblových vedení
+
+Káblové vedenia sa používajú najmä v~zastavaných oblastiach, kde je
+nemožné stavať stožiare. Pre nižšie napätia môžu byť trojfázové, ale pre
+napätia nad 110\,kV najmä jednofázové. Možnosti konštrukčného
+vyhotovenia sú znázornené na \citefigure[kable-konstrukcia].
+
+\beginfigure
+	\filename={img/kable-konstrukcia.png}
+	\label={kable-konstrukcia}
+	\caption={Možné konštrukčné vyhotovenia káblových vedení; a)
+	jednožilové s~vlastným plášťom, b) trojžilové s~plášťom na každej
+	žile, c) trojžilové s~kovovým papierom na každej žile, d) náhradná
+	schéma pre b), c); 1 -- vodič,
+	2 -- izolácia vodiča, 3 -- vodivý plášť, 4 -- pokovený papier, 5 --
+	ocelový pancier}
+\endfigure
+
+\subsection Pozdĺžna impedancia
+
+Tvorí ju rezistancia $R$ a indukčná reaktancia $X_L = \omega L$, podobne
+ako v~prípade vonkajších vedení. V~prípade rezistancie sa uplatňujú
+vírivé prúdy a hysterézia a taktiež jav blízkosti.
+
+Pri výpočte indukčnej reaktancie použijeme rovnaké vzťahy ako v~prípade
+vonkajších vedení, ale pretože podmienka $d \gg r$ nie je splnená, sú
+vypočítané hodnoty menej presné. Pre technické účely sú však použiteľné.
+
+\subsection Priečna admitancia
+
+Tvorí ju konduktancia $G$ a kapacitná susceptancia $B = \omega C$. Rôzne
+konštrukčné usporiadania a izolačné materiály vodičov spôsobujú značne
+rozdielne hodnoty v~jednotlivých prípadoch.
+
+\subsection * Konduktancia
+
+Súvisí s~dielektrickými stratami v~izolácii káblu. 
+
+\beginfigure
+	\filename={img/kabel-konduktancia.png}
+	\label={kabel-konduktancia.png}
+	\caption={Fázorový diagram pre určenie konduktancie káblového vedenia}
+\endfigure
+
+Dielektrické straty na 1\,km dĺžky a {\it jednu fázu} sú
+$$
+\Delta P_{\rm d1} = U_{\rm f} I_{\rm qč} = U_{\rm f} I_{\rm qj}
+\tan\delta = Q_{\rm c1} \tan\delta = \omega C \cdot U_{\rm f}^2
+\tan\delta \quad ({\rm W/km})
+$$
+kde $U_{\rm f}$ vo (V) je fázové napätie, $Q_{\rm c}$ vo (VAr/km) je
+nabíjací výkon, $C$ vo (F/km) je prevádzková kapacita a $\tan\delta$ je
+tangenta stratového uhlu, značne závislá na druhu dielektrika a teplote.
+
+Konduktancia na 1\,km dĺžky na jednu fázu je rovná
+$$
+G_1 = {\Delta P_{\rm d1} \over U_{\rm f}^2} \quad ({\rm S/km; W/km, V})
+$$
+a v~prípade dobre udržovaných káblov býva uvažovaná až od menovitých
+napätí 220\,kV, ak nejde o~výpočet strát.
+
+\subsection * Kapacity káblových vedení
+
+Rozlišujeme dve skupiny káblov. Prvú tvoria jednožilové a viacžilové
+s~vlastným kovovým obalom na každej žile, druhú tvoria viacžilové so
+spoločným kovovým plášťom pre všetky žily.
+
+V~prvom prípade máme iba jedinú kapacitu, ktorá je zároveň kapacitou
+vodiča oproti plášťu a zároveň prevádzková. Elektrické pole je radiálne
+a kapacita sa vypočíta ako kapacita valcov s~totožnou osou:
+\zvyrazni
+$$
+C = c_{\rm ko} = {0{,}0242 \epsilon_{\rm r} \over \log{r_2 \over r_1}} \quad
+({\rm \mu F/km})
+$$
+kde $\epsilon_{\rm r}$ je pomerná permitivita izolačnej hmoty medzi
+vodičom a kovovým obalom, $r_1$ je polomer vodiča a $r_2$ je vnútorný
+polomer kovovej obálky.
+
+V~druhom prípade sa vyskytujú ďalšie tri čiastkové kapacity voči plášťu
+$c_o$ a vzájomné $c'$ (ako je znázornené na \citefigure[kabel-kapacity])
+pre všetky fázy rovnaké, vďaka geometrickej súmernosti. Pre výpočet
+vytvoríme náhradný matematický model. Bude ním sústava troch dvojíc
+vodičov navzájom rovnobežných, ktorá spĺňa podmienku, že obálka je
+ekvipotenciálnou plochou. Jeden vodič je skutočný, druhý v~dvojici je
+fiktívny. 
+
+\beginfigure
+	\filename={img/kabel-kapacity.png}
+	\label={kabel-kapacity}
+	\caption={K výpočtu kapacity káblového vedenia so spoločným kovovým
+	plášťom pre všetky žily}
+\endfigure
+
+Podľa predpokladu je obalový valec ekvipotenciálnou plochou. Pre jeho
+potenciál $\faz U_{\rm pl}$ bude s~použitím bodov $P_1$ a $P_2$ platiť
+$$
+\faz U_{\rm pl} = \faz U_{P_1} =
+{\faz Q_k \over 2{\rm\pi} \epsilon} \ln {a' - R \over R - a} =
+\faz U_{P_2} =
+{\faz Q_k \over 2{\rm\pi}\epsilon} \ln {a' + R \over a + R}.
+$$
+Aby táto rovnica bola splnená, musí platiť 
+$$
+{a' + R \over a + R} = {a' - R \over R - a} \longrightarrow a' = {R^2
+\over a}.
+$$
+Potom však dostávame vzťah
+$$
+\faz U_{\rm pl} = {\faz Q_k \over 2{\rm\pi}\epsilon} \ln {R \over a} =
+\faz U_{P_1} = \faz U_{P_2}.
+$$
+
+Pretože kapacity $c_o$ vzťahujeme k~plášťu, nesmieme pracovať
+s~potenciálmi vodičov a zeme, ale musíme používať rozdiely
+potenciálov vodičov a plášťa. Príspevok na potenciál vodiča $k$ od
+vodičov $m$, $m'$ potom bude
+$$
+\faz U_{km}^* = \faz U_{km} - \faz U_{\rm pl} = {\faz Q_m \over
+2{\rm\pi}\epsilon}\left[\ln{d_{km'} \over d_{km}} - \ln{R \over
+a}\right] = {\faz Q_m \over 2{\rm\pi} \epsilon} \ln{{d_km'} a \over
+d_{km} R}
+$$
+a teda platí
+$$
+\delta_{km}^* = \delta_{mk}^* = {1 \over 2{\rm\pi}\epsilon} \ln{d_{km'} a
+\over d_{km} R}.
+\equation[delta*]
+$$
+
+\beginfigure
+	\filename={img/kapacity-zrkadlenie.png}
+	\label={kapacity-zrkadlenie}
+	\caption={Rozmiestnenie skutočných a fiktívnych vodičov v~trojfázovom
+	kábli}
+\endfigure
+
+Potrebné vzdialenosti pre výpočet potenciálových súčiniteľov zistíme
+z~geometrie kábla určenej voľbou konkrétneho typu kábla. Tým máme určené polomery vodičov
+$$
+d_{kk} = r_a = r_b = r_c = r,
+$$
+vzdialenosti dvoch skutočných vodičov pre $m\ne k$ 
+$$
+d_{km} = d_{ab} = d_{ac} = d_{bc} = a\sqrt{3},
+$$ 
+vzdialenosti sebe zodpovedajúcich si vodičov
+$$
+d_{kk'} = d_{aa'} = d_{bb'} = d_{cc'} = a' - a = {R^2 - a^2 \over a},
+$$
+a vzdialenosti nezodpovedajúcich si vodičov
+$$
+d_{km'} = d_{ab'} = d_{ac'} = d_{bc'} = R \sqrt{{R^2 \over a^2} + 1 +
+{a^2 \over R^2}}.
+$$
+
+
+Z~rovnice \citeequation[delta*] po zavedení dekadického logaritmu a
+požadovaných jednotiek dostávame
+\zvyrazni
+$$
+\eqalign{
+\delta_{kk}^* = \delta &=
+{1 \over 0{,}0242 \epsilon_{\rm r}} \log{R^2 - a^2 \over Rr}
+\quad ({\rm km/\mu F})\cr
+\delta_{km}^* = \delta' &=
+{1 \over 0{,}0242 \epsilon_{\rm r}}
+\log\sqrt{{1 + (R^2/a^2) + (a^2/R^2) \over 3}}\quad ({\rm km/\mu F})\qquad\hbox{ pre } k \ne m\cr
+}
+$$
+
+Trojžilový kábel je trojfázové súmerné vedenie a preto preň môžme písať
+analogické rovnice ako pre symetrizované trojfázové vonkajšie vedenie
+bez uzemňovacích lán, teda platí, že čiastková kapacita vodiča k~plášťu
+je
+\zvyrazni
+$$
+c_o = {1 \over \delta + 2\delta'} \quad ({\rm \mu F/km}),
+$$
+čiastková vzájomná kapacita je
+\zvyrazni
+$$
+c' = {\delta' \over (\delta - \delta')(\delta + 2\delta')} \quad ({\rm \mu F/km})
+$$
+a prevádzková kapacita je
+\zvyrazni
+$$
+C = c_o + 3c' = {1 \over \delta - \delta'}\quad ({\rm \mu F/km}).
+$$

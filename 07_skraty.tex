@@ -1,0 +1,944 @@
+\section Skraty
+
+Skraty predstavujú najrozšírenejšie poruchy v~elektrizačnej sústave.
+Skrat vznikne poruchovým spojením fáz navzájom, alebo spojením so zemou
+v~sústave s~uzemneným uzlom.
+
+
+Pri skrate sa celková impedancia skratom postihnutej oblasti siete
+zmenšuje a zväčšujú sa prúdy. To vedie k~zníženiu napätí v~miestach
+blízkych skratu. Obvykle v~mieste skratu vznikajú prechodové
+odpory (odpor elektrického oblúku).
+
+\subsection Druhy skratov
+
+V~prípade vonkajších vedení sú trojfázové skraty málo časté, zato
+v~prípade káblových vedení sú časté kvôli tomu, že pôsobením oblúka
+prechádzajú ostatné typy skratov na trojfázový.
+
+\tablelabel[label=skraty][caption=Druhy skratov] 
+\centertable{
+\begintable
+\begintableformat &\center \endtableformat
+\-
+\br{\:|} | | \use{3} Pravdepodobnosť výskytu (\%) \er{|}
+\br{|} \zb{Druh skratu} | \zb{Schéma} | \use{3} \- \er{|}
+\br{\:|} | | vn | 110\,kV | 220\,kV \er{|}
+\fulltablerule{3\tr}
+\br{\:|} trojfázový | \obr{img/skrat-trojfazovy.png} | 5 | 0,6 | 0,9 \er{|}
+\-
+\br{\:|} dvojfázový | \obr{img/skrat-dvojfazovy.png}| 10 | 4,8 | 0,6 \er{|}
+\-
+\br{\:|} dvojfázový zemný | \obr{img/skrat-dvojfazovy-zemny.png} | 20 | 3,8 | 5,4 \er{|}
+\-
+\br{\:|} jednofázový | \obr{img/skrat-jednofazovy.png} | * | 91 | 93,1 \er{|}
+\-
+\endtable
+}
+
+
+\subsection Časové priebehy skratových prúdov
+
+\subsection * Súmerný skratový prúd
+
+Predpokladáme, že pred skratom bola sústava v~chode naprázdno, že
+činné odpory sú zanedbateľné a skratový prúd obmedzujú iba reaktancie.
+Skratový prúd má predovšetkým indukčný charakter a je oneskorený za
+napätím o~$\rm\pi/2$. Nastáva vtedy, ak ku skratu dochádza v~okamihu
+prechodu napätia maximom.
+
+\beginfigure
+	\filename={img/skratovy-prud.png}
+	\label={skratovy-prud}
+	\caption={Priebeh súmerného skratového prúdu}
+\endfigure
+
+Symetrický skratový prúd má tri zložky:
+\beginitemize
+	\item rázová zložka --- má sínusový priebeh s~kmitočtom sústavy,
+	exponenciálne klesá s~časovou konštantou $T_k''$,
+	\item prechodná zložka --- má sínusový priebeh s~kmitočtom sústavy,
+	exponenciálne klesá s~časovou konštantou $T_k'$,
+	\item ustálená zložka --- má sínusový priebeh so stálou amplitúdou a
+s~kmitočtom sústavy.
+\enditemize
+
+Názvoslovie popisu skratového prúdu:
+\beginitemize
+	\item {\bf Súmerný skratový prúd} v~sústave $I_{ks}$ je efektívna
+	hodnota súčtu ustálenej prechodnej a rázovej zložky skratového prúdu.
+	\item {\bf Rázový skratový prúd} v~sústave $I_k''$ je efektívna
+	hodnota súmerného skratového prúdu v~období trvania rázovej zložky
+	skratového prúdu, teda prakticky v~období $t = 0 \div 3T_k''$.
+	\item {\bf Počiatočný rázový skratový prúd} v~sústave $I_{k0}''$ je
+	hodnota rázového skratového prúdu v~okamžiku vzniku skratu pre $t=0$.
+	\item {\bf Prechodný skratový prúd} v~sústave $I_k'$ je súmerný
+	skratový prúd v~období od vzniku rázovej zložky do zániku prechodnej
+	zložky, teda prakticky v~období $t = 3 T_k'' \div 3 T_k'$.
+	\item {\bf Počiatočný prechodný skratový prúd} v~sústave $I_{k0}'$ je
+	efektívna hodnota súčtu trvalej a prechodnej zložky skratového prúdu
+v~okamžiku vzniku skratu $t=0$. Pri vyvinutí rázového skratového prúdu
+	sa k~nej dospeje predĺžením exponenciály prechodného skratového prúdu
+	do okamžiku vzniku skratu.
+	\item {\bf Ustálený skratový prúd} v~sústave $I_{ku}$ je súmerný
+	skratový prúd po zaniknutí prechodných zložiek, teda pre $ t > 3
+	T_k'$.
+\enditemize
+
+\subsection * Nesúmerný skratový prúd
+
+Tento prípad nastáva, ak skrat vznikne v~okamihu nulového napätia.
+Fázovo posunutý prúd by mal začínať zo svojej maximálnej hodnoty.
+Skoková zmena prúdu však nie je možná, preto sa vytvorí ďalšia zložka
+prúdu:
+\beginitemize
+	\item jednosmerná zložka --- exponenciálne zanikajúca s~časovou
+	konštantou $T_a$.
+\enditemize
+
+K~tomu sa viažu ďalšie pojmy:
+\beginitemize
+	\item {\bf Počiatočná jednosmerná zložka} $I_{ka}$ je jednosmerná
+	zložka skratového prúdu v~čase $t=0$. Jej veľkosť je taká, aby po
+	superpozícii so striedavými zložkami skratového prúdu výsledný
+	skratový prúd začínal z~nulovej hodnoty.
+	\item {\bf Nárazový prúd} $I_{km}$ je vrcholová hodnota prvej
+	polperiody skratového prúdu pri najväčšej možnej jednosmernej zložke.
+\enditemize
+
+\beginfigure
+	\filename={img/skratovy-prud-nesumerny.png}
+	\label={skratovy-prud-nesumerny}
+	\caption={Priebeh nesúmerného skratového prúdu}
+\endfigure
+
+\subsection Metóda súmerných zložiek
+
+V~trojfázových sústavách môžme každú hviezdicu nesymetrických napätí
+nahradiť zložením symetrických fázorov sústavy súslednej, spätnej a
+netočivej, tak ako je znázornené na \citefigure[rozklad-zlozky].
+
+\beginfigure
+	\filename={img/rozklad-zlozky.png}
+	\label={rozklad-zlozky}
+	\caption={Náhrada nesymetrických fázorov zložkovými fázormi}
+\endfigure
+
+Vzťah medzi napätiami fáz a napätiami v~zložkách
+$$
+\displaylines{
+\faz U_a = \faz U_{a1} + \faz U_{a2} + \faz U_{a0},\cr
+\faz U_b = \faz U_{b1} + \faz U_{b2} + \faz U_{b0},\cr
+\faz U_c = \faz U_{c1} + \faz U_{c2} + \faz U_{c0}.\cr
+}
+$$
+
+Ak zvolíme za referenčný bod fázu A, môžme tieto rovnice prepísať do
+tvaru
+$$
+\eqalign{
+\faz U_a &= \faz U_1 + \faz U_2 + \faz U_0, \cr
+\faz U_b &= \faz a^2 U_1 + \faz a U_2 + \faz U_0,\cr
+\faz U_c &= \faz a U_1 + \faz a^2 U_2 + U_0\cr
+}
+$$
+a rovnice pre prúdy môžme zapísať ako
+$$
+\eqalign{
+\faz I_a &= \faz I_1 + \faz I_2 + \faz I_0,\cr
+\faz I_b &= \faz a^2 I_1 + \faz a I_2 + \faz I_0,\cr
+\faz I_c &= \faz a I_1 + \faz a^2 I_2 + I_0\cr
+}
+$$
+pričom pre $\faz a$ platí
+$$
+\faz a = \e^{\j 120\degree} = -{1\over 2}+ \j {\sqrt{3} \over 2} \qquad
+\faz a^2 = \e^{-\j 120\degree} = -{1\over 2} - \j {\sqrt3 \over 2}
+$$
+
+Tieto rovnice môžme zapísať v~maticovom tvare ako
+$$
+\hmatrix{U_a \cr U_b \cr U_c \cr} =
+\hmatrix{1 & 1 & 1\cr
+\faz a^2 & \faz a & 1 \cr
+\faz a & \faz a^2 & 1 \cr}
+\cdot
+\hmatrix{U_1 \cr U_2 \cr U_0 \cr}
+\qquad
+\faz U = \faz F \faz U_F
+$$
+respektíve
+$$
+\faz U_F = \faz F^{-1} \faz U \qquad
+\faz F^{-1} = {1 \over 3} \hmatrix{
+1 & \faz a & \faz a^2 \cr
+1 & \faz a^2 & \faz a \cr
+1 & 1 & 1\cr}.
+\equation[uffu]
+$$
+
+Z~rovnice \citeequation[uffu] plynú vzťahy
+$$
+\eqalign{
+	\faz U_1 &= {1\over 3} \left(\faz U_a + \faz a U_b + \faz a^2 U_c\right)\cr
+	\faz U_2 &= {1\over 3} \left(\faz U_a + \faz a^2 U_b + \faz a U_c\right)\cr
+	\faz U_0 &= {1\over 3} \left(\faz U_a + \faz U_b + \faz U_c\right)\cr
+}
+$$
+
+
+\subsection Symetické články v~podmienkach nesymetrického prevádzkového
+stavu
+
+Pri rozbore nesymetrických prevádzkových stavov ES sa obmedzíme na
+prípady jedinej miestnej nesymetrie, teda budeme predpokladať, že
+nesymetria je spôsobená jediným nesymetrickým článkom a že ostatné
+články ES sú symetrické. Sieť medzi zdrojmi a miestom nesymetrie je možné
+vyjadriť kombináciou symetrických pasívnych článkov.
+
+\subsection * Pozdĺžne články
+
+\beginfigure
+	\filename={img/clanok-pozdlzny.png}
+	\label={clanok-pozdlzny}
+	\caption={Pozdĺžny symetrický statický článok}
+\endfigure
+
+Pre úbytky na článku zapojenom podľa \citefigure[clanok-pozdlzny] platia
+rovnice
+$$
+\hmatrix{\Delta U_a \cr \Delta U_b \cr \Delta U_c\cr} =
+\hmatrix{Z & Z_m & Z_m \cr
+Z_m & Z & Z_m \cr
+Z_m & Z_m & Z \cr}
+\hmatrix{I_a \cr I_b \cr I_c \cr}
+\qquad
+\Delta \faz U = \faz Z \faz I.
+$$
+
+Prejdeme k~súmerným zložkám a dostaneme
+$$
+\faz F \Delta \faz U_F = \faz Z \faz F \faz I_F \Longrightarrow
+\Delta \faz U_F = \faz F^{-1} \faz Z \faz F \faz I_F = \faz Z_s \faz I_F
+$$
+kde
+$$
+\faz Z_s = \faz F^{-1} \faz Z \faz F =
+\hmatrix{
+\faz Z-\faz Z_m & 0 & 0 \cr
+0 & \faz Z -\faz Z_m & 0 \cr
+0 & 0 & \faz Z + 2\faz Z_m \cr
+}.
+$$
+
+Úbytky napätí na pozdĺžne zapojenom statickom článku sú v~sústave
+súmerných zložiek závislé iba na prúde príslušnej zložkovej sústavy a na
+impedanciách daného článku,
+$$
+\eqalign{
+\Delta \faz U_1 &= (\faz Z - \faz Z_m) \faz I_1  = \Delta \faz U_F = \faz  Z_1 \faz I_1 \cr
+\Delta \faz U_2 &= (\faz Z - \faz Z_m) \faz I_1  = \Delta \faz U_F = \faz  Z_2 \faz I_2 \cr
+\Delta \faz U_0 &= (\faz Z + 2\faz Z_m) \faz I_0  = \Delta \faz U_F = \faz  Z_0 \faz I_0 \cr
+}
+$$
+
+Pre statické symetrické články pozdĺžne zapojené platí
+$$
+\faz Z_1 = \faz Z_2 = \faz Z - \faz Z_m \qquad \faz Z_0 = \faz Z + 2
+\faz Z_m.
+$$
+
+\subsection * Priečne články
+
+\beginfigure
+	\filename={img/clanok-priecny.png}
+	\label={clanok-priecny}
+	\caption={Priečny symetrický statický článok}
+\endfigure
+
+Zapojeniu z~\citefigure[clanok-priecny] zodpovedajú rovnice
+$$
+\faz U = \faz Z \faz I + \faz Z_N \faz I
+$$
+kde
+$$
+\faz Z_N = \hmatrix{
+Z_N & Z_N & Z_N \cr
+Z_N & Z_N & Z_N \cr
+Z_N & Z_N & Z_N \cr
+}
+$$
+
+Prejdeme k~súmerným zložkám
+$$
+\displaylines{
+\faz F \faz U_F  = \faz Z \faz F \faz I_F + \faz Z_N \faz F \faz I_F\cr
+\faz U_F = \faz F^{-1} \faz Z \faz F \faz I_F + \faz F^{-1} \faz Z_N
+\faz F \faz I_F = \faz Z_p \faz I_F\cr
+}
+$$
+kde $\faz Z_p$ je matica zložkových sústav impedancií priečneho článku a
+platí pre ňu
+$$
+\faz Z_p = \hmatrix{
+\faz Z - \faz Z_m & 0 & 0 \cr
+0 &\faz Z - \faz Z_m & 0 \cr
+0 & 0 & \faz Z + 2 \faz Z_m + 3 \faz Z_N  \cr
+}.
+$$
+
+Každé zložkové napätie na priečne zapojenom priečnom článku je závislé
+iba na prúde príslušnej zložkovej sústavy a na impedanciách daného
+článku,
+$$
+\eqalign{
+\faz U_1 &= (\faz Z - \faz Z_m) \faz I_1 = \faz Z_1 \faz I_1 \cr
+\faz U_2 &= (\faz Z - \faz Z_m) \faz I_2 = \faz Z_2 \faz I_2 \cr
+\faz U_0 &= (\faz Z + 2\faz Z_m + 3 \faz Z_N) \faz I_0 = \faz Z_0 \faz I_0 \cr
+}
+$$
+
+\subsection Napäťové rovnice v~sústave súmerných zložiek
+
+Pri odvodzovaní napäťových rovníc pre ES s~miestnou nesymetriou
+nahradíme pre jednoduchosť všetky zdroje ES jedným ekvivalentným zdrojom
+a sieť pasívnych symetrických článkov medzi svorkami a miestnu
+nesymetriu jedným ekvivalentným pasívnym článkom, ako je znázornená na
+\citefigure[nahradna-schema-ES].
+
+\beginfigure
+	\filename={img/nahradna-schema-ES.png}
+	\label={nahradna-schema-ES}
+	\caption={Náhradná schéma ES s~miestnou priečnou nesymetriou}
+\endfigure
+
+Nesymetrický článok (miestna nesymetria) je nahradený nesymetrickými
+fázovými napätiami $\faz U_a$, $\faz U_b$, $\faz U_c$.
+
+Napäťové rovnice vo fázových súradniciach
+$$
+\faz E = \faz Z \faz I  \faz U
+$$
+transformujeme do súmerných zložiek a dostávame
+$$
+\eqalignno{
+\faz F \faz E &= \faz Z \faz F \faz I_F + \faz F \faz U_F\cr
+\faz E_F &= \faz F^{-1} \faz Z \faz F \faz I_F + \faz U_F =
+\faz Z_s \faz I_F + \faz U_F& \equation[v sumernych]\cr
+}
+$$
+kde
+$$
+\faz Z_s = \hmatrix{
+\faz Z_{c1} & 0 & 0 \cr
+0 & \faz Z_{c2} & 0 \cr
+0 & 0 & \faz Z_{c0} \cr
+}.
+$$
+
+Impedancie $\faz Z_{c1}$, $\faz Z_{c2}$ a $\faz Z_{c0}$ sú celkové
+impedancie súslednej, spätnej a netočivej zložky medzi miestom
+nesymetrie a nulovým bodom príslušnej zložkovej sústavy.
+
+Pre zložkové napätia platí
+$$
+\faz E_F = \faz F^{-1} \faz E = {1 \over 3} \hmatrix{
+1 & \faz a & \faz a^2 \cr
+1 & \faz a^2 & \faz a \cr
+1 & 1 & 1 \cr
+}
+\hmatrix{
+\faz E \cr
+\faz a^2 \faz E \cr
+\faz a \faz E \cr
+}
+= 
+\hmatrix{\faz E \cr 0 \cr 0 \cr}.
+$$
+
+Po dosadení za $\faz Z_s$ a $\faz E_F$ do rovnice \citeequation[v
+sumernych] môžme zapísať v~maticovom tvare
+$$
+\eqalignno{
+\faz E &= \faz Z_{c1} \faz I_1 + \faz U_1, \cr
+0 &= \faz Z_{c2} \faz I_2  + \faz U_2, \cr
+0 &= \faz Z_{c0} \faz I_0 + \faz U_0. & \equation[zlozkove-napatia] \cr
+}
+$$
+
+Z~toho plynú dôležité závery:
+\beginitemize
+	\item Elektromotorické napätie zdroja pôsobí iba v~súslednej zložkovej
+	sústave, v~ostatných je nulové.
+	\item V~každej zložkovej sústave pôsobia iba napätia a prúdy danej
+	zložkovej sústavy, preto sú jednotlivé zložkové sústavy až do miesta
+	vzniku nesymetrie vzájomne nezávislé. Môžme použiť náhradnú schému
+	zobrazenú na \citefigure[nahr-sch-mpn].
+	\item Napäťové rovnice predstavujú tri základné rovnice pre riešenie
+	prevádzkových pomerov pri miestnej nesymetrii. Rovnice
+	\citeequation[zlozkove-napatia] doplníme ďalšími troma rovnicami,
+	ktoré sú určené charakterom vzniknutej miestnej nesymetrie. 
+\enditemize
+
+\beginfigure
+	\filename={img/nahr-sch-mpn.png}
+	\label={nahr-sch-mpn}
+	\caption={Náhradná schéma zložkových sústav ES s~miestnou priečnou
+	nesymetriou}
+\endfigure
+
+\subsection Poruchy miestneho charakteru
+
+Medzi najčastejšie poruchy patria nesymetrické skraty (miestna priečna
+nesymetria) a prerušenia fáz niektorého článku (miestna pozdĺžna
+nesymetria).
+
+Ľubovoľný druh priečnej alebo pozdĺžnej nesymetrie v niektorom mieste ES
+môžme modelovať zapojením obecného nesymetrického priečneho alebo
+pozdĺžneho článku v tomto mieste. Našou úlohou bude analýza najčastejšie
+sa vyskytujúcich prípadov miestnej nesymetrie.
+
+\subsection * Jednofázový skrat
+
+\beginfigure
+	\filename={img/skrat-1f.png}
+	\label={skrat-1f}
+	\caption={Jednofázový skrat}
+\endfigure
+
+Na základe \citefigure[skrat-1f] môžme zapísať charakteristické rovnice
+ako
+$$
+\faz U_a = 0 \quad \faz I_b = 0 \quad \faz I_c = 0.
+$$
+
+Prechodom k zložkovým veličinám získame pre zložkové prúdy rovnice
+$$
+\faz I_F = \faz F^{-1} \faz I =
+{1 \over 3} \hmatrix{
+1 & \faz a & \faz a^2 \cr
+1 & \faz a^2 & \faz a \cr
+1 & 1 & 1 \cr
+}
+\hmatrix{\faz I_a \cr 0 \cr 0 \cr}=
+{1 \over 3} \hmatrix{\faz I_a \cr\faz I_a \cr\faz I_a \cr}
+$$
+z ktorých plynie vzťah
+$$
+\faz I_1 = \faz I_2 = \faz I_0 = {1 \over 3} \faz I_a
+$$
+na základe ktorého môžme vzájomne prepojiť zložkové schémy.
+
+\beginfigure
+	\filename={img/skrat-1f-zlozky.png}
+	\label={skrat-1f-zlozky}
+	\caption={Prepojenie náhradných schém zložkových sústav pri
+	jednofázovom skrate}
+\endfigure
+
+Pre zložkové prúdy platia vzťahy
+$$
+\faz I_1 = {\faz E \over \faz Z_{c1} + \faz Z_{c2} + \faz Z_{c0}} = 
+\faz I_2 = \faz I_0.
+$$
+
+Súčet zložkových napätí v mieste skratu je nulový, teda
+$$
+\faz U_1 + \faz U_2 + \faz U_0 = 0.
+$$
+
+Pre zložkové napätia v mieste skratu môžme napísať rovnice
+$$
+\displaylines{
+\faz U_0 = - \faz Z_{c0}\faz I_0 = - \faz Z_{c0} \faz I_1, \cr
+\faz U_2 = - \faz Z_{c2}\faz I_2 = - \faz Z_{c2} \faz I_1, \cr
+\faz U_1 = (\faz Z_{c2} + \faz Z_{c1}) \faz I_1. \cr
+}
+$$
+
+Pre fázové prúdy platia vzťahy
+$$
+\faz I_a = 3 \faz I_1 \quad \faz I_b = 0 \quad \faz I_c = 0.
+$$
+
+Vzťahy pre fázové napätia v mieste skratu získame lineárnou
+transformáciou zložkových napätí
+$$
+\faz U = \faz F \faz U_F =
+\hmatrix{
+1 & 1 & 1 \cr
+\faz a^2 & \faz a & 1 \cr
+\faz a & \faz a^2 & 1 \cr
+}
+\hmatrix{\faz U_1 \cr \faz U_2 \cr \faz U_0 \cr} =
+\hmatrix{
+0 \cr
+(\faz a^2 - \faz a) \faz Z_{c2} + (\faz a^2 - 1) \faz Z_{c0} \cr
+(\faz a - \faz a^2) \faz Z_{c2} + (\faz a - 1) \faz Z_{c0} \cr
+}
+\faz I_1.
+$$
+
+
+\beginfigure
+	\filename={img/skrat-1f-prud-fd.png}
+	\label={skrat-1f-prud-fd}
+	\caption={Fázorový diagram prúdov pri jednofázovom skrate}
+\endfigure
+
+\beginfigure
+	\filename={img/skrat-1f-napatie-fd.png}
+	\label={skrat-1f-napatie-fd}
+	\caption={Fázorový diagram napätí v mieste jednofázového skratu}
+\endfigure
+
+
+\subsection * Dvojfázový skrat
+
+\beginfigure
+	\filename={img/skrat-2f.png}
+	\label={skrat-2f}
+	\caption={Dvojfázový skrat}
+\endfigure
+
+Na základe \citefigure[skrat-2f] môžme zapísať charakteristické rovnice
+ako
+$$
+\faz I_a = 0 \quad \faz I_b = \faz I_c \quad \faz U_b = \faz U_c.
+$$
+
+Prechodom k zložkovým veličinám získame pre zložkové prúdy rovnice
+$$
+\faz I_F = \faz F^{-1} \faz I =
+{1 \over 3} \hmatrix{
+1 & \faz a & \faz a^2 \cr
+1 & \faz a^2 & \faz a \cr
+1 & 1 & 1 \cr
+}
+\hmatrix{0 \cr \faz I_b \cr -\faz I_b \cr}=
+{1 \over 3} \hmatrix{\j \sqrt3 \faz I_b \cr -\j \sqrt3 \faz I_b \cr 0 \cr}
+$$
+z ktorých plynú vzťahy
+$$
+\faz I_1 = - \faz I_2 \quad \faz I_0 = 0
+$$
+na základe ktorých môžme vzájomne prepojiť zložkové schémy.
+
+\beginfigure
+	\filename={img/skrat-2f-zlozky.png}
+	\label={skrat-2f-zlozky}
+	\caption={Prepojenie náhradných schém zložkových sústav pri
+	dvojfázovom skrate}
+\endfigure
+
+Pre zložkové prúdy platia podľa \citefigure[skrat-2f-zlozky] vzťahy
+$$
+\faz I_1 = {\faz E \over \faz Z_{c1} + \faz Z_{c2}}\quad
+\faz I_2 = - \faz I_1 \quad
+\faz I_0 = 0.
+$$
+
+Zložkové napätia sú
+$$
+\displaylines{
+\faz U_2 = - \faz Z_{c2}\faz I_2 = \faz Z_{c2} \faz I_1, \cr
+\faz U_1 = \faz U_2 = \faz Z_{c2} \faz I_1, \cr
+\faz U_0 = 0. \cr
+}
+$$
+
+Pre fázové prúdy platia vzťahy
+$$
+\faz I_a = 0 \quad \faz I_b = {3 \faz I_1 \over \j \sqrt3} =
+-\j \sqrt3 I_1 \quad \faz I_c = -\faz I_b = \j \sqrt3 \faz I_1.
+$$
+
+Vzťahy pre fázové napätia v mieste skratu získame lineárnou
+transformáciou zložkových napätí
+$$
+\faz U = \faz F \faz U_F =
+\hmatrix{
+1 & 1 & 1 \cr
+\faz a^2 & \faz a & 1 \cr
+\faz a & \faz a^2 & 1 \cr
+}
+\hmatrix{\faz U_1 \cr \faz U_2 \cr \faz U_0 \cr} =
+\hmatrix{
+2\faz u_1 \cr
+-\faz U_1 \cr
+-\faz U_1 \cr
+}
+$$
+z ktorých po dosadení za zložkové napätia dostaneme vzťahy
+$$
+\displaylines{
+\faz U_a = 2 \faz Z_{c2} \faz I_1 \cr
+\faz U_b = -\faz Z_{c2} \faz I_1 = - {1 \over 2} \faz U_a \cr
+\faz U_c = - \faz Z_{cs} \faz I_1 = - {1 \over 2} \faz U_a = \faz U_b
+\cr
+}
+$$
+
+\beginfigure
+	\filename={img/skrat-2f-prud-fd.png}
+	\label={skrat-2f-prud-fd}
+	\caption={Fázorový diagram prúdov pri dvojfázovom skrate}
+\endfigure
+
+\beginfigure
+	\filename={img/skrat-2f-napatie-fd.png}
+	\label={skrat-2f-napatie-fd}
+	\caption={Fázorový diagram napätí v mieste dvojfázového skratu}
+\endfigure
+
+\subsection * Dvojfázový zemný skrat
+
+\beginfigure
+	\filename={img/skrat-2fzemny.png}
+	\label={skrat-2fzemny}
+	\caption={Dvojfázový zemný skrat}
+\endfigure
+
+Na základe \citefigure[skrat-2fzemny] môžme zapísať charakteristické rovnice
+ako
+$$
+\faz I_a = 0 \quad \faz U_b = 0 \quad \faz U_c = 0.
+$$
+Lineárnou transformáciou napätí pri rešpektovaní týchto
+charakteristických rovníc dostávame vzťahy
+$$
+\faz U_F = \faz F^{-1} \faz U = {1 \over 3}
+\hmatrix{
+1 & \faz a & \faz a^2 \cr
+1 & \faz a^2 & \faz a \cr
+1 & 1 & 1 \cr
+}
+\hmatrix{\faz U_a \cr 0 \cr 0 \cr} =
+{1 \over 3} \hmatrix{\faz U_a \cr \faz U_a \cr \faz U_a \cr}
+$$
+z ktorých plynú vzťahy medzi zložkovými napätiami v mieste skratu
+$$
+\faz U_1 = \faz U_2 = \faz U_0.
+$$
+Na základe týchto rovníc môžme zostrojiť schému zložkových sústav pri
+dvojfázovom zemnom skrate.
+
+\beginfigure
+	\filename={img/skrat-2fzemny-zlozky.png}
+	\label={skrat-2fzemny-zlozky}
+	\caption={Prepojenie náhradných schém zložkových sústav pri
+	dvojfázovom zemnom skrate}
+\endfigure
+
+Na základe schémy (\citefigure[skrat-2fzemny-zlozky]) môžme písať vzťahy
+pre prúdy zložkových sústav
+$$
+\displaylines{
+\faz I_1 = {\faz E \over \faz Z_{c1} + {\faz Z_{c2} \faz Z_{c0} \over
+\faz Z_{c2} + \faz Z_{c0}}}\cr
+\faz I_2 = - {Z_{c0} \over Z_{c2} + Z_{c0}} \faz I_1 \cr
+\faz I_0 = - {Z_{c2} \over Z_{c2} + Z_{c0}} \faz I_1 \cr
+}
+$$
+
+Pre napätia v zložkových sústavách platia vzťahy
+$$
+\faz U_2 = - \faz Z_{c2} \faz I_2 =
+{\faz Z_{c2} \faz Z_{c0} \over \faz Z_{c2} + \faz Z_{c0}} \faz I_1 \qquad
+\faz U_1 = \faz U_2 = \faz U_0
+$$
+
+Vzťahy pre fázové prúdy získame lineárnou transformáciou zložkových
+prúdov
+$$
+\faz I = \faz F \faz I_F =
+\hmatrix{
+1 & 1 & 1 \cr
+\faz a^2 & \faz a & 1 \cr
+\faz a & \faz a^2 & 1 \cr
+}
+\hmatrix{
+1 \cr
+-{\faz Z_{c0} \over \faz Z_{c2} + \faz Z_{c0}} \cr
+-{\faz Z_{c2} \over \faz Z_{c2} + \faz Z_{c0}} \cr
+}
+\faz I_1 =
+\hmatrix{
+0 \cr
+-{(\faz a^2 - 1) \faz Z_{c2} + (\faz a^2 - \faz a) \faz Z_{c0} \over
+\faz Z_{c2} + \faz Z_{c0}}\cr
+-{(\faz a - 1) \faz Z_{c2} + (\faz a - \faz a^2) \faz Z_{c0} \over
+\faz Z_{c2} + \faz Z_{c0}}\cr
+}
+\faz I_1
+$$
+
+Fázové napätia v mieste skratu je možné určiť lineárnou transformáciou
+zložkových napätí,
+$$
+\faz U = \faz F \faz U_F =
+\hmatrix{
+1 & 1 & 1 \cr
+\faz a^2 & \faz a & 1 \cr
+\faz a & \faz a^2 & 1 \cr
+}
+\hmatrix{\faz U_1 \cr \faz U_2 \cr \faz U_3 \cr} =
+\hmatrix{3 \faz U_1 \cr 0 \cr 0 \cr}.
+$$
+
+Ak do tejto rovnice dosadíme za zložkové napätia, získame vzťahy pre
+fázové napätia
+$$
+\faz U_a =
+3 {\faz Z_{c2} \faz Z_{c0} \over \faz Z_{c2} + \faz Z_{c0}} \faz I_1
+\qquad
+\faz U_b = \faz U_c = 0
+$$
+
+\beginfigure
+	\filename={img/skrat-2fzemny-fd.png}
+	\label={skrat-2fzemny-fd}
+	\caption={Fázorový diagram prúdov a napätí v mieste skratu pri
+	dvojfázovom zemnom skrate}
+\endfigure
+
+\subsection * Trojfázový skrat
+
+\beginfigure
+	\filename={img/skrat-3f.png}
+	\label={skrat-3f}
+	\caption={Trojfázový skrat}
+\endfigure
+
+Pre trojfázový skrat platia podmienky
+$$
+	\faz U_a = \faz U_b = \faz U_c = 0.
+$$
+
+Transformáciou do zložkových sústav
+$$
+\faz U = \faz F \faz U_F =
+\hmatrix{
+1 & 1 & 1 \cr
+\faz a^2 & \faz a & 1 \cr
+\faz a & \faz a^2 & 1 \cr
+}
+\hmatrix{\faz U_1 \cr \faz U_2 \cr \faz U_0 \cr}
+=
+\hmatrix{0\cr 0\cr 0\cr}
+$$
+z čoho plynú vzťahy
+$$
+\displaylines{
+\faz U_0 = \faz U_1 = \faz U_2 = 0\cr
+\faz I_1 = {\faz E \over \faz Z_{c1}} \qquad \faz I_2 = 0 \qquad \faz
+I_0 = 0\cr
+}
+$$
+
+Pri spätnej transformácii dostaneme pre fázové prúdy vzťahy
+$$
+\faz I_a = {\faz E \over \faz Z_{c1}} \faz I_1 \qquad
+\faz I_b = \faz a^2 \faz I_a \qquad
+\faz I_c = \faz a \faz I_a.
+$$
+
+Pri trojfázovom skrate sa uplatňuje iba súsledná zložková sústava.
+
+\subsection * Ekvivalencia nesymetrických skratov s trojfázovým skratom
+
+\tablelabel[label=skraty-prehlad][caption=Prehľad jednotlivých druhov
+skratov] 
+\centertable{
+\begintable
+\begintableformat &\center \endtableformat
+\-
+\br{\:|} Druh skratu | trojfázový | dvojfázový | jednofázový | dvojfázový zemný \er{|}
+\-
+\br{\:|} $\faz Z_{\Delta}$ | 0 | $\faz Z_{c2}$ | $\faz Z_{c2} + \faz
+Z_{c0}$ | ${\faz Z_{c2} \faz Z_{c0} \over Z_{c2} + Z_{c0}}$ \er{|}
+\-
+\br{\:|} Zložky prúdu | $\faz I_1$ | $\faz I_2 = - \faz I_1$ | $\faz I_1
+= \faz I_2 = \faz I_0$ | $\faz I_1 = -(\faz I_2 + \faz I_0)$ \er{|}
+\-
+\br{\:|} $m$ | 1 | $\sqrt{3}$ | 3 | $\sqrt3 \sqrt{1 - {X_{c2} X_{c0}
+\over (X_{c2} + X_{c0})^2}}$ $\vphantom{{\strut\over\strut}}$ \er{|}
+\-
+\br{\:|} Náhradná schéma |
+\obr{img/skrat-schemicka-3f.png} |
+\obr{img/skrat-schemicka-2f.png} | 
+\obr{img/skrat-schemicka-1f.png} |
+\obr{img/skrat-schemicka-2fz.png}
+ \er{|}
+\-
+\endtable
+}
+
+
+Pri výpočte skratov môžme používať pre súsledný prúd jeden vzťah,
+$$
+\faz I_1 =  {\faz E \over \faz Z_{c1}  + \faz Z_{\Delta}},
+$$
+do ktorého dosadíme za $\faz Z_{\Delta}$ hodnotu podľa
+\citetable[skraty-prehlad].
+
+Impedancia $\faz Z_{\Delta}$ je prídavná impedancia. Je závislá na druhu
+skratu a je určovaná iba impedanciami $\faz Z_{c2}$ a $\faz Z_{c0}$. Nie
+je závislá na parametroch súslednej zložkovej sústavy. Pre každý druh
+skratu v danom mieste ES zostáva konštantná po celú dobu trvania skratu.
+
+Veľkosť fázového skratového prúdu môžme vyjadriť pomocou koeficientu $m$
+z \citetable[skraty-prehlad] ako
+$$
+I_k = m I_1.
+$$
+
+\subsection * Vplyv oblúku pri skrate
+
+V prvom priblížení je možné vplyv oblúku nahradiť rezistanciou, ako je
+znázornené na \citefigure[obluk-1f]. Pri
+jednofázovom skrate sa zväčší o $R$ vo všetkých zložkových sústavách
+celková skratová impedancia. Ináč sa tento prípad vôbec nelíši od
+jednofázového.
+
+\beginfigure
+	\filename={img/obluk-1f.png}
+	\caption={Schéma náhrady oblúku rezistanciou pri jednosmernom skrate}
+	\label={obluk-1f}
+\endfigure
+
+
+Pre súsledný prúd máme vzťah
+$$
+\faz I_1 = {\faz E \over \faz Z_{c1} + \faz Z_{c2} + \faz Z_{c0} +3 R}.
+$$
+
+\beginfigure
+	\filename={img/obluk-1f-zlozky.png}
+	\caption={Náhradná schéma jednofázového skratu pri náhrade skratového
+	oblúku rezistanciou}
+	\label={obluk-1fzlozky}
+\endfigure
+
+Ak chceme rešpektovať vplyv oblúku pri výpočte dvojfázového skratu, do
+skratovej odbočky zaradíme symetrický článok s rezistanciami $R/2$, ako
+je znázornené na \citefigure[obluk-2f].
+
+\beginfigure
+	\filename={img/obluk-2f.png}
+	\caption={Schéma náhrady oblúku rezistanciou pri dvojfázovom skrate}
+	\label={obluk-2f}
+\endfigure
+
+Pre súsledný prúd platí vzťah
+$$
+\faz I_1 = {\faz E \over \faz Z_{c1} + \faz Z_{c2} + R}.
+$$
+
+\beginfigure
+	\filename={img/obluk-2fzlozky.png}
+	\caption={Náhradná schéma dvojfázového skratu pri náhrade skratového
+	oblúku rezistanciou}
+	\label={obluk-2fzlozky}
+\endfigure
+
+% TODO: dvojpolovy zemny?
+
+\subsection * Prerušenie fázy
+
+Prerušenie jednej fázy môžme chápať ako zapojenie nesymetrického článku
+v mieste poruchy, charakterizovaného úbytkami napätia v jednotlivých
+fázach.
+
+\beginfigure
+	\filename={img/prerusenie-jedna.png}
+	\label={prerusenie-jedna}
+	\caption={Schématické znázornenie prerušenia jednej fázy}
+\endfigure
+
+Charakteristické rovnice sú
+$$
+\faz I_a = 0 \qquad \Delta \faz U_b = 0 \qquad \Delta \faz U_c = 0.
+$$
+Ak porovnáme tieto rovnice s charakteristickými rovnicami pre dvojfázový
+skrat, tak vidíme, že sú formálne zhodné. Pre zložkové napätia teda
+môžme písať vzťahy
+$$
+\Delta \faz U_1 = \Delta \faz U_2 = \Delta \faz U_0 = {1 \over 3} \Delta
+\faz U_a
+$$
+
+\beginfigure
+	\filename={img/prerusenie-jedna-zlozky.png}
+	\label={prerusenie-jedna-zlozky}
+	\caption={Náhradná schéma zložkových sústav pri prerušení fáze}
+\endfigure
+
+Pre súsledný prúd dostávame vzťah
+$$
+\faz I_1 = {\faz E \over \faz Z_{c1} + 
+{\faz Z_{c2} \faz Z_{c0} \over \faz Z_{c2} + \faz Z_{c0}}} =
+{\faz E \over \faz Z_{c1} + \Delta \faz Z}
+$$
+
+Pri prerušení dvoch fáz zapojíme v mieste poruchy nesymetrický článok,
+charakterizovaný úbytkami napätia podľa \citefigure[prerusenie-dve].
+Charakteristické rovnice sú
+$$
+\faz I_b = 0 \qquad \faz I_c = 0 \qquad \Delta \faz U_a = 0.
+$$
+
+\beginfigure
+	\filename={img/prerusenie-dve.png}
+	\label={prerusenie-dve}
+	\caption={Schematické znázornenie prerušenia dvoch fáz}
+\endfigure
+
+Charakteristické rovnice sú zhodné s charakteristickými rovnicami
+platnými pre jednofázový skrat a preto môžme písať
+$$
+\faz I_1 = \faz I_2 = \faz  I_0 = {1 \over 3} \faz I_a
+$$
+
+\beginfigure
+	\filename={img/prerusenie-dve-zlozky.png}
+	\label={prerusenie-dve-zlozky}
+	\caption={Prepojenie náhradných schém zložkových sústav pri prerušení
+	dvoch fáz}
+\endfigure
+
+\subsection * Analógia medzi prerušeniami a skratmi
+
+Prerušenia fáz a skraty sú podobné, ale predsa rozdielne. Prídavná
+impedancia $\faz Z_{\Delta}$ sa zapája na iné miesto. V prípade skratu
+sú $Z_{c1}, Z_{c2}, Z_{c0}$ impedancie medzi miestom skratu a nulou
+príslušnej zložkovej sústavy a v prípade prerušenia fáz tieto impedancie
+zodpovedajú výsledným impedanciám zložkových sústav vypočítaným medzi
+bodmi po oboch stranách prerušenia príslušnej zložkovej sústavy.
+
+\beginfigure
+	\filename={img/skrat-prerusenie-porovnanie.png}
+	\label={skrat-prerusenie-porovnanie.png}
+	\caption={Porovnanie prerušenia fázy a skratu}
+\endfigure
+
+\subsection * Viacnásobné nesymetrie v elektrizačnej sústave
+
+FIXME
+
+\subsection * Skratová impedančná matica
+
+FIXME
+
+\section * Použité materiály
+
+\beginitemize
+	\item Němeček: Přenos a rozvod elektrické energie. ČVUT, Praha 1983.
+	\item Fejt, Čermák: Elektroenergetika. ČVUT, Praha 1985.
+	\item Trojánek, Hájek, Kvasnica: Přechodné jevy v elektrizačních
+	soustavách. SNTL, Praha 1987.
+	\item Materiály k predmetu X15PJE.
+	http://www.powerwiki.cz/wiki/X15PJE.
+\enditemize
+
+

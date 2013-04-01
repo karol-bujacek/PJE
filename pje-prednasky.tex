@@ -1,0 +1,486 @@
+%{{{
+\widowpenalty=10000
+\clubpenalty=10000
+\raggedbottom
+
+\parskip=0pt
+\parindent=1pc
+\baselineskip12pt
+
+% makra na zavadzanie fontov [TeXbook naruby] % {{{
+\def\setsizes #1 #2 #3 {%
+  \def\sizeT{#1}\def\sizeS{#2}\def\sizeSS{#3}}
+
+
+\def\loadfonts #1 #2#3#4{% fam-t { file1 }{ file2 }{ file3 }
+  \expandafter \font\csname#1\sizeT\endcsname=#2
+  \expandafter \font\csname#1\sizeS\endcsname=#3
+  \expandafter \font\csname#1\sizeSS\endcsname=#4 }
+
+\def\setfamf #1=#2 #3#4{% fam-n = fam-t command size
+  \expandafter \ifx\csname#2#4\endcsname \relax
+  \else #3#1=\csname#2#4\endcsname \fi}
+
+\def\setonefam #1=#2 {% fam-n = fam-t
+  \setfamf#1=#2 \textfont\sizeT \setfamf#1=#2 \scriptfont\sizeS
+  \setfamf#1=#2 \scriptscriptfont\sizeSS
+  \expandafter \def\csname#2\endcsname{\fam#1%
+     \csname#2\sizeT\endcsname}} % např. \def\rm{\fam0\rm10}
+
+\def\setallfams{\setonefam0=rm \setonefam1=mi \setonefam2=sy
+\setonefam3=ex \setonefam\itfam=it \setonefam\ttfam=tt
+\setonefam\scfam=sc \setonefam\bffam=bf \setonefam\eurmfam=eurm
+\setonefam\eurbfam=eurb \setonefam\mibfam=mib \setonefam\bifam=tbi } % }}}
+
+% prevod ciselneho udaju o rodine fontu na sesnastkovu sustavu [tbn]
+\def\sixt#1{\ifcase#10\or1\or2\or3\or4\or5\or6\or7\or8\or9\or
+    A\or B\or C\or D\or E\or F\fi}
+
+\def\greek#1{% {{{
+  \mathchardef\alpha="0\sixt{#1}0B%
+  \mathchardef\beta="0\sixt{#1}0C%
+  \mathchardef\gamma="0\sixt{#1}0D%
+  \mathchardef\delta="0\sixt{#1}0E%
+  \mathchardef\epsilon="0\sixt{#1}0F%
+  \mathchardef\zeta="0\sixt{#1}10%
+  \mathchardef\eta="0\sixt{#1}11%
+  \mathchardef\theta="0\sixt{#1}12%
+  \mathchardef\iota="0\sixt{#1}13%
+  \mathchardef\kappa="0\sixt{#1}14%
+  \mathchardef\lambda="0\sixt{#1}15%
+  \mathchardef\mu="0\sixt{#1}16%
+  \mathchardef\nu="0\sixt{#1}17%
+  \mathchardef\xi="0\sixt{#1}18%
+  \mathchardef\pi="0\sixt{#1}19%
+  \mathchardef\rho="0\sixt{#1}1A%
+  \mathchardef\sigma="0\sixt{#1}1B%
+  \mathchardef\tau="0\sixt{#1}1C%
+  \mathchardef\upsilon="0\sixt{#1}1D%
+  \mathchardef\phi="0\sixt{#1}1E%
+  \mathchardef\chi="0\sixt{#1}1F%
+  \mathchardef\psi="0\sixt{#1}20%
+  \mathchardef\omega="0\sixt{#1}21%
+  \mathchardef\varepsilon="0\sixt{#1}22%
+  \mathchardef\vartheta="0\sixt{#1}23%
+  \mathchardef\varpi="0\sixt{#1}24%
+  \mathchardef\varphi="0\sixt{#1}27%
+  \mathchardef\Gamma="0\sixt{#1}00%
+  \mathchardef\Delta="0\sixt{#1}01%
+  \mathchardef\Theta="0\sixt{#1}02%
+  \mathchardef\Lambda="0\sixt{#1}03%
+  \mathchardef\Xi="0\sixt{#1}04%
+  \mathchardef\Pi="0\sixt{#1}05%
+  \mathchardef\Sigma="0\sixt{#1}06%
+  \mathchardef\Upsilon="0\sixt{#1}07%
+  \mathchardef\Phi="0\sixt{#1}08%
+  \mathchardef\Psi="0\sixt{#1}09%
+  \mathchardef\Omega="0\sixt{#1}0A%
+	\let\Varrho\Rho%
+	\let\Varsigma\Sigma%
+}% }}}
+
+\newfam\eurmfam
+\newfam\eurbfam
+\newfam\mibfam
+\newfam\scfam
+\newfam\bifam
+
+\setsizes 10 7 5
+\loadfonts eurm  {eurm10}   {eurm7}   {eurm5}
+\loadfonts eurb  {eurb10}   {eurb7}   {eurb5}
+\loadfonts mib   {cmmib10}  {cmmib7}  {cmmib5}
+\loadfonts mi    {cmmi10}   {cmmi7}   {cmmi5}
+\loadfonts sy    {cmsy10}   {cmsy7}   {cmsy5}
+\loadfonts rm    {csr10}    {csr7}    {csr5}
+\loadfonts it    {csti10}   {csti7}   {csti5}
+\loadfonts bf    {csbx10}   {csbx7}   {csbx5}
+\loadfonts tt    {cstt10}   {cstt7}   {cstt5}
+\loadfonts sc    {cscsc10}  {cscsc7}  {cscsc5}
+\loadfonts tbi   {csbxti10} {csbxti7} {csbxti5}
+
+\def\tenfonts{\setsizes 10 7 5 \setallfams\rm}
+
+\setsizes 8 6 5
+\loadfonts eurm  {eurm8}  {eurm6}  {eurm5}
+\loadfonts eurb  {eurb8}  {eurb6}  {eurb5}
+\loadfonts cmmib {cmmib8} {cmmib6} {cmmib5}
+\loadfonts mi    {cmmi8}  {cmmi6}  {cmmi5}
+\loadfonts sy    {cmsy8}  {cmsy6}  {cmsy5}
+\loadfonts rm    {csr8}   {csr6}   {csr5}
+\loadfonts it    {csti8}  {csti6}  {csti5}
+\loadfonts bf    {csbx8}  {csbx6}  {csbx5}
+\loadfonts tt    {cstt8}  {cstt6}  {cstt5}
+\loadfonts sc    {cscsc8} {cscsc6} {cscsc5}
+\loadfonts tbi   {csbxti8} {csbxti6} {csbxti5}
+
+
+\def\eightfonts{\setsizes 8 6 5 \setallfams\rm}
+
+\setsizes 17 9 8
+\loadfonts eurm  {eurm9 at 17pt}  {eurm9}  {eurm8}
+\loadfonts eurb  {eurb9 at 17pt}  {eurb9}  {eurb8}
+\loadfonts cmmib {cmmib9 at 17pt} {cmmib9} {cmmib8}
+\loadfonts mi    {cmmi9 at 17pt}  {cmmi9}  {cmmi8}
+\loadfonts sy    {cmsy9 at 17pt}  {cmsy9}  {cmsy8}
+\loadfonts rm    {csr9 at 17pt}   {csr9}   {csr8}
+\loadfonts it    {csti9 at 17pt}  {csti9}  {csti8}
+\loadfonts bf    {csbx9 at 17pt}  {csbx9}  {csbx8}
+\loadfonts tt    {cstt9 at 17pt}  {cstt9}  {cstt8}
+\loadfonts sc    {cscsc9 at 17pt} {cscsc9} {cscsc8}
+\loadfonts tbi   {csbxti9 at 17pt} {csbxti9} {csbxti5}
+
+\def\fonttitle{\setsizes 17 9 8 \setallfams\rm}
+
+\setsizes 11 8 6
+\loadfonts eurm  {eurm9 at 11pt}   {eurm8}   {eurm6}
+\loadfonts eurb  {eurb9 at 11pt}   {eurb8}   {eurb6}
+\loadfonts cmmib {cmmib9 at 11pt}  {cmmib8}  {cmmib6}
+\loadfonts mi    {cmmi9 at 11pt}   {cmmi8}   {cmmi6}
+\loadfonts sy    {cmsy9 at 11pt}   {cmsy8}   {cmsy6}
+\loadfonts rm    {csr9 at 11pt}    {csr8}    {csr6}
+\loadfonts it    {csti9 at 11pt}   {csti8}   {csti6}
+\loadfonts bf    {csbx9 at 11pt}   {csbx8}   {csbx6}
+\loadfonts tt    {cstt9 at 11pt}   {cstt8}   {cstt6}
+\loadfonts sc    {cscsc9 at 11pt}  {cscsc8}  {cscsc6}
+\loadfonts tbi   {csbxti9 at 11pt} {csbxti8} {csbxti6}
+
+\def\fontsection{\setsizes 11 8 6 \setallfams\rm}
+
+\tenfonts
+
+\font\fontsubsection=csbxti10 % podnadpis
+
+
+\let\oldrm=\rm
+\let\oldbf=\bf
+
+\def\rm{\oldrm\greek{\eurmfam}}
+\def\bf{\oldbf\greek{\eurbfam}}
+\def\bi{\fam\bifam\tbi\greek{\mibfam}}
+
+\newcount\countsection
+\newcount\countsubsection
+\newcount\countfootnote
+\newcount\countfig
+\newcount\countequation
+\newcount\countbiblio
+\newcount\counttable
+\newcount\countitem
+\newcount\countitemitem
+
+\newread\fileinput 
+
+\newwrite\filefigures % obrazky
+\newwrite\fileequations % rovnice
+\newwrite\filetables % tabulky
+
+% subor nacitat iba ak existuje [tbn]
+\def\softinput #1 {
+	\let\next=\relax \openin\fileinput=#1
+	\ifeof\fileinput\message{TeX it!}
+	\else\closein\fileinput\def\next{\input #1 }\fi
+	\next
+}
+
+%%%% OBRAZKY
+
+% toto sa bude zapisovat do externeho suboru
+\def\figureitem#1#2{\expandafter\def\csname o:#1\endcsname{#2}}
+
+
+\newtoks\filename \newtoks\label \newtoks\caption
+\newtoks\width \newtoks\narrow
+
+\def\beginfigure#1\endfigure{
+#1
+%Sem vlozim obrazok \the\filename\ so znackou \the\label, popisok bude
+%\the\caption.\hfill\break 
+%slovo \if:\the\width:Sirka standardna.\else Sirka bude \the\width.\fi
+%slovo\hfill\break
+%test \if:\the\narrow:Bez zuzenia.\else Zuzenie popisku o \the\narrow.\fi
+%tes\hfill\break
+	\global\advance\countfig by 1
+	\immediate\write\filefigures{\string\figureitem{\the\label}{\the\countfig}}
+	\expandafter\ifx\csname o:\the\label\endcsname\relax%
+	\expandafter\xdef\csname o:\the\label\endcsname {\the\countfig}%
+	\fi%
+%%
+	\vbox{%
+		\vskip\baselineskip%
+		\centerline{\pdfximage \if:\the\width:\else width \the\width\fi
+			{\the\filename}\pdfrefximage\pdflastximage}%
+		\vglue\baselineskip%
+		%
+		\vbox{\noindent%
+		\if:\the\narrow:\narrow={0pt}\fi
+			\leftskip=\the\narrow plus1fil%
+			\rightskip=\the\narrow plus-1fil%
+		\parfillskip=0pt plus2fil \parindent=0pt%
+		{\eightfonts Obr.~\the\countfig. \the\caption}%
+		}%
+		%
+		\vskip\baselineskip%
+		}%
+}
+
+%\beginfigure
+%	\filename={usko.jpg}
+%	\label={usko}
+%	\caption={Macko Usko}
+%	\width={4cm}
+%	\narrow={1em}
+%\endfigure
+
+% pouzitie v texte pri odkazovani sa na obrazky
+\def\citefigure[#1]{\expandafter\ifx\csname o:#1\endcsname \relax
+	\message{Warning: Undefined fig. number [#1]}Obr.~??%
+	\else Obr.~\csname o:#1\endcsname\fi%
+}
+
+% nacitanie ulozenych veci z prveho behu a otvorenie suboru
+\softinput \jobname.o
+\immediate\openout\filefigures=\jobname.o
+
+%%%% TABULKY
+
+% toto sa bude zapisovat do externeho suboru
+\def\tableitem#1#2{\expandafter\def\csname t:#1\endcsname{#2}}
+
+% vytvori popisok nad tabulkou a zaroven zapise do suboru
+\def\tablelabel[label=#1][caption=#2]{
+\vskip\baselineskip
+\centerline{%
+	\global\advance\counttable by1%
+	{\eightfonts Tab. \the\counttable. #2}%
+	}\vglue\baselineskip
+	\immediate\write\filetables{\string\tableitem{#1}{\the\counttable}}
+	\expandafter\ifx\csname t:#1\endcsname\relax%
+	\expandafter\xdef\csname t:#1\endcsname {\the\counttable}%
+	\fi%
+}
+
+% pouzitie v texte pri odkazovani sa na tabulky
+\def\citetable[#1]{\expandafter\ifx\csname t:#1\endcsname \relax
+	\message{Warning: Undefined table number [#1]}Tab.~??%
+	\else Tab.~\csname t:#1\endcsname\fi%
+}
+
+% umiestnenie tabulky do stredu
+\def\centertable#1{\centerline{#1}\vskip\baselineskip}
+
+
+% nacitanie ulozenych veci z prveho behu a otvorenie suboru
+\softinput \jobname.t
+\immediate\openout\filetables=\jobname.t
+
+%%%% ROVNICE
+
+% toto sa bude zapisovat do externeho suboru
+\def\equationitem #1#2{\expandafter\ifx\csname eq:#1\endcsname \relax
+          \expandafter\def \csname eq:#1\endcsname {#2}
+       \else \errmessage{Error: Double eq. mark [#1]}\fi}
+
+% toto treba umiestnit na koniec kazdeho display modu, aby ocisloval
+% rovnicu
+\def\equation[#1]{\global\advance\countequation by1
+   \immediate\write\fileequations{\string\equationitem{#1}{\the\countequation}}
+       \ifinner\else \eqno \fi (\the\countequation)
+}
+
+% pouzitie v texte pri odkazovani sa na rovnice
+\def\citeequation[#1]{\expandafter\ifx\csname eq:#1\endcsname \relax
+   \message{Warning: Undefined eq. number [#1]}(??)%
+   \else(\csname eq:#1\endcsname)\fi}
+
+% nacitanie ulozenych veci z prveho behu a otvorenie suboru
+\softinput \jobname.eq
+\immediate\openout\fileequations=\jobname.eq
+
+%%%%%%%%%%%%%%%%%%
+
+\def\starthead{
+\global\headline={\eightfonts\ifodd\pageno\bf\hfill\folio\else\bf\folio\hfill\fi}}
+
+\headline={\hfill X15PJE\starthead}
+\footline={}
+
+%%%% ODKAZY POD CIAROU
+
+% to co bolo povodne nie prilis vyhovovalo, \footnote aj \vfootnote je
+% teda predefinovane podla knizky "Typograficky system TeX" - funguju tu
+% dobre vysky riadkov (aj ked je kod vyrazne dlhsi, ale to je detail)
+
+% umiestnime vzdy uplne dole na stranku
+\skip\footins=12pt plus 1fill
+
+% bez sadzby odkazu v texte - iba umiestni poznamku do spodnej casti
+\def\vfootnote #1#2{%
+	\insert\footins{\eightfonts \baselineskip=.\baselineskip%
+	\interlinepenalty=\interfootnotelinepenalty%
+	\splittopskip=7.5pt%
+	\splitmaxdepth=3pt \floatingpenalty=2000%
+	\leftskip=0pt \rightskip=0pt%
+	\textindent{}\vrule height7.5pt%
+	width0pt\relax%
+	$^{\eightfonts #1}$#2\vrule depth2.5pt width0pt\par}}
+
+% poznamka aj s odkazom v texte, automaticke zvysovanie ciselnika
+\def\footnote #1{\global\advance\countfootnote by 1%
+	$^{\eightfonts \the\countfootnote}$%
+	\vfootnote{\the\countfootnote}{#1}}%
+
+%%%% ODRAZKY
+
+\let\olditem=\item
+\let\olditemitem=\itemitem
+
+\def\beginitemize#1\enditemize{\par
+	{{\narrower
+	\parskip=3pt
+	\def\item{\olditem{$\bullet$}}
+	\def\itemitem{\olditemitem{$\circ$}}
+	#1\par\vskip\baselineskip
+	}}
+}
+
+\def\beginnumitemize#1\endnumitemize{\par
+	{{\narrower
+	\countitem=0
+	\parskip=3pt
+	\def\item{\global\advance\countitem by 1
+		\countitemitem=0
+		\olditem{\the\countitem. }}
+	\def\itemitem{\global\advance\countitemitem by 1
+		\olditemitem{\the\countitem.\the\countitemitem. }}
+	#1\par\vskip\baselineskip
+	}}
+}
+
+% zarovnanie na stred
+\def\raggedcenter{%
+  \parindent=0pt \rightskip0pt plus1em \leftskip0pt plus1em
+  \spaceskip.3333em \xspaceskip.5em \parfillskip=0pt
+  \hbadness=10000 % Last line will usually be underfull, so turn off
+                  % badness reporting.
+}
+
+% hlavný titulok
+\def\title#1{
+\countfootnote=0
+\countfig=0
+\countequation=0
+\counttable=0
+% pripadne vlozenie vakatu
+\ifodd\pageno\else\null\vfill\break\fi
+\vbox{
+\vglue6pc
+\baselineskip=1.8\baselineskip\fonttitle\raggedcenter #1}}
+
+\def\section#1#2\par{
+\countsubsection=0
+\vskip 24pt plus 4pt minus 1pt
+\vbox{\raggedcenter{{\fontsection\bf
+\if *#1
+	#2
+\else
+	\global\advance\countsection by 1
+	\the\countsection.~#1#2
+\fi
+}}
+}
+\vglue 12pt plus 1.5pt minus 1pt
+}
+
+\def\subsection#1#2\par{
+\vskip 12pt plus 2.5pt minus 1pt
+{\fontsubsection
+\if *#1
+	#2
+\else
+	\global\advance\countsubsection by 1
+	\the\countsection.\the\countsubsection.~#1#2
+\fi
+}
+\vglue 6pt plus 1.5pt minus 1pt
+}
+
+ % }}}
+
+\def\zv#1#2#3{ % {{{ zvýraznovanie matematických rovníc
+\smallskip
+\setbox0=\vbox{$$#3$$}
+\dimen0=\ht0 \advance\dimen0 by \dp0 \advance\dimen0 by 0.5em
+\dimen1=\hsize \advance\dimen1 by 1em
+\dimen2=\dimen0 \advance\dimen2 by -0.75em
+\line{\hss
+      \vbox{\offinterlineskip
+            \hbox to 0pt{%
+            #1\vrule height\ht0 depth\dp0 width\dimen1 \hss}%
+            \vskip-\dimen2%
+            \hbox to \hsize{#2\hfill\box0\hfill}}%
+      \hss}%
+\ifx\Default\undefined\pdfliteral{0 g 0 G}\else\Default\fi
+\smallskip\noindent}%
+
+\def\zvyrazni$$#1$${
+\zv{\pdfliteral{0.128 0.022 0.00 0.0 k}}
+{\pdfliteral{0 0 0 1 k 0 0 0 1 K}}
+{#1}%
+}
+
+% }}}
+
+% {{{
+
+\input table.tex
+
+\font\cyr=wncyr10
+
+\shyph
+
+\def\j{{\rm j\,}}
+\def\d{{\rm d}}
+\def\e{{\rm e}}
+\let\rho\varrho
+\let\epsilon\varepsilon
+
+\def\,{\ifmmode\mskip\thinmuskip\else\leavevmode\thinspace\fi}
+
+\def\az{\discretionary{\kern.3333em až}{}{--}}
+
+\def\faz#1{{\it\hat{\bi#1}}%
+}
+
+\def\degree{{}^{\circ}}
+
+\def\pust{{\buildrel\textstyle!\over=}}
+
+\newtoks\tmpa \newtoks\tmpb \newtoks\tmpc
+
+
+\def\obr#1{\pdfximage {#1} \pdfrefximage\pdflastximage}
+
+\def\hmatrix#1{\left[\matrix{#1}\right]}
+
+% }}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Prechodné javy v~elektroenergetike}
+
+\input 01_parametre.tex
+\input 02_vedenia.tex
+\input 03_prvky.tex
+\input 04_zlozky.tex
+\input 05_ustalene.tex
+\input 06_zemne.tex
+\input 07_skraty.tex
+
+%\input 0_symboly.tex
+
+\headline={}
+~\vfill
+\centerline{\obr{img/ostatne/zajac.png}}
+\vfill
+
+\bye
